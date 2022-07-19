@@ -14,94 +14,40 @@
           <h1 class="text-center text-primario font-bold text-xl">Registrate</h1>
         </div>
         <div class="mb-5 w-full">
-          <label for="fullname" class="mb-2 text-texto font-semibold text-sm">Nombre completo</label>
-          <div class="border-b border-primario">
-            <input name="fullname" id="fullname" type="text" placeholder="Ingresa tu nombre" v-model="this.registerData.fullname" class="px-5 py-1 w-full border-none"/> 
-          </div>
-        </div>
-        <div class="mb-5 w-full">
-          <label for="alias" class="mb-2 text-texto font-semibold  text-sm">Alias</label>
-          <div class="border-b border-primario">
-            <input name="alias" id="alias" type="text" placeholder="Ingresa como quieres que te llamemos" v-model="this.registerData.alias" class="px-5 py-1 w-full border-none"/> 
-          </div>
-        </div>
-        <div class="mb-5 w-full">
           <label for="email" class="mb-2 text-texto font-semibold  text-sm">Correo electronico</label>
           <div class="border-b border-primario">
             <input name="email" id="email" type="email" placeholder="Ingresa como quieres que te llamemos" v-model="this.registerData.email" class="px-5 py-1 w-full border-none"/> 
           </div>
         </div>
         <div class="mb-5 w-full">
-          <label for="type_document" class="mb-2 text-texto font-semibold  text-sm">Tipo de documento</label>
-          <div class="border-b border-primario">
-            <select v-model="this.registerData.type_document" class="w-full px-3 py-2 border border-none rounded-lg text-blueGray-600" name="type_document" id="type_document">
-              <option value="" disabled selected>Seleccionar</option>
-              <option value="cc" >cc</option>
-              <option value="ti" >ti</option>
-            </select>
-          </div>
-        </div>
-        <div class="mb-5 w-full">
-          <label for="document" class="mb-2 text-texto font-semibold  text-sm">Número de documento</label>
-          <div class="border-b border-primario">
-            <input name="document" id="document" type="text" placeholder="112194****" v-model="this.registerData.document" class="px-5 py-1 w-full border-none"/> 
-          </div>
-        </div>
-        <div class="mb-5 w-full">
-          <label for="gender" class="mb-2 text-texto font-semibold  text-sm">Genero</label>
-          <div class="border-b border-primario">
-            <select v-model="this.registerData.gender" class="w-full px-3 py-2 border border-none rounded-lg text-blueGray-600" name="gender" id="gender">
-              <option value="" disabled selected>Seleccionar</option>
-              <option value="masculino" >Masculino</option>
-              <option value="femenino" >Femenino</option>
-            </select>
-          </div>
-        </div>
-        <div class="mb-5 w-full">
-          <label for="date_birth" class="mb-2 text-texto font-semibold  text-sm">Fecha de cumpleaños</label>
-          <div class="border-b border-primario">
-            <input name="date_birth" id="date_birth" type="date" v-model="this.registerData.date_birth" class="px-5 py-1 w-full border-none"/> 
-          </div>
-        </div>
-        <div class="mb-5 w-full">
-          <label for="phone" class="mb-2 text-texto font-semibold  text-sm">Teléfono</label>
-          <div class="border-b border-primario">
-            <input name="phone" id="phone" type="number" placeholder="321385****" v-model="this.registerData.phone" class="px-5 py-1 w-full border-none"/> 
-          </div>
-        </div>
-        <div class="mb-5 w-full">
           <label for="password" class="mb-2 text-texto font-semibold  text-sm">Contraseña</label>
           <div class="border-b border-primario">
-            <input name="password" id="password" type="number" placeholder="321385****" v-model="this.registerData.password" class="px-5 py-1 w-full border-none"/> 
+            <input name="password" id="password" type="password" placeholder="321385****" v-model="this.registerData.password" class="px-5 py-1 w-full border-none"/> 
           </div>
         </div>
         <div class="mb-10 w-full">
           <label for="confirm_password" class="mb-2 text-texto font-semibold  text-sm">Confirmar contraseña</label>
           <div class="border-b border-primario">
-            <input name="confirm_password" id="confirm_password" type="number" placeholder="321385****" v-model="this.registerData.confirm_password" class="px-5 py-1 w-full border-none"/> 
+            <input name="confirm_password" id="confirm_password" type="password" placeholder="321385****" v-model="this.registerData.confirm_password" class="px-5 py-1 w-full border-none"/> 
           </div>
         </div>
-        <button @click="verifyData" class="px-2 py-2 w-full text-white bg-primario rounded-lg">Registrarme</button>
+        <button @click="register" class="px-2 py-2 mb-2 w-full text-white bg-primario rounded-lg">Registrarme</button>
+        <router-link to="/login">
+          <p class="text-center text-primario">Inicia sesion</p>
+        </router-link>
       </div>
     </form>
   </div>
 </template>
 <script>
-/* import router from '@/router'
-import { supabase } from "../supabase" */
+import router from '@/router'
+import { supabase } from "../supabase/init"
 
 export default {
   data() {
     return {
       registerData: {
-        fullname: "",
-        alias: "",
         email: "",
-        type_document: "",
-        document: "",
-        gender: "",
-        date_birth: "",
-        phone: "",
         password: "",
         confirm_password: "",
       },
@@ -115,13 +61,26 @@ export default {
   },
 
   mounted() {
+    if(supabase.auth.user()){
+      router.push('/')
+    }
   },
 
   methods: {
     async register(){
-      this.verifyData()
-      if (this.verify) {
+       this.verifyData()
+      if (!this.verify) {
         console.log("registrado");
+        try{
+          let {error } = await supabase.auth.signUp({
+            email: this.registerData.email,
+            password: this.registerData.password
+          })
+          router.push('/')
+          if(error) throw error;
+        }catch(error){
+            console.log(error.message)
+        }
       }
       /* if(this.password === this.confirmPassword){
         console.log(this.email, this.password, this.confirmPassword)
@@ -142,13 +101,14 @@ export default {
     },
 
     verifyData(){
-      if (this.registerData.fullname && this.registerData.alias && this.registerData.email && this.registerData.type_document && this.registerData.document && this.registerData.gender && this.registerData.date_birth && this.registerData.phone && this.registerData.password && this.registerData.confirm_password) {
+      if (this.registerData.email && this.registerData.password && this.registerData.confirm_password) {
         this.verify = false
         this.classDiv = "w-0 p-0"
         this.classText = "hidden"
 
         if(this.registerData.password === this.registerData.confirm_password){
           console.log("password igual")
+          this.verify = false
         }else{
           this.textAlert = " La contraseña no coincide."
           this.verify = true
