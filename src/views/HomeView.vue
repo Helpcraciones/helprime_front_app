@@ -48,6 +48,7 @@ export default {
       /* this.$store.commit("changeRegistered")
       this.$store.commit('userCurrent', null) */
     },
+
   },
 };
 </script>
