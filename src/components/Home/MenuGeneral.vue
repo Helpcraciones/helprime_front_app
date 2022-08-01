@@ -9,10 +9,10 @@
       <i class="fi fi-rr-home flex justify-center items-center bg-primario text-white text-3xl"></i>
     </div>
 
-    <div class="user flex flex-col justify-center items-center">
+    <router-link to="/profile" class="user flex flex-col justify-center items-center">
       <i class="fi fi-rr-user text-primario flex justify-center items-center text-xl"></i>
       <p class="text-texto text-lg">Mi perfil</p>
-    </div>
+    </router-link>
   </div>
 </template>
 <script>

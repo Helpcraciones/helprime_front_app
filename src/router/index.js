@@ -7,6 +7,7 @@ import Agenda from "../views/AgendaView.vue"
 import MisVehiculos from "../views/MisVehiculosView.vue"
 import ParaTiView from "../views/ParaTiView.vue"
 import ProveedorView from "../views/ProveedorView.vue"
+import Profile from "../views/Profile.vue"
 import { supabase } from '@/supabase/init'
 
 const routes = [
@@ -16,7 +17,7 @@ const routes = [
     component: HomeView,
     meta:{
       title: 'home',
-      auth: true
+      auth: false
     },
   },
   {
@@ -43,7 +44,7 @@ const routes = [
     component: Polizas,
     meta:{
       title: 'polizas',
-      auth: true
+      auth: false
     },
   },
   {
@@ -52,7 +53,7 @@ const routes = [
     component: Agenda,
     meta:{
       title: 'agenda',
-      auth: true
+      auth: false
     },
   },
   {
@@ -61,7 +62,7 @@ const routes = [
     component: ProveedorView,
     meta:{
       title: 'ProveedorView',
-      auth: true
+      auth: false
     },
   },
   {
@@ -70,13 +71,22 @@ const routes = [
     component: MisVehiculos,
     meta:{
       title: 'Mis-Vehiculos',
-      auth: true
+      auth: false
     },
   },
   {
     path: '/para-ti',
     name: 'ParaTi',
     component: ParaTiView,
+    meta:{
+      title: 'ParaTi',
+      auth: false
+    },
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: Profile,
     meta:{
       title: 'ParaTi',
       auth: true

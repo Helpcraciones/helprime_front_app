@@ -105,10 +105,17 @@
         </div>
     </div>
   </div>
+
+  <div class="px-5 mt-2">
+    <button @click="createPoliza" class="py-3 w-full flex justify-center border font-semibold border-primario text-primario rounded-xl">Adquiere una poliza vehicular</button>
+  </div>
 </template>
 <script>
 /* import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide } from "vue3-carousel"; */
+import router from '@/router'
+import { supabase } from "../../supabase/init"
+
 export default {
   name: "MyPolizas",
   /* components: {
@@ -143,10 +150,34 @@ export default {
     collapse: false,
     currentData: {},
     currentLicense: "XPK 87F",
-    currentModelo: "2007"
+    currentModelo: "2007",
+
   }),
 
+  async mounted() {
+
+    /* console.log(this.users);
+    console.log(this.userAuth) */
+    if(this.userAuth){
+      let idEqual = this.users.find(user => user.id == this.userAuth.id)
+      /* console.log(idEqual); */
+      if (idEqual == undefined) {
+        alert('Ingresar datos')
+      }else{
+        console.log(idEqual);
+      }
+    }
+  },
+
   methods: {
+    createPoliza(){
+      if(this.userAuth){
+        console.log(this.userAuth);
+      } else{
+        router.push("/login")
+      }
+    },
+
     currentVehicle(id){
       this.collapse = !this.collapse
       this.polizas.forEach(poliza => {
@@ -154,7 +185,7 @@ export default {
           this.currentData = poliza
         }
       });
-    }
+    },
 
   },
 
@@ -162,6 +193,14 @@ export default {
     polizas() {
       return this.$store.state.polizas;
     },
+
+    userAuth(){
+      return this.$store.state.userAuth
+    },
+
+    users(){
+      return this.$store.state.users
+    }
   },
 };
 </script>

@@ -105,6 +105,10 @@
         </div>
     </div>
   </div>
+
+  <div class="px-5 mt-2">
+    <button class="py-3 w-full flex justify-center border font-semibold border-primario text-primario rounded-xl">Adquiere una poliza vehicular</button>
+  </div>
 </template>
 <script>
 /* import "vue3-carousel/dist/carousel.css";

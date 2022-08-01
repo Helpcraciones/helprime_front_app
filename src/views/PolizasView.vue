@@ -4,7 +4,7 @@
     <div class="px-5">
       <p class=" text-primario text-xl font-bold">Semaforo</p>
     </div>
-    <div class=" grid" style="grid-template-columns: 1fr auto;">
+    <!-- <div class=" grid" style="grid-template-columns: 1fr auto;">
       <div class="p-5">
         <div class="flex">
           <div class="mr-5">
@@ -28,16 +28,16 @@
           <p class="text-center text-xl text-primario font-medium">Polizas en total</p>
         </div>
       </div>
-    </div>
+    </div> -->
     <PolizasVehiculares/>
     <PolizasHogar/>
     <PolizasMedica/>
     <PolizasVida/>
   </div>
-  <div class="absolute bottom-5 right-5">
+  <!-- <div class="absolute bottom-5 right-5">
     <div class="h-full w-full p-10 rounded-full bg-red-600 border-2 border-white shadow-xl">
     </div>
-  </div>
+  </div> -->
 </template>
 <script>
 import NavGeneral from '../components/Polizas/NavGeneral.vue'
