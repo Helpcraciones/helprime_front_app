@@ -163,7 +163,6 @@ export default {
     console.log(this.userAuth) */
     if(this.userAuth){
       let idEqual = this.users.find(user => user.id == this.userAuth.id)
-      console.log(idEqual);
       if (idEqual == undefined) {
         router.push("/form-datos")
       }else{
