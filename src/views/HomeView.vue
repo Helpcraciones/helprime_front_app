@@ -14,7 +14,6 @@
       <p class="">¿En qué te ayudamos hoy?</p>
     </div>
     <div class="px-5 mt-2">
-    <button @click="signOut" class="py-3 w-full flex justify-center border font-semibold border-primario text-primario rounded-xl">Cerrar sesion</button>
   </div>
     <!-- <BannerGeneral/> -->
 
@@ -97,11 +96,6 @@ export default {
   },
 
   computed: {
-    async signOut(){
-      await supabase.auth.signOut()
-      /* this.$store.commit("changeRegistered")
-      this.$store.commit('userCurrent', null) */
-    },
 
     userAuth(){
       return this.$store.state.userAuth
