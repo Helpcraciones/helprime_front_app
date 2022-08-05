@@ -8,6 +8,7 @@ import MisVehiculos from "../views/MisVehiculosView.vue"
 import ParaTiView from "../views/ParaTiView.vue"
 import ProveedorView from "../views/ProveedorView.vue"
 import Profile from "../views/Profile.vue"
+import Formulario from "../views/Formulario.vue"
 import { supabase } from '@/supabase/init'
 
 const routes = [
@@ -89,7 +90,16 @@ const routes = [
     component: Profile,
     meta:{
       title: 'ParaTi',
-      auth: true
+      auth: false
+    },
+  },
+  {
+    path: '/form-datos',
+    name: 'Formulario',
+    component: Formulario,
+    meta:{
+      title: 'Formulario',
+      auth: false
     },
   },
 ]

@@ -145,6 +145,8 @@ export default {
       },
     },
 
+    users: null,
+
     vehicle: "",
     poliza: "",
     collapse: false,
@@ -155,14 +157,15 @@ export default {
   }),
 
   async mounted() {
+    await this.getUsers()
 
     /* console.log(this.users);
     console.log(this.userAuth) */
     if(this.userAuth){
       let idEqual = this.users.find(user => user.id == this.userAuth.id)
-      /* console.log(idEqual); */
+      console.log(idEqual);
       if (idEqual == undefined) {
-        alert('Ingresar datos')
+        router.push("/form-datos")
       }else{
         console.log(idEqual);
       }
@@ -187,6 +190,11 @@ export default {
       });
     },
 
+    async getUsers(){
+      let res = await supabase.from('users').select('*')
+      this.users = res.data
+    }
+
   },
 
   computed: {
@@ -197,10 +205,6 @@ export default {
     userAuth(){
       return this.$store.state.userAuth
     },
-
-    users(){
-      return this.$store.state.users
-    }
   },
 };
 </script>

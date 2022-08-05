@@ -10,7 +10,7 @@
     <NavGeneral/>
     <!-- Seccion de saludo personalizado -->
     <div class="welcome padding  ">
-      <h4 class="text-texto font-semibold mb-0 ">Hola, <span class="font-medium text-primario">Juan!</span> </h4>
+      <h4 v-if="this.userData != null" class="text-texto font-semibold mb-0 ">Hola, <span class="font-medium text-primario">{{this.userData.fullname}}!</span> </h4>
       <p class="">¿En qué te ayudamos hoy?</p>
     </div>
     <div class="px-5 mt-2">
@@ -80,7 +80,7 @@ export default {
       if (this.userData) {
         this.classDiv = "w-72 p-4"
         this.classText = "block"
-        this.textAlert = `Bienvenido ${this.userData.name}`
+        this.textAlert = `Bienvenido ${this.userData.fullname}`
 
         setTimeout(() => {
           this.verify = false
@@ -99,7 +99,6 @@ export default {
   computed: {
     async signOut(){
       await supabase.auth.signOut()
-      console.log("sesion cerrada");
       /* this.$store.commit("changeRegistered")
       this.$store.commit('userCurrent', null) */
     },
