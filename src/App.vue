@@ -11,21 +11,15 @@ export default {
     }
   },
   async mounted() {
-    await this.changeUser()
-    /* await this.getUsers() */
+    await this.changeClient()
   },
 
   methods: {
-    async changeUser(){
+    async changeClient(){
       await supabase.auth.onAuthStateChange((event, session) => {
         this.$store.commit("sessionChange", session)
       })
     },
-
-    /* async getUsers(){
-      let res = await supabase.from('users').select('*')
-      this.$store.commit("getUsers", res.data)
-    } */
   }
 }
 </script>

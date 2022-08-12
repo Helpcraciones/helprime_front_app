@@ -145,7 +145,7 @@ export default {
       },
     },
 
-    users: null,
+    clients: null,
 
     vehicle: "",
     poliza: "",
@@ -157,12 +157,9 @@ export default {
   }),
 
   async mounted() {
-    await this.getUsers()
-
-    /* console.log(this.users);
-    console.log(this.userAuth) */
-    if(this.userAuth){
-      let idEqual = this.users.find(user => user.id == this.userAuth.id)
+    await this.getClients()
+    if(this.clientAuth){
+      let idEqual = this.clients.find(client => client.id == this.clientAuth.id)
       if (idEqual == undefined) {
         router.push("/form-datos")
       }else{
@@ -173,8 +170,8 @@ export default {
 
   methods: {
     createPoliza(){
-      if(this.userAuth){
-        console.log(this.userAuth);
+      if(this.clientAuth){
+        console.log(this.clientAuth);
       } else{
         router.push("/login")
       }
@@ -189,9 +186,9 @@ export default {
       });
     },
 
-    async getUsers(){
-      let res = await supabase.from('users').select('*')
-      this.users = res.data
+    async getClients(){
+      let res = await supabase.from('clients').select('*')
+      this.clients = res.data
     }
 
   },
@@ -201,8 +198,8 @@ export default {
       return this.$store.state.polizas;
     },
 
-    userAuth(){
-      return this.$store.state.userAuth
+    clientAuth(){
+      return this.$store.state.clientAuth
     },
   },
 };

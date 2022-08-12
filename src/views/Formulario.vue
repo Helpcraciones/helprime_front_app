@@ -99,8 +99,8 @@ export default {
         phone: "",
       },
 
-      users: [],
-      userAuth: supabase.auth.user(),
+      clients: [],
+      clientAuth: supabase.auth.user(),
 
       verify: false,
       classDiv: "w-0 p-0",
@@ -110,17 +110,17 @@ export default {
   },
 
   async mounted() {
-    await this.getUsers()
+    await this.getClients()
 
-    if(this.userAuth){
-      let idEqual = this.users.find(user => user.id == this.userAuth.id)
+    if(this.clientAuth){
+      let idEqual = this.clients.find(client => client.id == this.clientAuth.id)
       if (idEqual !== undefined) {
         router.push("/")
       }
     }
 
-    this.formData.id = this.userAuth.id
-    this.formData.email = this.userAuth.email
+    this.formData.id = this.clientrAuth.id
+    this.formData.email = this.clientrAuth.email
   },
 
   methods: {
@@ -149,7 +149,7 @@ export default {
       if (!this.verify) {
         try{
           const { data, error } = await supabase
-          .from('users')
+          .from('clients')
           .insert([
             {
               id: this.formData.id,
@@ -171,9 +171,9 @@ export default {
       }
     },
 
-    async getUsers(){
-      let res = await supabase.from('users').select('*')
-      this.users = res.data
+    async getClients(){
+      let res = await supabase.from('clients').select('*')
+      this.clients = res.data
     }
   },
 

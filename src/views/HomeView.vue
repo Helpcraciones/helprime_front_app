@@ -10,7 +10,7 @@
     <NavGeneral/>
     <!-- Seccion de saludo personalizado -->
     <div class="welcome padding  ">
-      <h4 v-if="this.userData != null" class="text-texto font-semibold mb-0 ">Hola, <span class="font-medium text-primario">{{this.userData.fullname}}!</span> </h4>
+      <h4 v-if="this.clientData != null" class="text-texto font-semibold mb-0 ">Hola, <span class="font-medium text-primario">{{this.clientData.fullname}}!</span> </h4>
       <p class="">¿En qué te ayudamos hoy?</p>
     </div>
     <div class="px-5 mt-2">
@@ -47,13 +47,13 @@ export default {
       classText: "hidden",
       textAlert: "",
 
-      userData:null,
-      users:null
+      clientData:null,
+      clients:null
     };
   },
 
   async mounted() {
-    await this.getUsers()
+    await this.getClients()
 
     this.validationEqual()
     setTimeout(() => {
@@ -66,20 +66,20 @@ export default {
 
   methods: {
     validationEqual(){
-      if(this.userAuth){
-        let idEqual = this.users.find(user => user.id == this.userAuth.id)
+      if(this.clientAuth){
+        let idEqual = this.clients.find(client => client.id == this.clientAuth.id)
         /* console.log(idEqual); */
         if (idEqual) {
-          this.userData = idEqual
+          this.clientData = idEqual
         }
       }
     },
 
     alertAuth(){
-      if (this.userData) {
+      if (this.clientData) {
         this.classDiv = "w-72 p-4"
         this.classText = "block"
-        this.textAlert = `Bienvenido ${this.userData.fullname}`
+        this.textAlert = `Bienvenido ${this.clientData.fullname}`
 
         setTimeout(() => {
           this.verify = false
@@ -89,16 +89,16 @@ export default {
       }
     },
 
-    async getUsers(){
-      let res = await supabase.from('users').select('*')
-      this.users = res.data
+    async getClients(){
+      let res = await supabase.from('clients').select('*')
+      this.clients = res.data
     }
   },
 
   computed: {
 
-    userAuth(){
-      return this.$store.state.userAuth
+    clientAuth(){
+      return this.$store.state.clientAuth
     },
 
   },

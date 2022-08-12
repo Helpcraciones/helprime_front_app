@@ -2,8 +2,8 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    userAuth:null,
-    users: [],
+    clientAuth:null,
+    clients: [],
 
     name: '',
     currentUser: {},
@@ -19,12 +19,8 @@ export default createStore({
   },
   mutations: {
     sessionChange(state, payload ){
-      state.userAuth = payload ? payload : null;
+      state.clientAuth = payload ? payload : null;
     },
-
-    /* getUsers(state, users){
-      state.users = users
-    } */
   },
   modules: {
   }

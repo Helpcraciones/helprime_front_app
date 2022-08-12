@@ -53,15 +53,5 @@ export default {
     PolizasMedica,
     PolizasVida
   },
-/* 
-  mounted() {
-    console.log(this.session);
-  },
-
-  computed:{
-    session(){
-      return  this.$store.state.userAuth
-    }
-  } */
 }
 </script>
