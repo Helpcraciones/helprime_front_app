@@ -46,12 +46,22 @@ import PolizasHogar from '@/components/Polizas/PolizasHogar.vue';
 import PolizasMedica from '@/components/Polizas/PolizasMedica.vue';
 import PolizasVida from '@/components/Polizas/PolizasVida.vue';
 export default {
-    components: {
-        NavGeneral,
-        PolizasVehiculares,
-        PolizasHogar,
-        PolizasMedica,
-        PolizasVida
-        },
+  components: {
+    NavGeneral,
+    PolizasVehiculares,
+    PolizasHogar,
+    PolizasMedica,
+    PolizasVida
+  },
+/* 
+  mounted() {
+    console.log(this.session);
+  },
+
+  computed:{
+    session(){
+      return  this.$store.state.userAuth
+    }
+  } */
 }
 </script>

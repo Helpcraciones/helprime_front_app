@@ -18,7 +18,7 @@ export default {
   methods: {
     async changeUser(){
       await supabase.auth.onAuthStateChange((event, session) => {
-        this.$store.commit("sessionChange", session.user)
+        this.$store.commit("sessionChange", session)
       })
     },
 

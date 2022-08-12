@@ -16,8 +16,6 @@ export default {
   methods: {
     async signOut(){
       await supabase.auth.signOut()
-      this.$store.commit("changeRegistered")
-      this.$store.commit('userCurrent', null)
       router.push("/")
     },
   },
