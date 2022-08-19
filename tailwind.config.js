@@ -9,7 +9,8 @@ module.exports = {
       'primarioT2': '#8547FF',
       'secundario': '#33CCCC',
       'amarillo': '#FFC300',
-      'texto' : '#666666'
+      'texto' : '#666666',
+      'textoOscuro' : "#54595E"
     },
   },
   variants: {

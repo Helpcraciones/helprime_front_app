@@ -1,20 +1,22 @@
 <template>
   <div class="padding mt-6">
 
+    <div v-if="this.loader === true" class="fixed right-0 left-0 z-40 bg-white h-screen w-screen flex flex-col justify-center items-center">
+      <i class="fi fi-rr-spinner flex justify-center items-center text-4xl text-primario animate-spin"></i>
+      <p class="w-full max-w-xs text-center mt-5 animate-bounce">Estamos cargando esta linda familia para ti</p>
+    </div>
 
     <div class="flex justify-between mb-6">
-
       <div class="w-full mr-2">
-        <select v-model="this.city" @change="filter" class=" text-texto text-xs w-full bg-white border border-primario rounded-md  focus:border-primario">
+        <select v-model="this.city" class=" text-texto text-xs w-full bg-white border border-primario rounded-md  focus:border-primario">
           <option disabled selected value= "todos">Ciudad</option>
           <option value="todos">Todos</option>
           <option value="1">Villavicencio</option>
           <option value="2">Bogota</option>
         </select>
       </div>
-
       <div class="w-full ml-2">
-        <select v-model="this.category" @change="filter" class=" text-texto text-xs w-full bg-white border border-primario rounded-md  focus:border-primario">
+        <select v-model="this.category"  class=" text-texto text-xs w-full bg-white border border-primario rounded-md  focus:border-primario">
           <option disabled selected value= "todos">
             Categoria
           </option>
@@ -22,16 +24,11 @@
           <option value="chorizo" >Tecnomecanicas</option>
         </select>
       </div>
-
     </div>
-
-
     <div class="w-full mb-10">
       <div v-for="(proveedor,index) in this.proveedores" :key="index">
         <router-link :to="`/agenda/${proveedor.id}`" class="bg-white shadow-lg w-full px-5 py-3 rounded-lg mb-5 flex items-center">
-          
-            <img src="https://i0.wp.com/lamiradafotografia.es/wp-content/uploads/2014/07/simpson-rock.jpg" alt="Imagen de perfil" class="object-cover h-16 w-16 rounded-full shadow-md">
-
+            <img :src="proveedor.img" alt="Imagen de perfil" class="object-cover h-16 w-16 rounded-full shadow-md">
             <div class="w-full ml-5 flex items-center justify-between">
               <div>
                 <p class="text-primario text-sm font-bold mb-2 one">{{proveedor.fullname.toUpperCase()}}</p>
@@ -61,8 +58,12 @@ export default {
       city: "todos",
       category: "todos",
       modal: false,
-      currentData: {}
+      currentData: {},
+      loader: true
     }
+  },
+  created() {
+    this.loader = true
   },
 
   async mounted() {
@@ -72,15 +73,40 @@ export default {
   methods: {
     async getProveedores(){
       try{
-        const { data, error } = await supabase.from('proveedores').select('*').order("city_id", { ascending: true })
-        this.proveedores = data
+        const { data, error } = await supabase.from('proveedores').select('*')
+        data.forEach(async (proveedor) => {
+          const { signedURL , error } = await supabase.storage
+            .from('proveedores')
+            .createSignedUrl(`${proveedor.id}/profile/imgprofile`, 60)
+            this.proveedores.push({
+              id: proveedor.id,
+              created_at: proveedor.created_at,
+              fullname: proveedor.fullname,
+              address: proveedor.address,
+              district: proveedor.district,
+              whatsapp: proveedor.whatsapp,
+              contact_number: proveedor.contact_number,
+              type_schedule: proveedor.type_schedule,
+              schedule: proveedor.schedule,
+              description: proveedor.description,
+              url_location: proveedor.url_location,
+              city_id: proveedor.city,
+              status: proveedor.status,
+              category_id: proveedor.category_id,
+              rrss: proveedor.rrss,
+              img: signedURL
+            })
+        });
+        setTimeout(() => {
+          this.loader = false
+        }, 500);
         if(error) throw error;
       } catch (error){
-        console.log(error)
+        this.loader = true
       }
     },
 
-    async filter(){
+  /*   async filter(){
       if (this.city != "todos" && this.category != "todos") {
         try{
           const { data, error } = await supabase.from('proveedores').select('*')
@@ -111,15 +137,11 @@ export default {
       } else {
           this.getProveedores()
       }
-    }
-  },
-  
-
-  computed:{
+    } */
   }
 };
 </script>
-<style scoped>
+<style>
 .one{
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;

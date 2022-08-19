@@ -2,7 +2,7 @@ const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
   transpileDependencies: true,
   pwa: {
-    name: 'HELPRIME',
+    name: 'HELPRIME ',
     themeColor: '#fff',
     msTileColor: '#000',
     workboxPluginMode: 'GenerateSW',

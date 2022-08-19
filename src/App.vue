@@ -29,6 +29,7 @@ export default {
   padding: 0;
   margin: 0;
   font-family: "poppins", sans-serif;
+  touch-action: manipulation;
 }
 
 input:focus{
@@ -40,4 +41,6 @@ select:focus{
 
 
 @import url("https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css");
+@import url('https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css');
+
 </style>
