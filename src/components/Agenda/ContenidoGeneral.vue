@@ -8,7 +8,7 @@
 
     <div class="flex justify-between mb-6">
       <div class="w-full mr-2">
-        <select v-model="this.city" class=" text-texto text-xs w-full bg-white border border-primario rounded-md  focus:border-primario">
+        <select v-model="this.city" @change="getProveedores" class=" text-texto text-xs w-full bg-white border border-primario rounded-md  focus:border-primario">
           <option disabled selected value= "todos">Ciudad</option>
           <option value="todos">Todos</option>
           <option value="1">Villavicencio</option>
@@ -55,7 +55,7 @@ export default {
   data() {
     return {
       proveedores:[],
-      city: "todos",
+      city: "1",
       category: "todos",
       modal: false,
       currentData: {},

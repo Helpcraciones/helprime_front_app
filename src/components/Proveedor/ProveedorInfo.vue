@@ -1,5 +1,5 @@
 <template >
-  <div class="">
+  <div class="pb-10">
 
     <!-- Cargando informacion -->
     <div v-if="this.loader === true" class="fixed z-50 bg-white h-screen w-screen flex flex-col justify-center items-center">
@@ -13,7 +13,7 @@
             <img :src="this.imgProfile" alt="Imagen de perfil" class="rounded-full object-cover h-auto">
           </div>
           <p class="mt-14 text-lg font-bold text-primario one">{{this.currentInfo.fullname}}</p>
-          <p class="text-xs text-texto font-light leading-none one">{{this.currentInfo.rrss}}</p>
+          <p class="text-xs text-texto font-light one">@{{this.currentInfo.rrss}}</p>
           <div class="grid grid-cols-2 w-full mt-7">
             <div class="grid grid-cols-2">
               <a :href="this.currentInfo.whatsapp" class="w-full flex flex-col items-center justify">
@@ -46,20 +46,74 @@
       <p class="leading-none text-texto text-sm">{{this.currentInfo.description}}</p>
     </div>
 
-    <div>
+<!--     <div>
     <button @click="next">Next</button>
     <button @click="prev">Prev</button>
-  </div>
+  </div> -->
 
 
   <!-- Seccion Galeria -->
-    <Carousel ref="galeria"  :settings="settings" :breakpoints="breakpoints" :wrap-around="true" class="pl-5">
-        <Slide v-for="img in this.imgs" :key="img.id" class="pr-3">
-          <div class="bg-primario w-full">
-            <img :src="img.url" alt="Imagen de galeria">
+  <div>
+  <p class="mt-10 pl-5 text-texto font-bold">Galeria</p>
+    <Carousel ref="galeria"  :settings="settings" :breakpoints="breakpoints" :wrap-around="true" class="pl-5 mt-3">
+        <Slide v-for="img in this.imgs" :key="img.id" class="mr-3">
+          <div class="bg-white h-36 w-36 rounded-xl">
+            <img :src="img.url" alt="Imagen de galeria" class="object-cover h-full w-full rounded-xl">
           </div>
         </Slide>
       </Carousel>
+  </div>
+
+
+  <!--  Seccion mapa -->
+
+  <div class="px-5 pt-8">
+    
+    <div class="flex justify-between items-center">
+      <p class= "text-texto font-bold">Dirección</p>
+      <p class="pl-5 py-5 text-primario text-sm">Clic en el mapa</p>
+    </div>
+    <iframe :src="this.currentInfo.url_location" allowfullscreen=""  loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="h-40 w-full m-0 rounded-xl"></iframe>
+  </div>
+
+  <div class="flex justify-between items-center px-5 mt-8 mb-3">
+    <p class="text-texto font-bold">Descripción del lugar</p>
+    <p @click="activeClass"  class="text-primario"><span v-if="this.toggleVer === true">Ver menos</span> <span v-else>Ver mas</span></p>
+  </div>
+
+  <p :class="this.currentClass" class="text-texto font-light px-5 leading-tight" >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione suscipit corrupti animi, debitis, pariatur quas corporis natus fugit est maiores vitae qui, enim ullam iusto mollitia autem officia laboriosam quibusdam!</p>
+
+
+
+
+  <!-- Seccion de servicios seleccionables -->
+
+<div class="flex flex-col p-5">
+    <div class="flex items-center">
+      <i class="fi fi-rr-badge-check flex justify-center items-center mr-5 text-secundario"></i>
+      <p class="font-light text-texto">Garantía del servicio</p>
+    </div>
+    <div class="flex">
+      <i class="fi fi-rr-badge-check flex justify-center items-center mr-5 text-secundario"></i>
+      <p class="font-light text-texto">Prioridad de servicion</p> 
+    </div>
+    <div class="flex">
+      <i class="fi fi-rr-badge-check flex justify-center items-center mr-5 text-secundario"></i>
+      <p class="font-light text-texto">Excelente atención</p> 
+    </div>
+    <div class="flex">
+      <i v-if="this.currentInfo.delivery === true" class="fi fi-rr-badge-check  justify-center items-center mr-5 text-secundario"></i>
+      <i v-else class="fi fi-rr-ban  flex justify-center items-center mr-5 text-red-600"></i>
+      <p class="font-light text-texto">Presta servicio a domicilio</p> 
+    </div>
+</div>
+
+  <!-- Seccion de compartir -->
+
+  <div class=" bg-white border border-primario rounded-xl py-2.5 px-14 w-max mx-auto text-primario mt-5">
+    Compartir negocio
+  </div>
+
     
   </div>
 </template>
@@ -71,13 +125,17 @@ export default {
   components: {
     Carousel,
     Slide,
-    Navigation,
+    Navigation
   },
+  
     data: () => ({
+      
       loader: true,
       imgProfile: "",
       currentInfo : "",
       imgs: [],
+      currentClass: "",
+      toggleVer: null,
     // carousel settings
     settings: {
       itemsToShow: 2.5,
@@ -101,25 +159,30 @@ export default {
 
   async created() {
     await this.scroll()
+    await this.getProveedor();
+    await this.getGalery();
+    await this.getImgProfile();
+    this.toggleVer = false;
+    this.currentClass = "two"
   },
 
     async mounted() {
     this.loader = true
     this.currentId = this.$route.params.id;
-    await this.getGalery();
-    await this.getImgProfile();
-    await this.getProveedor();
   },
 
   methods: {
 
-    next() {
-      this.$refs.galeria.next()
+    activeClass(){
+      this.toggleVer = !this.toggleVer
+      console.log(this.toggleVer);
+      if(this.toggleVer === false){
+        this.currentClass = "two"
+      } else{
+        this.currentClass = ""
+      }
+      console.log(this.currentClass);
     },
-    prev() {
-      this.$refs.galeria.prev()
-    },
-
 
     scroll(){
       window.scroll({
@@ -190,23 +253,12 @@ export default {
   }
 }
 </script>
-<style>
-.carousel__item {
-  min-height: 200px;
-  width: 100%;
-  background-color: var(--vc-clr-primary);
-  color:  var(--vc-clr-white);
-  font-size: 20px;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+<style scoped>
+.two{
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    overflow: hidden;
 }
 
-
-.carousel__prev,
-.carousel__next {
-  box-sizing: content-box;
-  border: 5px solid white;
-}
 </style>
