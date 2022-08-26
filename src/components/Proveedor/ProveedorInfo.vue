@@ -32,12 +32,15 @@
             </div>
             <div class="flex flex-col items-center w-max mx-auto">
               <p class="text-texto text-sm">Horario</p>
-              <p class="text-primario font-bold leading-none text-lg tedx one ">{{this.currentInfo.schedule}}</p>
+              <p class="text-primario font-bold leading-none text-lg one ">{{this.currentInfo.schedule}}</p>
               <p class="text-textoOscuro text-xs font-bold leading-none">{{this.currentInfo.type_schedule}}</p>
             </div>
           </div>
           <p class="mt-4 text-sm text-texto text-center">{{this.currentInfo.address}}  <span class="font-bold text-textoOscuro"><span class="font-light">Barrio:</span> {{this.currentInfo.district}}</span> </p>
-          <p>{{}}</p>
+          <div class="bg-green-100 rounded-full px-3 py-1 mt-2 w-max ">
+            <p class="text-sm text-green-600 one">{{this.currentInfo.city_name }} - {{this.currentInfo.department_name}}</p>
+          </div>
+          
         </div>
     </div>
 
@@ -190,6 +193,8 @@ export default {
 
     async mounted() {
       await this.getProveedor();
+      await this.getCity();
+      await this.getDepartment()
       await this.getImgProfile();
       await this.getGalery();
       
@@ -265,32 +270,27 @@ export default {
       }
     },
 
-
-  /* async getGalery(){
-      try {
-        const { data, error } = await supabase.storage.from('proveedores').list(`${this.currentId}/galery`, {
-        limit: 100,
-        offset: 0,
-        sortBy: { column: 'name', order: 'asc' },
-      })
-      console.log(data);
-        data.forEach( async(img) => {
-          const { signedURL, error } = await supabase.storage
-            .from('proveedores')
-            .createSignedUrl(`${this.currentId}/galery/${img.name}`, 60)
-            this.imgs.push({
-              name: img.name,
-              url : signedURL
-            })
-      });
-      
-      if(error) throw error;
-      } catch (error) {
-        console.log(error);
-        
-      }
+    async getCity(){
+        try{
+          const { data, error } = await supabase.from('cities').select('*').eq('id', this.currentInfo.city_id)
+          this.currentInfo.city_name = data[0].name
+          if(error) throw error;
+        } catch (error){
+          console.log(error.message)
+        }
     },
- */
+
+    async getDepartment(){
+        try{
+          const { data, error } = await supabase.from('departments').select('*').eq('id', this.currentInfo.department_id)
+          this.currentInfo.department_name = data[0].name.toUpperCase()
+          if(error) throw error;
+        } catch (error){
+          console.log(error.message)
+        }
+    },
+
+
   }
 }
 </script>

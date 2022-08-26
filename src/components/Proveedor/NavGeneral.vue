@@ -3,7 +3,7 @@
         <router-link to="/agenda" >
             <i   class="fi fi-rr-arrow-left text-primario text-2xl pr-5 flex justify-center items-center"></i>
         </router-link>
-        <p class="text-primario font-bold">HELPRIME</p>
+        <p class="text-primario font-bold text-xl">HELPRIME</p>
     </div>
 </template>
 <script>
