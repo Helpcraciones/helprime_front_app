@@ -55,7 +55,7 @@
 
   <!-- Seccion Galeria -->
   <div>
-  <p class="mt-10 pl-5 text-texto font-bold">Galeria</p>
+<!--   <p class="mt-10 pl-5 text-texto font-bold">Galeria</p>
     <Carousel ref="galeria"  :settings="settings" :breakpoints="breakpoints" :wrap-around="true" class="pl-5 mt-3">
         <Slide v-for="img in this.imgs" :key="img.id" class="mr-3" @click="this.modalGalery = true">
           <div class="bg-white h-36 w-36 rounded-xl">
@@ -63,7 +63,7 @@
           </div>
         </Slide>
       </Carousel>
-  </div>
+  </div> -->
 
 
   <!--  Seccion mapa -->
@@ -123,14 +123,14 @@
     <div class="bg-gray-200 p-3 rounded-md w-max absolute top-2 right-2 z-50" @click="this.modalGalery=false">
       <i class="fi fi-rr-cross-small flex justify-center"></i>
     </div>
-
+<!-- 
     <Carousel  ref="galeria"  :wrap-around="true" class="h-screen w-full">
         <Slide v-for="img in this.imgs" :key="img.id" class="h-screen w-full" @click="this.modalGalery=true">
           <div class="bg-white h-max w-full ">
             <img :src="img.url" alt="Imagen de galeria" class="object-cover h-full w-full">
           </div>
         </Slide>
-      </Carousel>
+      </Carousel> -->
   </div>
 
     
@@ -182,12 +182,12 @@ export default {
     await this.scroll()
     this.toggleVer = false;
     this.currentClass = "two"
-    this.loader = true
+/*     this.loader = true */
   },
 
     async mounted() {
       await this.getProveedor();
-      await this.getGalery();
+/*       await this.getGalery(); */
       await this.getImgProfile();
       
   },
@@ -244,7 +244,7 @@ export default {
     },
 
 
-  async getGalery(){
+/*   async getGalery(){
       try {
         const { data, error } = await supabase.storage.from('proveedores').list(`${this.currentId}/galery`, {
         limit: 100,
@@ -267,7 +267,7 @@ export default {
         console.log(error);
         this.loader = true
       }
-    },
+    }, */
 
   }
 }
