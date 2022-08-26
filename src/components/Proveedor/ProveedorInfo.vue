@@ -149,7 +149,13 @@ export default {
       loader: true,
       imgProfile: "",
       currentInfo : "",
-      imgs: [],
+      imgs: [
+        {id:1, url:""},
+      {id:2, url:""},
+      {id:3, url:""},
+      {id:4, url:""},
+      {id:5, url:""},
+      ],
       currentClass: "",
       toggleVer: "",
       modalGalery : false,
@@ -240,8 +246,27 @@ export default {
       }
     },
 
+    async getGalery(){
+      for (let index = 1; index <= this.imgs.length; index++) {
+        try {
+          const { signedURL, error } = await supabase.storage.from('proveedores').createSignedUrl(`${this.proveedorId}/galery/galeryimg${index}`, 60)
+          this.galeryImages.forEach(img => {
+            if (img.id == index) {
+              img.src = signedURL
+            }
+          });
+          this.loader = false
+          if(error) throw error;
+        } catch (error) {
+          if (error) {
+            this.loader = true
+          }
+        }
+      }
+    },
 
-  async getGalery(){
+
+  /* async getGalery(){
       try {
         const { data, error } = await supabase.storage.from('proveedores').list(`${this.currentId}/galery`, {
         limit: 100,
@@ -249,7 +274,7 @@ export default {
         sortBy: { column: 'name', order: 'asc' },
       })
       console.log(data);
-     /*    data.forEach( async(img) => {
+        data.forEach( async(img) => {
           const { signedURL, error } = await supabase.storage
             .from('proveedores')
             .createSignedUrl(`${this.currentId}/galery/${img.name}`, 60)
@@ -257,15 +282,15 @@ export default {
               name: img.name,
               url : signedURL
             })
-      }); */
-      this.loader = false
+      });
+      
       if(error) throw error;
       } catch (error) {
         console.log(error);
-        this.loader = true
+        
       }
     },
-
+ */
   }
 }
 </script>
