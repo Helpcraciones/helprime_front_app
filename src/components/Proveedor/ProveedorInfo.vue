@@ -184,8 +184,8 @@ export default {
 
     async mounted() {
       await this.getProveedor();
-/*       await this.getGalery(); */
       await this.getImgProfile();
+      await this.getGalery();
       
   },
 
@@ -241,14 +241,15 @@ export default {
     },
 
 
-/*   async getGalery(){
+  async getGalery(){
       try {
         const { data, error } = await supabase.storage.from('proveedores').list(`${this.currentId}/galery`, {
         limit: 100,
         offset: 0,
         sortBy: { column: 'name', order: 'asc' },
       })
-        data.forEach( async(img) => {
+      console.log(data);
+        /* data.forEach( async(img) => {
         const { signedURL, error } = await supabase.storage
           .from('proveedores')
           .createSignedUrl(`${this.currentId}/galery/${img.name}`, 60)
@@ -258,13 +259,13 @@ export default {
           })
           this.loader = false
           if(error) throw error;
-      });
+      }); */
       if(error) throw error;
       } catch (error) {
         console.log(error);
         this.loader = true
       }
-    }, */
+    },
 
   }
 }
