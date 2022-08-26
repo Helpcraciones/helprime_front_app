@@ -148,4 +148,10 @@ export default {
     display: -webkit-box;
     overflow: hidden;
 }
+
+.size{
+    width: 100% !important;
+    height: -webkit-fill-available !important;
+
+}
 </style>

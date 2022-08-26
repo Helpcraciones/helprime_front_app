@@ -10,7 +10,7 @@
     <div class="px-5 pt-24">
         <div class="relative bg-gray-100 flex flex-col items-center w-full h-auto rounded-lg px-5 pb-5">
           <div class=" absolute rounded-full bg-white w-24 h-24 -top-14 shadow-xl border-4 border-white ">
-            <img :src="this.imgProfile" alt="Imagen de perfil" class="rounded-full object-cover h-auto">
+            <img :src="this.imgProfile" alt="Imagen de perfil" class="rounded-full object-cover h-auto size">
           </div>
           <p class="mt-14 text-lg font-bold text-primario one">{{this.currentInfo.fullname}}</p>
           <p class="text-xs text-texto font-light one">@{{this.currentInfo.rrss}}</p>
@@ -36,7 +36,8 @@
               <p class="text-textoOscuro text-xs font-bold leading-none">{{this.currentInfo.type_schedule}}</p>
             </div>
           </div>
-          <p class="mt-4 text-sm text-texto text-center">{{this.currentInfo.address}}  <span class="font-bold text-textoOscuro">{{this.currentInfo.district}}</span> </p>
+          <p class="mt-4 text-sm text-texto text-center">{{this.currentInfo.address}}  <span class="font-bold text-textoOscuro"><span class="font-light">Barrio:</span> {{this.currentInfo.district}}</span> </p>
+          <p>{{}}</p>
         </div>
     </div>
 
@@ -56,7 +57,7 @@
   <div>
   <p class="mt-10 pl-5 text-texto font-bold">Galeria</p>
     <Carousel ref="galeria"  :settings="settings" :breakpoints="breakpoints" :wrap-around="true" class="pl-5 mt-3">
-        <Slide v-for="img in this.imgs" :key="img.id" class="mr-3">
+        <Slide v-for="img in this.imgs" :key="img.id" class="mr-3" @click="this.modalGalery = true">
           <div class="bg-white h-36 w-36 rounded-xl">
             <img :src="img.url" alt="Imagen de galeria" class="object-cover h-full w-full rounded-xl">
           </div>
@@ -81,7 +82,7 @@
     <p @click="activeClass"  class="text-primario"><span v-if="this.toggleVer === true">Ver menos</span> <span v-else>Ver mas</span></p>
   </div>
 
-  <p :class="this.currentClass" class="text-texto font-light px-5 leading-tight" >Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione suscipit corrupti animi, debitis, pariatur quas corporis natus fugit est maiores vitae qui, enim ullam iusto mollitia autem officia laboriosam quibusdam!</p>
+  <p :class="this.currentClass" class="text-texto font-light px-5 leading-tight" >{{this.currentInfo.address_description}}</p>
 
 
 
@@ -95,7 +96,7 @@
     </div>
     <div class="flex">
       <i class="fi fi-rr-badge-check flex justify-center items-center mr-5 text-secundario"></i>
-      <p class="font-light text-texto">Prioridad de servicion</p> 
+      <p class="font-light text-texto">Prioridad de servicio</p> 
     </div>
     <div class="flex">
       <i class="fi fi-rr-badge-check flex justify-center items-center mr-5 text-secundario"></i>
@@ -112,6 +113,24 @@
 
   <div class=" bg-white border border-primario rounded-xl py-2.5 px-14 w-max mx-auto text-primario mt-5">
     Compartir negocio
+  </div>
+
+
+<!-- Seccion galeria con toque -->
+
+  <div  v-if="this.modalGalery === true" class=" fixed bg-white bg-opacity-80 w-screen h-screen top-0 right-0">
+
+    <div class="bg-gray-200 p-3 rounded-md w-max absolute top-2 right-2 z-50" @click="this.modalGalery=false">
+      <i class="fi fi-rr-cross-small flex justify-center"></i>
+    </div>
+
+    <Carousel  ref="galeria"  :wrap-around="true" class="h-screen w-full">
+        <Slide v-for="img in this.imgs" :key="img.id" class="h-screen w-full" @click="this.modalGalery=true">
+          <div class="bg-white h-max w-full ">
+            <img :src="img.url" alt="Imagen de galeria" class="object-cover h-full w-full">
+          </div>
+        </Slide>
+      </Carousel>
   </div>
 
     
@@ -136,6 +155,7 @@ export default {
       imgs: [],
       currentClass: "",
       toggleVer: null,
+      modalGalery : false,
     // carousel settings
     settings: {
       itemsToShow: 2.5,
@@ -196,7 +216,7 @@ export default {
         this.currentInfo = data[0]
         this.currentInfo.fullname = data[0].fullname.toUpperCase()
         this.currentInfo.contact_number = "tel:" + data[0].contact_number
-        this.currentInfo.whatsapp = "https://wa.me/57"+  data[0].whatsapp +  `?text=Hola ${this.currentInfo.fullname}, vengo de la aplicacion HELPRIME y me interesa sus servicios`
+        this.currentInfo.whatsapp = "https://wa.me/57"+  data[0].whatsapp +  `?text=Hola ${this.currentInfo.fullname},  te encontré en HELPRIME 🥳. Me gustaría 🥺 recibir información de:`
         this.currentInfo.district = data[0].district.toUpperCase()
         setTimeout(() => {
           this.loader = false
