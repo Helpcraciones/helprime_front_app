@@ -247,25 +247,22 @@ export default {
     },
 
     async getGalery(){
-      try {
-        for (let index = 1; index <= this.imgs.length; index++) {
-            const { signedURL, error } = await supabase.storage.from('proveedores').createSignedUrl(`${this.currentId}/galery/galeryimg${index}`, 60)
-            this.imgs.forEach(img => {
-              if (img.id == index) {
-                img.url = signedURL
-              }
-            });
-            if(error) throw error;
-          }
-        this.loader = false 
-        if(error) throw error;
+      for (let index = 1; index <= this.imgs.length; index++) {
+        try {
+          const { signedURL, error } = await supabase.storage.from('proveedores').createSignedUrl(`${this.currentId}/galery/galeryimg${index}`, 60)
+          this.imgs.forEach(img => {
+            if (img.id == index) {
+              img.url = signedURL
+            }
+          });
+          this.loader = false
+          if(error) throw error;
         } catch (error) {
           if (error) {
-            console.log(error);
             this.loader = true
           }
         }
-      
+      }
     },
 
 
