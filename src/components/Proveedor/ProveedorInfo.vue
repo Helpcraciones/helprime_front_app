@@ -252,7 +252,7 @@ export default {
           const { signedURL, error } = await supabase.storage.from('proveedores').createSignedUrl(`${this.proveedorId}/galery/galeryimg${index}`, 60)
           this.imgs.forEach(img => {
             if (img.id == index) {
-              img.src = signedURL
+              img.url = signedURL
             }
           });
           this.loader = false
