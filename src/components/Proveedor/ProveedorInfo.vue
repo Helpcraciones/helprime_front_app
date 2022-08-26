@@ -154,7 +154,7 @@ export default {
       currentInfo : "",
       imgs: [],
       currentClass: "",
-      toggleVer: undefined,
+      toggleVer: "",
       modalGalery : false,
     // carousel settings
     settings: {
