@@ -32,7 +32,7 @@
             </div>
             <div class="flex flex-col items-center w-max mx-auto">
               <p class="text-texto text-sm">Horario</p>
-              <p class="text-primario font-bold leading-none text-lg">{{this.currentInfo.schedule}}</p>
+              <p class="text-primario font-bold leading-none text-lg tedx one ">{{this.currentInfo.schedule}}</p>
               <p class="text-textoOscuro text-xs font-bold leading-none">{{this.currentInfo.type_schedule}}</p>
             </div>
           </div>
@@ -300,6 +300,10 @@ export default {
     -webkit-line-clamp: 2;
     display: -webkit-box;
     overflow: hidden;
+}
+
+.max{
+  max-width: 100px;
 }
 
 </style>
