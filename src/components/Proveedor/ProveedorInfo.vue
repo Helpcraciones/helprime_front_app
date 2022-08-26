@@ -150,7 +150,7 @@ export default {
       imgProfile: "",
       currentInfo : "",
       imgs: [
-        {id:1, url:""},
+      {id:1, url:""},
       {id:2, url:""},
       {id:3, url:""},
       {id:4, url:""},
