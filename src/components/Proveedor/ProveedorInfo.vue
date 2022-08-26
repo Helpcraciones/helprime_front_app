@@ -189,7 +189,6 @@ export default {
 
     async mounted() {
     this.loader = true
-    
   },
 
   methods: {
@@ -202,7 +201,6 @@ export default {
       } else{
         this.currentClass = ""
       }
-      console.log(this.currentClass);
     },
 
     scroll(){
@@ -267,6 +265,7 @@ export default {
         }, 500);
       if(error) throw error;
       } catch (error) {
+        console.log(error);
         this.loader = true
       }
     },
