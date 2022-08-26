@@ -178,6 +178,7 @@ export default {
   }),
 
   async created() {
+    this.currentId = this.$route.params.id;
     await this.scroll()
     await this.getProveedor();
     await this.getGalery();
@@ -188,7 +189,7 @@ export default {
 
     async mounted() {
     this.loader = true
-    this.currentId = this.$route.params.id;
+    
   },
 
   methods: {
