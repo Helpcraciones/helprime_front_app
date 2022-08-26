@@ -51,7 +51,7 @@
 
 
   <!-- Seccion Galeria -->
-<!--   <div>
+  <div>
   <p class="mt-10 pl-5 text-texto font-bold">Galeria</p>
     <Carousel ref="galeria"  :settings="settings" :breakpoints="breakpoints" :wrap-around="true" class="pl-5 mt-3">
         <Slide v-for="img in this.imgs" :key="img.id" class="mr-3" @click="this.modalGalery = true">
@@ -60,7 +60,7 @@
           </div>
         </Slide>
       </Carousel>
-  </div> -->
+  </div>
 
 
   <!--  Seccion mapa -->
@@ -115,7 +115,7 @@
 
 <!-- Seccion galeria con toque -->
 
-<!--   <div  v-if="this.modalGalery === true" class=" fixed bg-white bg-opacity-80 w-screen h-screen top-0 right-0">
+  <div  v-if="this.modalGalery === true" class=" fixed bg-white bg-opacity-80 w-screen h-screen top-0 right-0">
 
     <div class="bg-gray-200 p-3 rounded-md w-max absolute top-2 right-2 z-50" @click="this.modalGalery=false">
       <i class="fi fi-rr-cross-small flex justify-center"></i>
@@ -128,7 +128,7 @@
           </div>
         </Slide>
       </Carousel>
-  </div> -->
+  </div>
 
     
   </div>
@@ -179,7 +179,7 @@ export default {
     await this.scroll()
     this.toggleVer = false;
     this.currentClass = "two"
-/*     this.loader = true */
+    this.loader = true
   },
 
     async mounted() {
@@ -249,7 +249,7 @@ export default {
         sortBy: { column: 'name', order: 'asc' },
       })
       console.log(data);
-        /* data.forEach( async(img) => {
+        data.forEach( async(img) => {
         const { signedURL, error } = await supabase.storage
           .from('proveedores')
           .createSignedUrl(`${this.currentId}/galery/${img.name}`, 60)
@@ -257,9 +257,8 @@ export default {
             name: img.name,
             url : signedURL
           })
-          this.loader = false
-          if(error) throw error;
-      }); */
+      });
+      this.loader = false
       if(error) throw error;
       } catch (error) {
         console.log(error);
