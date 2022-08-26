@@ -47,15 +47,12 @@
       <p class="leading-none text-texto text-sm">{{this.currentInfo.description}}</p>
     </div>
 
-<!--     <div>
-    <button @click="next">Next</button>
-    <button @click="prev">Prev</button>
-  </div> -->
+
 
 
   <!-- Seccion Galeria -->
-  <div>
-<!--   <p class="mt-10 pl-5 text-texto font-bold">Galeria</p>
+<!--   <div>
+  <p class="mt-10 pl-5 text-texto font-bold">Galeria</p>
     <Carousel ref="galeria"  :settings="settings" :breakpoints="breakpoints" :wrap-around="true" class="pl-5 mt-3">
         <Slide v-for="img in this.imgs" :key="img.id" class="mr-3" @click="this.modalGalery = true">
           <div class="bg-white h-36 w-36 rounded-xl">
@@ -118,20 +115,20 @@
 
 <!-- Seccion galeria con toque -->
 
-  <div  v-if="this.modalGalery === true" class=" fixed bg-white bg-opacity-80 w-screen h-screen top-0 right-0">
+<!--   <div  v-if="this.modalGalery === true" class=" fixed bg-white bg-opacity-80 w-screen h-screen top-0 right-0">
 
     <div class="bg-gray-200 p-3 rounded-md w-max absolute top-2 right-2 z-50" @click="this.modalGalery=false">
       <i class="fi fi-rr-cross-small flex justify-center"></i>
     </div>
-<!-- 
+
     <Carousel  ref="galeria"  :wrap-around="true" class="h-screen w-full">
         <Slide v-for="img in this.imgs" :key="img.id" class="h-screen w-full" @click="this.modalGalery=true">
           <div class="bg-white h-max w-full ">
             <img :src="img.url" alt="Imagen de galeria" class="object-cover h-full w-full">
           </div>
         </Slide>
-      </Carousel> -->
-  </div>
+      </Carousel>
+  </div> -->
 
     
   </div>
