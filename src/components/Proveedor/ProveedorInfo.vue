@@ -249,15 +249,15 @@ export default {
         sortBy: { column: 'name', order: 'asc' },
       })
       console.log(data);
-        data.forEach( async(img) => {
-        const { signedURL, error } = await supabase.storage
-          .from('proveedores')
-          .createSignedUrl(`${this.currentId}/galery/${img.name}`, 60)
-          this.imgs.push({
-            name: img.name,
-            url : signedURL
-          })
-      });
+     /*    data.forEach( async(img) => {
+          const { signedURL, error } = await supabase.storage
+            .from('proveedores')
+            .createSignedUrl(`${this.currentId}/galery/${img.name}`, 60)
+            this.imgs.push({
+              name: img.name,
+              url : signedURL
+            })
+      }); */
       this.loader = false
       if(error) throw error;
       } catch (error) {
