@@ -255,13 +255,13 @@ export default {
                 img.url = signedURL
               }
             });
-            
             if(error) throw error;
           }
         this.loader = false 
         if(error) throw error;
         } catch (error) {
           if (error) {
+            console.log(error);
             this.loader = true
           }
         }
