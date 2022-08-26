@@ -255,6 +255,7 @@ export default {
                 img.url = signedURL
               }
             });
+            
             if(error) throw error;
           }
         this.loader = false 
