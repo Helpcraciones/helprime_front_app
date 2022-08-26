@@ -280,7 +280,8 @@ export default {
     },
 
     clear(){
-      if(this.city != "" && this.category != ""){
+      console.log("si funciono");
+      if(this.city != "" && this.category != "" || this.city != "" || this.category != ""  ){
         this.proveedores = []
         this.city =""
         this.department = ""
