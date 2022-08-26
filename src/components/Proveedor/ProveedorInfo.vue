@@ -249,7 +249,7 @@ export default {
     async getGalery(){
       for (let index = 1; index <= this.imgs.length; index++) {
         try {
-          const { signedURL, error } = await supabase.storage.from('proveedores').createSignedUrl(`${this.proveedorId}/galery/galeryimg${index}`, 60)
+          const { signedURL, error } = await supabase.storage.from('proveedores').createSignedUrl(`${this.currentId}/galery/galeryimg${index}`, 60)
           this.imgs.forEach(img => {
             if (img.id == index) {
               img.url = signedURL
