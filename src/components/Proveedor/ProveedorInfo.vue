@@ -180,15 +180,16 @@ export default {
   async created() {
     this.currentId = this.$route.params.id;
     await this.scroll()
-    await this.getProveedor();
-    await this.getGalery();
-    await this.getImgProfile();
     this.toggleVer = false;
     this.currentClass = "two"
+    this.loader = true
   },
 
     async mounted() {
-    this.loader = true
+      await this.getProveedor();
+      await this.getGalery();
+      await this.getImgProfile();
+      
   },
 
   methods: {
@@ -258,11 +259,9 @@ export default {
             name: img.name,
             url : signedURL
           })
+          this.loader = false
           if(error) throw error;
       });
-      setTimeout(() => {
-          this.loader = false
-        }, 500);
       if(error) throw error;
       } catch (error) {
         console.log(error);
