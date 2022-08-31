@@ -1,34 +1,46 @@
 <template>
-    <div class="w-full pl-5 py-5 ">
-        <Carousel :autoplay="4000"   :settings="settings" :breakpoints="breakpoints" :wrap-around="true">
-          <Slide v-for="banner in getBannerHome" :key="banner.id" class="">
-            <a href="#" class="w-full max-h-72 flex rounded-xl p-3">
-              <img
-                :src="banner.img"
-                alt="Banners"
-                class="w-full object-cover rounded-xl"
-              />
-            </a>
+    <div class="w-full ">
+        <Carousel :autoplay="4000" :settings="settings" :breakpoints="breakpoints" :wrap-around="true" class="mt-3">
+          <Slide v-for="(banner, index) in this.banners" :key="index" class="mr-5 ">
+            <div class="bg-white h-full max-h-48 w-full rounded-lg">
+              <img :src="banner.url" alt="Imagen de galeria" class="object-cover h-full w-full rounded-lg">
+            </div>
           </Slide>
-        </Carousel>
+      </Carousel>
+
+      <vueper-slides class="hidden">
+        <vueper-slide class="hidden"
+          v-for="(slide, i) in 2"
+          :key="i"/>
+      </vueper-slides>
       </div>
 </template>
 
 <script>
+import { supabase } from "../../supabase/init"
 import { Carousel, Slide } from 'vue3-carousel';
 import 'vue3-carousel/dist/carousel.css';
+import { VueperSlides, VueperSlide } from 'vueperslides'
+import 'vueperslides/dist/vueperslides.css'
 
 export default{
   name: 'BannerGeneral',
   components: {
     Carousel,
-    Slide
+    Slide,
+    VueperSlides, VueperSlide
   },
-
   data: () => ({
+
+    banners: [
+      {id:1, url:""},
+      {id:2, url:""},
+      {id:3, url:""}
+      ],
+
     // carousel settings
     settings: {
-      itemsToShow: 1.1,
+      itemsToShow: 1.2,
       snapAlign: 'start',
     },
     // breakpoints are mobile first
@@ -47,16 +59,27 @@ export default{
     },
   }),
 
-    async mounted() {
-       await this.$store.dispatch("getBanners")
-    },
+  created() {
+    this.getBanners()
+  },
 
-    computed:{
-        getBannerHome(){
-            return this.$store.state.bannersHome
+  methods: {
+    async getBanners(){
+      for (let i = 1; i <= this.banners.length; i++) {
+        try {
+          const { signedURL, error } = await supabase.storage.from('banners').createSignedUrl(`inicio/anuncio${i}`, 60)
+          this.banners.forEach(img => {
+            if (img.id == i) {
+              img.url = signedURL
+            }
+          });
+          if(error) throw error;
+        } catch (error) {
+          console.log(error);
         }
+      }
     }
-
+  },
 
 };
 </script>

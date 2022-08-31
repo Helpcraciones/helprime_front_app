@@ -5,7 +5,7 @@
         <i class="fi fi-rr-car flex justify-center items-center text-6xl mr-8 text-white bg-primario"></i>
       </div>
       <div class="w-full flex flex-col justify-start items-center bg-primario">
-        <h3 class="text-left text-white bg-primario">Vende tu <strong class="bg-primario"> vehículo</strong></h3>
+        <h3 class="text-left text-white bg-primario">Vende aqui <strong class="bg-primario"> vehículo</strong></h3>
         <p class="text-white text-xl bg-primario ">Publica 100% gratis aquí</p>
       </div>
     </div>

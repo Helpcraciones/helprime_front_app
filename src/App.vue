@@ -1,5 +1,5 @@
 <template>
-  <router-view/>
+  <router-view class="bg-gray-50" />
 </template>
 <script>
 
@@ -38,6 +38,11 @@ input:focus{
 select:focus{
   box-shadow: none !important;
 }
+
+.padding{
+    padding: 0 1.25rem;
+}
+
 
 
 @import url("https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css");

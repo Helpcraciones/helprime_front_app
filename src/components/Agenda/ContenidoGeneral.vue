@@ -1,7 +1,7 @@
 <template>
   <div class="padding mt-6">
 
-    <div v-if="this.loader === true" class="fixed right-0 left-0 z-40 bg-white h-screen w-screen flex flex-col justify-center items-center">
+    <div v-if="this.loader " class="fixed right-0 left-0 z-40 bg-white h-screen w-screen flex flex-col justify-center items-center">
       <i class="fi fi-rr-spinner flex justify-center items-center text-4xl text-primario animate-spin"></i>
       <p class="w-full max-w-xs text-center mt-5 animate-bounce">Estamos cargando esta linda familia para ti</p>
     </div>
