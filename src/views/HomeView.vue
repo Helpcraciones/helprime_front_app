@@ -9,9 +9,7 @@
     <BannerGeneral/>
 
     <ManagementGeneral/>
-
     <SellVehicle/>
-
     <MenuGeneral />
   </div>
 </template>

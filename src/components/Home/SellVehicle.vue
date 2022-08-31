@@ -1,12 +1,13 @@
 <template>
-  <div class="my-10 flex justify-center items-center padding w-full ">
-    <div class=" text-texto bg-primario flex justify-center items-center rounded-3xl px-10 py-5 w-full">
-      <div class="icon text-primario bg-primario">
-        <i class="fi fi-rr-car flex justify-center items-center text-6xl mr-8 text-white bg-primario"></i>
+  <div class="my-10 padding w-full">
+    <div class="bg-primario w-full flex justify-center items-center rounded-xl py-4 px-2 ml-auto mr-auto">
+      <div class="flex justify-center items-center w-max mx-auto">
+        <i class="fi fi-rr-comment-dollar flex justify-center items-center text-5xl text-white"></i>
       </div>
-      <div class="w-full flex flex-col justify-start items-center bg-primario">
-        <h3 class="text-left text-white bg-primario">Vende aqui <strong class="bg-primario"> tus cosas que ya no usas</strong></h3>
-        <p class="text-white text-xl bg-primario ">Publica 100% gratis</p>
+        <div class="w-max flex flex-col justify-center items-center mx-auto">
+        <p class=" text-white text-xl font-light w-max leading-none">Vende aqui</p>
+        <p class="text-white text-xl font-semibold leading-none w-max">lo que ya no usas</p>
+        <p class="text-white text-sm font-light mt-2 w-max leading-none">Publica 100% gratis</p>
       </div>
     </div>
   </div>
