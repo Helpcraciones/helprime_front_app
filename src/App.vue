@@ -44,7 +44,7 @@ select:focus{
 }
 
 .fondo{
-  background-image: url("https://res.cloudinary.com/vital-seguros/image/upload/v1661892219/APP/fondo-01_kvulor.svg")
+  background-image: url("https://res.cloudinary.com/vital-seguros/image/upload/v1661909046/APP/fondo-01_eqxjzz.svg")
 }
 
 
