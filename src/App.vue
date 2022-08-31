@@ -1,5 +1,5 @@
 <template>
-  <router-view class="bg-gray-100 fondo" />
+  <router-view class="bg-gray-100"/>
 </template>
 <script>
 
@@ -43,9 +43,6 @@ select:focus{
     padding: 0 1.25rem;
 }
 
-.fondo{
-  background-image: url("https://res.cloudinary.com/vital-seguros/image/upload/v1661909046/APP/fondo-01_eqxjzz.svg")
-}
 
 
 
