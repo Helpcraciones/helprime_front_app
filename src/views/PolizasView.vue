@@ -12,7 +12,7 @@
 
     <!-- Seccion info general -->
 
-      <div class="bg-primario bg-opacity-10 w-full h-auto mt-8 rounded-2xl flex justify-around  items-center px-5 py-5">
+      <div class="bg-gray-500 bg-opacity-10 w-full h-auto mt-8 rounded-2xl flex justify-around  items-center px-5 py-5">
         <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/insurance-policy.svg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvaW5zdXJhbmNlLXBvbGljeS5zdmciLCJpYXQiOjE2NjMzMDI5NTYsImV4cCI6MTk3ODY2Mjk1Nn0.z3sbheqImPC-GvZIh71Yg1g0gR901aRZYv_5Zm_TBBI" alt="Poliza" class="h-20 mr-5">
         <div class="w-full flex flex-col items-start justify-center">
 

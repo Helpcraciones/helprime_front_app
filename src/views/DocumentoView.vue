@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-primario bg-opacity-20 h-screen w-full rounded-t-3xl">
+    <div class="bg-gray-500 bg-opacity-20 h-screen w-full rounded-t-3xl">
 
         <div class="padding pt-3 flex justify-between items-center">
         <router-link to="/polizas/vehiculares" >
