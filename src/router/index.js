@@ -3,8 +3,9 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import HomeView from '../views/HomeView.vue'
 import Polizas from "../views/PolizasView.vue"
+import Vehiculos from "../views/VehiculosView.vue"
+import Documento from "../views/DocumentoView.vue"
 import Agenda from "../views/AgendaView.vue"
-import MisVehiculos from "../views/MisVehiculosView.vue"
 import ParaTiView from "../views/ParaTiView.vue"
 import ProveedorView from "../views/ProveedorView.vue"
 import Profile from "../views/Profile.vue"
@@ -49,6 +50,24 @@ const routes = [
     },
   },
   {
+    path: '/polizas/vehiculares',
+    name: 'vehiculos',
+    component: Vehiculos,
+    meta:{
+      title: 'vehiculos',
+      auth: false
+    },
+  },
+  {
+    path: '/polizas/vehiculares/:id',
+    name: 'docuemento',
+    component: Documento,
+    meta:{
+      title: 'vehiculosId',
+      auth: false
+    },
+  },
+  {
     path: '/agenda',
     name: 'agenda',
     component: Agenda,
@@ -66,15 +85,7 @@ const routes = [
       auth: false
     },
   },
-  {
-    path: '/mis-vehiculos',
-    name: 'Mis-Vehiculos',
-    component: MisVehiculos,
-    meta:{
-      title: 'Mis-Vehiculos',
-      auth: false
-    },
-  },
+
   {
     path: '/para-ti',
     name: 'ParaTi',

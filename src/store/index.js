@@ -3,15 +3,6 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     clientAuth:null,
-    clients: [],
-
-    name: '',
-    currentUser: {},
-    polizas: [],
-    vehicles: [],
-    userId: null,
-    bannersHome: [],
-    proveedores: []
   },
   getters: {
   },

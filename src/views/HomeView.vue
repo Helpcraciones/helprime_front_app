@@ -81,7 +81,6 @@ export default {
     async getClients(){
       let res = await supabase.from('clients').select('*')
       this.clients = res.data
-      console.log(this.clients);
     }
   },
 
