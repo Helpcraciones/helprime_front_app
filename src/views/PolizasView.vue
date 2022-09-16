@@ -7,7 +7,7 @@
 
       <div class="pt-8">
         <p class="text-texto">{{this.dateCurrent}}</p>
-        <p class="text-primario text-xl font-semibold leading-none">Cristiano Ronaldo</p>
+        <p class="text-texto text-xl font-semibold leading-none">Cristiano Ronaldo</p>
       </div>
 
     <!-- Seccion info general -->
