@@ -3,7 +3,7 @@
     <NavGeneral/>
     <!-- Seccion de saludo personalizado -->
     <div class="padding my-7">
-      <p class="text-primario font-ligth text-xl">Hola<span class="font-bold">, Cristiano Ronaldo</span></p>
+      <p class="text-texto font-ligth text-xl">Hola<span class="font-bold">, Cristiano Ronaldo</span></p>
       <p class="text-texto leading-none">¿En qué te ayudamos hoy?</p>
     </div>
     <BannerGeneral/>
