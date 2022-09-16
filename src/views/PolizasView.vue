@@ -222,7 +222,7 @@ export default {
       let time =date.toLocaleTimeString()
       if(time > "00:00:00" && time <= "12:00:00"){
         this.dateCurrent = "Buenos dias"
-      } else if (time >"12:00:00" && time <= "18:00:00"  ) {
+      } else if (time >"12:00:00" && time <= "17:30:00"  ) {
         this.dateCurrent = "Buenas tardes"
       } else{
          this.dateCurrent = "Buenas noches"
