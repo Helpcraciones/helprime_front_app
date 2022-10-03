@@ -3,6 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     clientAuth:null,
+    eventCurrent: null
   },
   getters: {
   },
@@ -11,6 +12,10 @@ export default createStore({
   mutations: {
     sessionChange(state, payload ){
       state.clientAuth = payload ? payload : null;
+    },
+
+    eventChange(state, event ){
+      state.eventCurrent = event
     },
   },
   modules: {

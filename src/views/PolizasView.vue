@@ -1,5 +1,5 @@
 <template >
-  <div class=" h-full mb-8">
+  <div class=" h-full mb-5">
     <NavGeneral/>
     <div class="padding">
 
@@ -191,9 +191,22 @@
         </div>
       </div>
 
+    <div class="fixed bottom-5 mt-3 right-5">
 
+      <div class=" rounded-full h-16 w-16 bg-white shadow-lg p-1">
+        <a v-if="this.status"  href="https://helpcreaciones.com" target="_blank" class="rounded-full">
+          <img  :src="agency.img" alt="" class="rounded-full object-cover h-full">
+        </a>
+        <a href="https://api.whatsapp.com/send/?phone=573013417620&text=Hola+PANADERIA+JUAN%2C++te+encontré+en+HELPRIME+�.+Me+gustaría+�+recibir+información+de%3A&type=phone_number&app_absent=0" v-else class="w-full h-full bg-green-400 rounded-full flex justify-center items-center">
+          <i class="fi fi-brands-whatsapp text-white text-3xl flex justify-center items-center"></i>
+        </a>
+      </div>
 
     </div>
+
+    </div>
+
+    
   </div>
 </template>
 <script>
@@ -204,30 +217,51 @@ export default {
   },
   data() {
     return {
-      dateCurrent: ""
+      status: false,
+      dateCurrent: "",
+      agency:{
+        img:"https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg"
     }
+      }
   },
 
   created() {
+    this.scroll()
     this.currentDateChange()
   },
 
   mounted() {
-    
+    this.changeProfileAgency()
   },
 
   methods: {
+
+    scroll(){
+      window.scroll({
+        top: 0
+      });
+    },
+
     currentDateChange(){
       let date = new Date()
-      let time =date.toLocaleTimeString()
+      let time = date.toLocaleTimeString()
       if(time > "00:00:00" && time <= "12:00:00"){
         this.dateCurrent = "Buenos dias"
-      } else if (time >"12:00:00" && time <= "17:30:00"  ) {
+      } else if (time >"12:00:00" && time <= "18:00:00"  ) {
         this.dateCurrent = "Buenas tardes"
       } else{
          this.dateCurrent = "Buenas noches"
       }
+    },
+
+    changeProfileAgency(){
+      setTimeout(() => {
+        this.status = !this.status
+        onload = this.changeProfileAgency()
+      }, 5000);
+     
     }
+
   },
 
   computed:{

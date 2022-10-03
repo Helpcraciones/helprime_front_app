@@ -1,5 +1,13 @@
 <template>
     <div class="padding grid grid-cols-1 gap-5 mt-8">
+
+        <div class="flex w-full ">
+            <select name="" v-model="currentSelect" @change="changeVehicul" class="w-full rounded-lg border-primario text-xs">
+                    <option value="todos" disabled class="text-gray-300">Todos los vehiculos</option>
+                    <option v-for="vehicul in vehicules" :key="vehicul.id" :value="vehicul.id">{{vehicul.category.toUpperCase()}} - {{vehicul.name}} - {{vehicul.city}}</option>
+            </select>
+        </div>
+
         <router-link to="/polizas/vehiculares/1" class="relative bg-white shadow-lg w-full h-30 flex justify-center items-center p-5 rounded-2xl">
             <div class="absolute bg-primario bg-opacity-20 top-4 right-0 px-3 py-0.5 rounded-l-full">
                 <p class="text-sm text-primario font-semibold">SOAT</p>
@@ -53,7 +61,38 @@
 </template>
 <script>
 export default {
-    name: "Vehiculos"
+    name: "Vehiculos",
+    data() {
+        return {
+            currentSelect: "todos",
+            vehicules: [
+                {
+                    id:1,
+                    name: "XPK87F",
+                    city: "COLOMBIA",
+                    category: "moto"
+                },
+                {
+                    id:1,
+                    name: "ABC123",
+                    city: "VILLAVICENCIO",
+                    category: "particular"
+                },
+                {
+                    id:1,
+                    name: "XPK87F",
+                    city: "COLOMBIA",
+                    category: "moto"
+                },
+                {
+                    id:1,
+                    name: "XPK87F",
+                    city: "COLOMBIA",
+                    category: "moto"
+                },
+            ]
+        }
+    },
 }
 </script>
 <style scoped>

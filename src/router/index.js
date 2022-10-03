@@ -10,6 +10,7 @@ import ParaTiView from "../views/ParaTiView.vue"
 import ProveedorView from "../views/ProveedorView.vue"
 import Profile from "../views/Profile.vue"
 import Formulario from "../views/Formulario.vue"
+import Recuperacion from "../views/RecuperarContra.vue"
 import { supabase } from '@/supabase/init'
 
 const routes = [
@@ -37,6 +38,15 @@ const routes = [
     component: Login,
     meta:{
       title: 'login',
+      auth: false
+    }
+  },
+  {
+    path: '/reestablecer',
+    name: 'reestablecer',
+    component: Recuperacion,
+    meta:{
+      title: 'reestablecer',
       auth: false
     }
   },
@@ -96,7 +106,7 @@ const routes = [
     },
   },
   {
-    path: '/profile',
+    path: '/perfil',
     name: 'Profile',
     component: Profile,
     meta:{
