@@ -43,6 +43,7 @@ export default {
 
     created() {
         this.eventState();
+        
     },
 
     mounted() {
@@ -50,13 +51,14 @@ export default {
     },
 
     methods: {
-        eventState(){
-            if(this.currentEvent === 'PASSWORD_RECOVERY'){
-                this.view = true
-            } else {
-                this.view = false
-                router.push('/')
-            }
+        async eventState(){
+                if(this.currentEvent === 'PASSWORD_RECOVERY'){
+                    this.view = true
+                } else{
+                    console.log('si lo hago');
+                    this.view = true
+                    /* router.push('/') */
+                }
         },
 
         async cancelProcess(){
@@ -86,8 +88,7 @@ export default {
 
     computed:{
         currentEvent(){
-          /*   return this.$store.state.eventCurrent */
-            return 'PASSWORD_RECOVERY'
+            return this.$store.state.eventCurrent
         }
     }
 

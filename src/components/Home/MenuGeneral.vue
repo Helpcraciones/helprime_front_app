@@ -9,7 +9,7 @@
       <i class="fi fi-rr-home flex justify-center items-center bg-primario text-white text-xl"></i>
     </div>
 
-    <router-link to="/profile" class="flex flex-col justify-center items-center">
+    <router-link to="/perfil" class="flex flex-col justify-center items-center">
       <i class="fi fi-rr-user text-primario flex justify-center items-center text-xl"></i>
       <p class="text-texto">Mi perfil</p>
     </router-link>

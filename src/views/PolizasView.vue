@@ -10,9 +10,34 @@
         <p class="text-texto text-xl font-semibold leading-none">Cristiano Ronaldo</p>
       </div>
 
+
+      <!-- Seccion agencia -->
+
+      <div class="bg-green-500 bg-opacity-10 w-full mt-5 rounded-2xl flex justify-start  items-center px-5 py-5">
+
+        <div class="rounded-full h-20 w-20 border-2 border-white mr-5 min">
+          <img :src="agency.img" alt="Imagen de perfil de la agencia" class="h-full object-cover rounded-full w-20">
+        </div>
+
+
+        <div class="w-full flex flex-col ">
+            <p class="text-texto text-sm">Hola! Somos tu agencia</p>
+            <p class="text-green-400 font-bold one max text-lg leading-tight"> {{agency.name}}</p>
+            <p class="text-texto mt-2 leading-tight text-sm">Estamos para ti</p>
+            <a :href="this.agency.whatsApp" target="_blank" class="w-auto border bg-green-400 py-1 px-4 flex justify-center items-center rounded-lg text-white">
+              <i class="fi fi-brands-whatsapp flex justify-center items-center mr-3 "></i>
+              <p class="font-light">Escríbenos</p>
+            </a>
+        </div>
+        
+      </div>
+
+
+
+
     <!-- Seccion info general -->
 
-      <div class="bg-gray-500 bg-opacity-10 w-full h-auto mt-8 rounded-2xl flex justify-around  items-center px-5 py-5">
+      <div class="bg-gray-500 bg-opacity-10 w-full h-auto mt-5 rounded-2xl flex justify-around  items-center px-5 py-5">
         <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/insurance-policy.svg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvaW5zdXJhbmNlLXBvbGljeS5zdmciLCJpYXQiOjE2NjMzMDI5NTYsImV4cCI6MTk3ODY2Mjk1Nn0.z3sbheqImPC-GvZIh71Yg1g0gR901aRZYv_5Zm_TBBI" alt="Poliza" class="h-20 mr-5">
         <div class="w-full flex flex-col items-start justify-center">
 
@@ -191,18 +216,7 @@
         </div>
       </div>
 
-    <div class="fixed bottom-5 mt-3 right-5">
-
-      <div class=" rounded-full h-16 w-16 bg-white shadow-lg p-1">
-        <a v-if="this.status"  href="https://helpcreaciones.com" target="_blank" class="rounded-full">
-          <img  :src="agency.img" alt="" class="rounded-full object-cover h-full">
-        </a>
-        <a href="https://api.whatsapp.com/send/?phone=573013417620&text=Hola+PANADERIA+JUAN%2C++te+encontré+en+HELPRIME+�.+Me+gustaría+�+recibir+información+de%3A&type=phone_number&app_absent=0" v-else class="w-full h-full bg-green-400 rounded-full flex justify-center items-center">
-          <i class="fi fi-brands-whatsapp text-white text-3xl flex justify-center items-center"></i>
-        </a>
-      </div>
-
-    </div>
+    
 
     </div>
 
@@ -217,24 +231,32 @@ export default {
   },
   data() {
     return {
-      status: false,
       dateCurrent: "",
       agency:{
-        img:"https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg"
+        img:"https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg",
+        name: "Vital seguros DC",
+        whatsApp: "",
+        phone: "+573144049124"
     }
       }
   },
 
   created() {
+
     this.scroll()
     this.currentDateChange()
+    this.whatsApp()
   },
 
   mounted() {
-    this.changeProfileAgency()
+
   },
 
   methods: {
+
+    whatsApp(){
+      this.agency.whatsApp = "https://wa.me/57"+  "3144049124"+  `?text=Hola ${this.agency.name},  necesito de tu ayuda.`
+    },
 
     scroll(){
       window.scroll({
@@ -254,13 +276,6 @@ export default {
       }
     },
 
-    changeProfileAgency(){
-      setTimeout(() => {
-        this.status = !this.status
-        onload = this.changeProfileAgency()
-      }, 5000);
-     
-    }
 
   },
 
@@ -271,3 +286,15 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+
+  .max{
+    max-width: 200px;
+  }
+
+  .min{
+    min-width: 5rem;
+  }
+
+</style>

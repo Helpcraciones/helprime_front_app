@@ -1,7 +1,12 @@
 <template>
-    <div class="padding flex justify-between items-center">
-        <i  @click="$router.go(-1)" class="fi fi-rr-arrow-left text-primario text-3xl pr-5 py-5 flex justify-center items-center"></i>
-        <p class="text-primario font-bold text-xl">Profile</p>
+    <div class="padding pt-3 flex justify-between items-center">
+        <router-link to="/" >
+            <i   class="fi fi-rr-arrow-left text-primario text-2xl flex justify-center items-center"></i>
+        </router-link>
+        <div class="bg-primario bg-opacity-10 text-primario rounded-full px-4 py-1">
+            Mi perfil
+        </div>
+        <i class="fi fi-rr-menu-dots-vertical flex justify-center items-center text-primario"></i>
     </div>
 </template>
 <script>

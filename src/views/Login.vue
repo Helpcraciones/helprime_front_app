@@ -53,7 +53,7 @@ export default {
     }
   },
 
-  mounted() {
+  created() {
     if(supabase.auth.user()){
       router.push('/')
     }
