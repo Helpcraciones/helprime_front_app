@@ -237,7 +237,8 @@ export default {
         name: "Vital seguros DC",
         whatsApp: "",
         phone: "+573144049124"
-    }
+    },
+    currentId: ""
       }
   },
 
@@ -276,11 +277,40 @@ export default {
       }
     },
 
+    async getCurrentClient(){
+      if(this.currentClient === null){
+        this.currentId = "" 
+      } else {
+        this.currentId = this.currentClient.user.id
+        console.log(this.currentId);
+      }
+      try {
+        const { data, error } = await supabase
+        .from('clients_helprime')
+        .select('*')
+        .eq('id', this.currentId)
+        console.log(data);
+        if(error) throw error
+        if (data != []) {
+          this.user = {}
+          console.log('No soy de helprime');
+          this.getCurrentClientAgencies()
+        } else {
+          this.user = data[0]
+          this.user.alias = data[0].alias.toUpperCase()
+        }
+      } catch (error) {
+        if(error){
+          console.log(error);
+        }
+      }
+    },
+
 
   },
 
   computed:{
-    userCurrent(){
+    currentClient(){
       return this.$store.state.clientAuth
     }
   }

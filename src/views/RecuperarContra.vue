@@ -52,13 +52,16 @@ export default {
 
     methods: {
         async eventState(){
-                if(this.currentEvent === 'PASSWORD_RECOVERY'){
+               setTimeout(() => {
+                 if(this.currentEvent === 'PASSWORD_RECOVERY'){
                     this.view = true
+                    console.log('soy la recuperacion');
                 } else{
-                    console.log('si lo hago');
-                    this.view = true
-                    /* router.push('/') */
+                    console.log('no soy el password recovery');
+                    this.view = false
+                    router.push('/')
                 }
+               }, 300);
         },
 
         async cancelProcess(){

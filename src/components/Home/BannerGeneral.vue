@@ -2,11 +2,18 @@
     <div class="w-full ">
         <Carousel :autoplay="4000" :settings="settings" :breakpoints="breakpoints" :wrap-around="true" class="mt-3">
           <Slide v-for="(banner, index) in this.banners" :key="index" class="mr-5 ">
-            <div class="bg-white h-full max-h-48 w-full rounded-lg">
-              <img :src="banner.url" alt="Imagen de galeria" class="object-cover h-full w-full rounded-lg">
+            <div class="bg-white h-48 w-full rounded-lg">
+              <div v-if="this.loading" class="flex justify-center items-center mb-4 h-48 bg-gray-200 rounded-lg animate-pulse">
+                  <i class="fi fi-rr-picture text-5xl text-gray-100 flex justify-center items-center"></i>  
+              </div>
+              <img v-else :src="banner.url" alt="Imagen de galeria" class="object-cover h-full w-full rounded-lg">
             </div>
           </Slide>
       </Carousel>
+
+
+ 
+
 
       <vueper-slides class="hidden">
         <vueper-slide class="hidden"
@@ -38,6 +45,8 @@ export default{
       {id:3, url:""}
       ],
 
+      loading: undefined,
+
     // carousel settings
     settings: {
       itemsToShow: 1.2,
@@ -60,6 +69,7 @@ export default{
   }),
 
   created() {
+    this.loading = true
     this.getBanners()
   },
 
@@ -73,6 +83,9 @@ export default{
               img.url = signedURL
             }
           });
+          setTimeout(() => {
+            this.loading = false
+          }, 2000);
           if(error) throw error;
         } catch (error) {
           console.log(error);

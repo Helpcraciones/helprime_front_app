@@ -3,7 +3,7 @@
     <NavGeneral/>
     <!-- Seccion de saludo personalizado -->
     <div class="padding my-7">
-      <p class="text-texto font-ligth text-xl">Hola<span class="font-bold">, Cristiano Ronaldo</span></p>
+      <p class="text-texto font-ligth text-xl">Hola<span v-if="this.user.alias != '' " class="font-bold">, {{user.alias}}</span> <span class="font-semibold" v-else>,  que gusto tenerte aqui</span> </p>
       <p class="text-texto leading-none">¿En qué te ayudamos hoy?</p>
     </div>
     <BannerGeneral/>
@@ -32,64 +32,78 @@ export default {
   },
   data() {
     return {
-      classDiv: "w-0 p-0",
-      classText: "hidden",
-      textAlert: "",
-
-      clientData:null,
-      clients:null
+      user: {},
+      currentId: ""
     };
   },
 
+  async created(){
+    if(!supabase.auth.user()){
+      this.user.alias = ""
+    } else{
+      await this.getCurrentClient()
+    }
+    
+  },
 
   async mounted() {
-    await this.getClients()
-
-    this.validationEqual()
-    setTimeout(() => {
-      this.alertAuth()
-    }, 500);
-
-    /* this.alertAuth() */
 
   },
 
   methods: {
-    validationEqual(){
-      if(this.clientAuth){
-        let idEqual = this.clients.find(client => client.id == this.clientAuth.id)
-        /* console.log(idEqual); */
-        if (idEqual) {
-          this.clientData = idEqual
+    async getCurrentClient(){
+      if(this.currentClient === null){
+        this.currentId = "" 
+      } else {
+        this.currentId = this.currentClient.user.id
+        console.log(this.currentId);
+      }
+      try {
+        const { data, error } = await supabase
+        .from('clients_helprime')
+        .select('*')
+        .eq('id', this.currentId)
+        console.log(data);
+        if(error) throw error
+        if (data != []) {
+          this.user = {}
+          console.log('No soy de helprime');
+          this.getCurrentClientAgencies()
+        } else {
+          this.user = data[0]
+          this.user.alias = data[0].alias.toUpperCase()
+        }
+      } catch (error) {
+        if(error){
+          console.log(error);
         }
       }
     },
 
-    alertAuth(){
-      if (this.clientData) {
-        this.classDiv = "w-72 p-4"
-        this.classText = "block"
-        this.textAlert = `Bienvenido ${this.clientData.fullname}`
-
-        setTimeout(() => {
-          this.verify = false
-          this.classDiv = "w-0 p-0"
-          this.classText = "hidden"
-        }, 5000)
-      }
-    },
-
-    async getClients(){
-      let res = await supabase.from('clients').select('*')
-      this.clients = res.data
+    async getCurrentClientAgencies(){
+     try {
+        const { data, error } = await supabase
+          .from('clients_agencies')
+          .select('*')
+          .eq('id', this.currentId)
+          if (error) throw error
+          console.log('soy de las agencias');
+          this.user = data[0]
+          this.user.alias = data[0].alias.toUpperCase()
+          console.log(this.user);
+        } catch (error) {
+          if(error){
+            console.log(error);
+          }
+     }
     }
   },
 
   computed: {
 
-    clientAuth(){
+    currentClient(){
       return this.$store.state.clientAuth
-    },
+    }
 
   },
 };

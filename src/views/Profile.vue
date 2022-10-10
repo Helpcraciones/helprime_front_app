@@ -19,6 +19,7 @@ export default {
   created() {
     if (this.userAuth === null) {
       this.userAuth = {}
+      router.push("/login")
     } else {
       console.log(this.userAuth.user.email)
     }
