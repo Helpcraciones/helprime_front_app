@@ -4,7 +4,7 @@ export default createStore({
   state: {
     clientAuth:null,
     eventCurrent: null,
-    emailHome: undefined
+    emailHome: ""
   },
   getters: {
   },

@@ -1,35 +1,37 @@
 <template>
-    <div class="w-full padding mt-7">
-        <p class=" text-primario text-lg mt-3  mb-5 ">Soluciones hechas para ti</p>
-        <div class=" grid grid-cols-2 gap-3 justify-center items-center my-5">
+    <div class="w-full padding mt-7 flex flex-col lg:items-center">
+        <p class=" text-primario lg:text-texto text-lg mt-3  mb-5 lg:text-4xl lg:font-light">Soluciones hechas <span class="lg:text-primario lg:font-bold">para ti</span> </p>
 
-            <router-link to="/mis-vehiculos" class="bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl">
+
+        <div class=" grid grid-cols-2 lg:grid-cols-6 gap-3 justify-center items-center my-5 w-full">
+
+            <router-link to="/mis-vehiculos" class="bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out">
                 <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1661907987/APP/insurance_ttdipo.svg" alt="">
                 <p class="text-primario text-lg  mt-3 text-center">Bitácora</p>
             </router-link>
 
-            <router-link to="/agenda" class="bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl">
+            <router-link to="/agenda" class="bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out">
                 <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1653068519/APP/directorio_tvr5y5.png" alt="">
                 <p class="text-primario text-lg  mt-3">Servicios</p>
             </router-link>
-            <router-link to="/polizas" class="bg-white card flex flex-col justify-center items-center shadow-xl rounded-2xl">
+            <router-link to="/polizas" class="bg-white card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out">
                 <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1653067972/APP/documentos_bz6lcd.png" alt="">
                 <p class="text-primario text-lg mt-3">Mis polizas</p>
             </router-link>
 
             
 
-            <router-link to="/para-ti" class=" bg-white card flex flex-col justify-center items-center shadow-xl rounded-3xl">
+            <router-link to="/para-ti" class=" bg-white card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out">
                 <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1661907795/APP/sirena_hple14.svg" alt="">
                 <p class="text-primario text-lg  mt-3">Urgencias</p>
             </router-link>
 
-            <div class=" bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl">
+            <div class=" bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out">
                 <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1653068552/APP/advice_jnkipr.png" alt="">
                 <p class="text-primario text-lg  mt-3">Tips</p>
             </div>
 
-            <div class="bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl">
+            <div class="bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out">
                 <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1653068618/APP/asistente-personal_mjqjtt.png" alt="">
                 <p class="text-primario text-lg  mt-3">PQRS</p>
             </div>
@@ -46,7 +48,6 @@ export default {
 
 <style scoped>
 .card{
-    max-width: 11rem;
     width: 100%;
     max-height: 11rem;
     height: 100%;

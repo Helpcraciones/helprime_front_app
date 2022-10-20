@@ -1,25 +1,25 @@
 <template>
-  <div class="pb-16 max-w-7xl lg:mx-auto flex flex-col">
-    <NavGeneral class="order-1"/>
+  <div class="pb-16 max-w-7xl lg:mx-auto">
+    <NavGeneral/>
 
-    <InfoGeneral class="order-2"/>
+    <InfoGeneral/>
 
     <!-- Seccion de saludo personalizado -->
-    <div v-if="this.active"  class="order-3 padding my-7 lg:m-0 lg:flex flex-col static lg:absolute top-10 right-10 lg:bg-white lg:p-8 lg:shadow-xl lg:rounded-lg group">
+    <div v-if="this.active"  class="padding my-7 lg:m-0 lg:flex flex-col static lg:absolute top-10 right-10 lg:bg-white lg:p-8 lg:shadow-xl lg:rounded-lg group">
       <div class="relative group">
-        
         <i @click="this.active = false" class="fi fi-rr-cross-circle hidden lg:flex justify-center items-center absolute -top-5 -right-5 group-hover:text-primario text-texto"></i>
-      <p class="text-texto font-ligth text-xl">Hola<span v-if="this.user.alias != '' " class="font-bold">, {{this.user.alias}}</span> <span class="font-semibold" v-else>,  que gusto tenerte aqui</span> </p>
+      <p class="text-texto font-ligth text-xl">Hola<span v-if="this.user.alias != '' " class="font-bold">, {{user.alias}}</span> <span class="font-semibold" v-else>,  que gusto tenerte aqui</span> </p>
       <p class="text-texto leading-none">¿En qué te ayudamos hoy?</p>
       </div>
     </div>
 
-    <UneteGeneral class="lg:order-6 order-8"/>
+    <UneteGeneral/>
 
-    <BannerGeneral class="order-5"/>
 
-    <ManagementGeneral class="lg:order-4 order-6"/>
-    <SellVehicle class="order-7"/>
+    <BannerGeneral/>
+
+    <ManagementGeneral/>
+    <SellVehicle/>
     <MenuGeneral class="lg:hidden flex" />
   </div>
 </template>
@@ -72,14 +72,16 @@ export default {
         this.currentId = "" 
       } else {
         this.currentId = this.currentClient.user.id
+        console.log(this.currentId);
       }
       try {
         const { data, error } = await supabase
         .from('clients_helprime')
         .select('*')
         .eq('id', this.currentId)
+        console.log(data);
         if(error) throw error
-        if (data.length <= 0) {
+        if (data != []) {
           this.user = {}
           console.log('No soy de helprime');
           this.getCurrentClientAgencies()

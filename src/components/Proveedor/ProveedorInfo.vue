@@ -294,7 +294,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style>
 .two{
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
