@@ -7,6 +7,10 @@
                 <div class="p-5 text-center">
                     <p class="text-primario font-semibold text-xl leading-tight mb-5">Registrate como proveedor de servicios</p>
                     <p class="two text-sm leading-tight text-texto">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores pariatur commodi esse officia ipsa.</p>
+
+                    <button class="w-full bg-primario rounded-lg py-3 mt-5 bg-opacity-10 text-primario font-medium hover:bg-opacity-100 hover:text-white transition-all duration-300 ease-in-out border ">
+                        Quiero mas informacion
+                    </button>
                 </div>
             </div>
             <div class="rounded-lg bg-white shadow-xl">
@@ -14,12 +18,18 @@
                 <div class="p-5 text-center">
                     <p class="text-primario font-semibold text-xl leading-tight mb-5">Registrate como proveedor de servicios</p>
                     <p class="two text-sm leading-tight text-texto">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores pariatur commodi esse officia ipsa.</p>
+                    <button class="w-full bg-primario rounded-lg py-3 mt-5 bg-opacity-10 text-primario font-medium hover:bg-opacity-100 hover:text-white transition-all duration-300 ease-in-out border ">
+                        Quiero mas informacion
+                    </button>
                 </div>
             </div><div class="rounded-lg bg-white shadow-xl">
                 <img src="https://res.cloudinary.com/vital-seguros/image/upload/v1666303919/APP/confident-call-center-operator-talking-with-client_74855-4059_oqws5n.webp" alt="" class="rounded-t-lg">
                 <div class="p-5 text-center">
                     <p class="text-primario font-semibold text-xl leading-tight mb-5">Registrate como proveedor de servicios</p>
                     <p class="two text-sm leading-tight text-texto">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores pariatur commodi esse officia ipsa.</p>
+                    <button class="w-full bg-primario rounded-lg py-3 mt-5 bg-opacity-10 text-primario font-medium hover:bg-opacity-100 hover:text-white transition-all duration-300 ease-in-out border ">
+                        Quiero mas informacion
+                    </button>
                 </div>
             </div>
         </div>

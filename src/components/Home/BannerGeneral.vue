@@ -16,6 +16,11 @@
             </div>
           </Slide>
 
+          <template #addons>
+      <Navigation />
+      <Pagination />
+    </template>
+
           
       </Carousel>
 
@@ -29,7 +34,7 @@
 
 <script>
 import { supabase } from "../../supabase/init"
-import { Carousel, Slide } from 'vue3-carousel';
+import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css';
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
@@ -39,6 +44,8 @@ export default{
   components: {
     Carousel,
     Slide,
+    Pagination,
+    Navigation,
     VueperSlides, VueperSlide
   },
   data: () => ({
@@ -62,11 +69,11 @@ export default{
       // 700px and up
       700: {
         itemsToShow: 3.5,
-        snapAlign: 'center',
+        snapAlign: 'start',
       },
       // 1024 and up
       1024: {
-        itemsToShow: 1.5,
+        itemsToShow: 1.2,
         snapAlign: 'start',
       },
     },
