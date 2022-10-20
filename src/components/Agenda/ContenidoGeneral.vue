@@ -8,7 +8,7 @@
 
     <div class="flex justify-between mb-2">
       <div class="w-full">
-        <select v-model="this.department" @change="getCities" class=" text-texto text-xs w-full bg-white border border-primario rounded-md  focus:border-primario">
+        <select v-model="this.department" @change="getCities"  class=" text-texto text-xs w-full bg-white border border-primario rounded-md  focus:border-primario">
           <option disabled selected value= "">
             Departamento
           </option>

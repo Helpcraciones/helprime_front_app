@@ -1,8 +1,8 @@
 <template>
-    <div class="w-full ">
+    <div class="w-full lg:mt-10">
         <Carousel :autoplay="4000" :settings="settings" :breakpoints="breakpoints" :wrap-around="true" class="mt-3">
           <Slide v-for="(banner, index) in this.banners" :key="index" class="mr-5 ">
-            <div class="bg-white h-48 w-full rounded-lg">
+            <div class="bg-white h-48 lg:h-60 w-full rounded-lg">
               <div v-if="this.loading" class="flex justify-center items-center mb-4 h-48 bg-gray-200 rounded-lg animate-pulse">
                   <i class="fi fi-rr-picture text-5xl text-gray-100 flex justify-center items-center"></i>  
               </div>
@@ -10,10 +10,6 @@
             </div>
           </Slide>
       </Carousel>
-
-
- 
-
 
       <vueper-slides class="hidden">
         <vueper-slide class="hidden"
@@ -62,7 +58,7 @@ export default{
       },
       // 1024 and up
       1024: {
-        itemsToShow: 5,
+        itemsToShow: 1.5,
         snapAlign: 'start',
       },
     },

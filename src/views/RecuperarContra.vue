@@ -30,7 +30,6 @@
 import router from '@/router'
 import { supabase } from "../supabase/init"
 export default {
-
     data() {
         return {
             view: undefined,
@@ -61,7 +60,7 @@ export default {
                     this.view = false
                     router.push('/')
                 }
-               }, 300);
+               }, 1000);
         },
 
         async cancelProcess(){
@@ -75,6 +74,7 @@ export default {
                 try {
                     const { error, data } = await supabase.auth.update({password: this.confirmPassword,})
                     if(error) throw error;
+                    router.push('/')
                 } catch (error) {
                     console.log(error.message);
                 }

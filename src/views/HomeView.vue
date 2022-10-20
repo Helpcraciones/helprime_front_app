@@ -1,16 +1,24 @@
 <template>
-  <div class="pb-16">
+  <div class="pb-16 max-w-7xl lg:mx-auto">
     <NavGeneral/>
+
+    <InfoGeneral/>
+
     <!-- Seccion de saludo personalizado -->
-    <div class="padding my-7">
+    <div v-if="this.active"  class="padding my-7 lg:m-0 lg:flex flex-col static lg:absolute top-10 right-10 lg:bg-white lg:p-8 lg:shadow-xl lg:rounded-lg group">
+      <div class="relative group">
+        <i @click="this.active = false" class="fi fi-rr-cross-circle hidden lg:flex justify-center items-center absolute -top-5 -right-5 group-hover:text-primario text-texto"></i>
       <p class="text-texto font-ligth text-xl">Hola<span v-if="this.user.alias != '' " class="font-bold">, {{user.alias}}</span> <span class="font-semibold" v-else>,  que gusto tenerte aqui</span> </p>
       <p class="text-texto leading-none">¿En qué te ayudamos hoy?</p>
+      </div>
     </div>
+
+
     <BannerGeneral/>
 
     <ManagementGeneral/>
     <SellVehicle/>
-    <MenuGeneral />
+    <MenuGeneral class="lg:hidden flex" />
   </div>
 </template>
 <script>
@@ -22,22 +30,26 @@ import BannerGeneral from "../components/Home/BannerGeneral.vue";
 import ManagementGeneral from "../components/Home/ManagementGeneral.vue";
 import SellVehicle from "../components/Home/SellVehicle.vue";
 import MenuGeneral from "../components/Home/MenuGeneral.vue";
+import InfoGeneral from "../components/Home/InfoGeneral.vue";
 export default {
   components:{
     NavGeneral,
     BannerGeneral,
     ManagementGeneral,
     SellVehicle,
-    MenuGeneral
+    MenuGeneral,
+    InfoGeneral
   },
   data() {
     return {
       user: {},
-      currentId: ""
+      currentId: "",
+      active: undefined
     };
   },
 
   async created(){
+    this.active = true
     if(!supabase.auth.user()){
       this.user.alias = ""
     } else{

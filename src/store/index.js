@@ -3,7 +3,8 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     clientAuth:null,
-    eventCurrent: null
+    eventCurrent: null,
+    emailHome: undefined
   },
   getters: {
   },
