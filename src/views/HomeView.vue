@@ -9,7 +9,7 @@
       <div class="relative group">
         
         <i @click="this.active = false" class="fi fi-rr-cross-circle hidden lg:flex justify-center items-center absolute -top-5 -right-5 group-hover:text-primario text-texto"></i>
-      <p class="text-texto font-ligth text-xl">Hola<span v-if="this.user.alias != '' " class="font-bold">, {{this.user.alias}}</span> <span class="font-semibold" v-else>,  que gusto tenerte aqui</span> </p>
+      <p class="text-texto font-ligth text-xl">Hola<span v-if="this.user.alias != '' " class="font-bold text-primario">, {{this.user.alias}}</span> <span class="font-semibold" v-else>,  que gusto tenerte aqui</span> </p>
       <p class="text-texto leading-none">¿En qué te ayudamos hoy?</p>
       </div>
     </div>
@@ -19,7 +19,7 @@
     <BannerGeneral class="order-5"/>
 
     <ManagementGeneral class="lg:order-4 order-6"/>
-    <SellVehicle class="order-7"/>
+    <SellVehicle class="order-7 hidden"/>
     <MenuGeneral class="lg:hidden flex" />
   </div>
 </template>

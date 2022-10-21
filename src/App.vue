@@ -33,6 +33,10 @@ export default {
   touch-action: manipulation;
 }
 
+html{
+    scroll-behavior: smooth;
+  }
+
 input:focus{
   box-shadow: none !important;
 }

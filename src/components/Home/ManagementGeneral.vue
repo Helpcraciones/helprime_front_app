@@ -1,6 +1,6 @@
 <template>
     <div class="w-full padding mt-7 flex flex-col lg:items-center">
-        <p class=" text-primario lg:text-texto text-lg mt-3  mb-5 lg:text-4xl lg:font-light">Soluciones hechas <span class="lg:text-primario lg:font-bold">para ti</span> </p>
+        <p class="text-texto lg:text-4xl text-2xl font-light leading-tight text-center">Soluciones hechas <span class="font-bold text-primario">para ti</span> </p>
 
 
         <div class=" grid grid-cols-2 lg:grid-cols-6 gap-3 justify-center items-center my-5 w-full">

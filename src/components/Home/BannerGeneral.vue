@@ -6,20 +6,22 @@
         </div>
         
 
-        <Carousel :autoplay="4000" :settings="settings" :breakpoints="breakpoints" :wrap-around="true" class="mt-3 lg:mt-10">
-          <Slide v-for="(banner, index) in this.banners" :key="index" class="mr-5 ">
+        <Carousel  :settings="settings" :breakpoints="breakpoints" :wrap-around="true" class="mt-3 lg:mt-10">
+          <Slide v-for="(banner, index) in this.banners" :key="index" class="pr-2 lg:pr-5 rounded-lg ">
             <div class="bg-white h-48 lg:h-60 w-full rounded-lg">
               <div v-if="this.loading" class="flex justify-center items-center mb-4 h-48 lg:h-60 bg-gray-200 rounded-lg animate-pulse">
                   <i class="fi fi-rr-picture text-5xl text-gray-100 flex justify-center items-center"></i>  
               </div>
-              <img v-else :src="banner.url" alt="Imagen de galeria" class="object-cover h-full w-full rounded-lg">
+              <a href="#" v-else>
+                <img  :src="banner.url" alt="Imagen de galeria" class="object-cover h-full w-full rounded-lg">
+              </a>
+              
             </div>
           </Slide>
 
           <template #addons>
-      <Navigation />
-      <Pagination />
-    </template>
+              <Navigation  class="lg:block hidden text-primario"  />
+          </template>
 
           
       </Carousel>
@@ -34,7 +36,7 @@
 
 <script>
 import { supabase } from "../../supabase/init"
-import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
+import { Carousel, Navigation, Slide } from 'vue3-carousel'
 import 'vue3-carousel/dist/carousel.css';
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
@@ -44,7 +46,6 @@ export default{
   components: {
     Carousel,
     Slide,
-    Pagination,
     Navigation,
     VueperSlides, VueperSlide
   },
@@ -60,8 +61,8 @@ export default{
 
     // carousel settings
     settings: {
-      itemsToShow: 1.2,
-      snapAlign: 'start',
+      itemsToShow: 1.1,
+      snapAlign: 'center',
     },
     // breakpoints are mobile first
     // any settings not specified will fallback to the carousel settings
@@ -74,7 +75,7 @@ export default{
       // 1024 and up
       1024: {
         itemsToShow: 1.2,
-        snapAlign: 'start',
+        snapAlign: 'center',
       },
     },
   }),
@@ -107,3 +108,9 @@ export default{
 
 };
 </script>
+
+<style>
+  .carousel__viewport{
+    @apply rounded-lg;
+  }
+</style>
