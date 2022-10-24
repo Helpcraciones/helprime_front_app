@@ -1,9 +1,9 @@
 <template>
-    <div class="w-full padding mt-7 flex flex-col lg:items-center">
+    <div class="w-full padding mt-7 flex flex-col lg:items-center mb-10 lg:mb-20 lg:pt-10" id="categorias"> 
         <p class="text-texto lg:text-4xl text-2xl font-light leading-tight text-center">Soluciones hechas <span class="font-bold text-primario">para ti</span> </p>
 
 
-        <div class=" grid grid-cols-2 lg:grid-cols-6 gap-3 justify-center items-center my-5 w-full">
+        <div class=" grid grid-cols-2 lg:grid-cols-6 gap-3 justify-center my-5 w-full">
 
             <router-link to="/mis-vehiculos" class="bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out">
                 <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1661907987/APP/insurance_ttdipo.svg" alt="">

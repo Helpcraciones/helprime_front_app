@@ -1,13 +1,14 @@
 <template>
-  <div class="pb-16 max-w-7xl lg:mx-auto flex flex-col">
+<div>
+  <div class=" lg:mb-16 max-w-7xl lg:mx-auto flex flex-col">
     <NavGeneral class="order-1"/>
 
     <InfoGeneral class="order-2"/>
 
+
     <!-- Seccion de saludo personalizado -->
     <div v-if="this.active"  class="order-3 padding my-7 lg:m-0 lg:flex flex-col static lg:absolute top-10 right-10 lg:bg-white lg:p-8 lg:shadow-xl lg:rounded-lg group">
       <div class="relative group">
-        
         <i @click="this.active = false" class="fi fi-rr-cross-circle hidden lg:flex justify-center items-center absolute -top-5 -right-5 group-hover:text-primario text-texto"></i>
       <p class="text-texto font-ligth text-xl">Hola<span v-if="this.user.alias != '' " class="font-bold text-primario">, {{this.user.alias}}</span> <span class="font-semibold" v-else>,  que gusto tenerte aqui</span> </p>
       <p class="text-texto leading-none">¿En qué te ayudamos hoy?</p>
@@ -20,8 +21,15 @@
 
     <ManagementGeneral class="lg:order-4 order-6"/>
     <SellVehicle class="order-7 hidden"/>
-    <MenuGeneral class="lg:hidden flex" />
+    <MenuGeneral class="lg:hidden flex order-last" />
+    
   </div>
+  <div>
+      <Footer class="order-last"/>
+    </div>
+    
+      
+    </div>
 </template>
 <script>
 
@@ -34,6 +42,7 @@ import SellVehicle from "../components/Home/SellVehicle.vue";
 import MenuGeneral from "../components/Home/MenuGeneral.vue";
 import InfoGeneral from "../components/Home/InfoGeneral.vue";
 import UneteGeneral from "../components/Home/UneteGeneral.vue";
+import Footer from "../components/Home/Footer.vue";
 export default {
   components:{
     NavGeneral,
@@ -42,7 +51,8 @@ export default {
     SellVehicle,
     MenuGeneral,
     InfoGeneral,
-    UneteGeneral
+    UneteGeneral,
+    Footer
   },
   data() {
     return {
@@ -67,6 +77,7 @@ export default {
   },
 
   methods: {
+
     async getCurrentClient(){
       if(this.currentClient === null){
         this.currentId = "" 

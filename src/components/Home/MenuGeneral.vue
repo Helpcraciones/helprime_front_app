@@ -1,5 +1,5 @@
 <template >
-  <div class="menu w-full grid items-center justify-center fixed right-0 bottom-0 bg-white rounded-t-3xl ">
+  <div class="menu w-full grid items-center justify-center sticky bottom-0 bg-white rounded-t-3xl mt-10">
     <a href="tel:=+573115197673" class="call flex flex-col justify-between items-center">
       <i class="fi fi-rr-phone-call text-primario flex justify-center items-center text-xl"></i>
       <p class="text-texto">Llamame</p>

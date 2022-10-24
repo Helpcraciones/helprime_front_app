@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import HomeView from '../views/HomeView.vue'
+import Agencias from '../views/Agencias.vue'
 import Polizas from "../views/PolizasView.vue"
 import Vehiculos from "../views/VehiculosView.vue"
 import Documento from "../views/DocumentoView.vue"
@@ -20,6 +21,15 @@ const routes = [
     component: HomeView,
     meta:{
       title: 'home',
+      auth: false
+    },
+  },
+  {
+    path: '/agencias',
+    name: 'agencias',
+    component: Agencias,
+    meta:{
+      title: 'agencias',
       auth: false
     },
   },
@@ -127,7 +137,12 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
+  scrollBehavior (to, ) {
+    return {
+      el: to.hash
+    }
+  }
 })
 
 router.beforeEach((to, from, next) =>{

@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full lg:mt-20">
+    <div class="w-full lg:mb-20">
 
         <div class="flex justify-center">
           <p class="hidden lg:block text-4xl text-texto font-light"> Esta informacion <span class="text-primario font-bold">es para ti</span> </p>

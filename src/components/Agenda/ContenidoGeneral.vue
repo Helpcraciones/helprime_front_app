@@ -295,7 +295,7 @@ export default {
   }
 };
 </script>
-<style>
+<style >
 .one{
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
