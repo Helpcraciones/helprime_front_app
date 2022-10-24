@@ -6,7 +6,7 @@
         </div>
         
 
-        <Carousel  :settings="settings" :breakpoints="breakpoints" :wrap-around="true" class="mt-3 lg:mt-10">
+        <Carousel :autoplay="4000"  :settings="settings" :breakpoints="breakpoints" :wrap-around="true" class="mt-3 lg:mt-10">
           <Slide v-for="(banner, index) in this.banners" :key="index" class="pr-2 lg:pr-5 rounded-lg ">
             <div class="bg-white h-48 lg:h-60 w-full rounded-lg">
               <div v-if="this.loading" class="flex justify-center items-center mb-4 h-48 lg:h-60 bg-gray-200 rounded-lg animate-pulse">
