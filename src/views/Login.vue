@@ -72,7 +72,7 @@ export default {
           password: this.loginData.password,
         })
           if(error) throw error
-          router.push("/")
+          router.push("/#categorias")
       } catch (error) {
         if (error){
           console.log(error.message);
