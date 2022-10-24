@@ -5,6 +5,11 @@
 
         <div class=" grid grid-cols-2 lg:grid-cols-6 gap-3 justify-center my-5 w-full">
 
+            <div class="bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out">
+                <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1666649209/APP/e-payment_kmbsv5.png" alt="">
+                <p class="text-primario text-lg  mt-3">E-Card</p>
+            </div>
+
             <router-link to="/mis-vehiculos" class="bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out">
                 <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1661907987/APP/insurance_ttdipo.svg" alt="">
                 <p class="text-primario text-lg  mt-3 text-center">Bitácora</p>
@@ -29,11 +34,6 @@
             <div class=" bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out">
                 <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1653068552/APP/advice_jnkipr.png" alt="">
                 <p class="text-primario text-lg  mt-3">Tips</p>
-            </div>
-
-            <div class="bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out">
-                <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1653068618/APP/asistente-personal_mjqjtt.png" alt="">
-                <p class="text-primario text-lg  mt-3">PQRS</p>
             </div>
             
         </div>

@@ -18,6 +18,10 @@ export default createStore({
     eventChange(state, event ){
       state.eventCurrent = event
     },
+
+    emailRegister(state, email){
+      state.emailHome = email
+    }
   },
   modules: {
   }

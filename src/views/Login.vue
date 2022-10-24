@@ -1,7 +1,13 @@
 <template>
+  <div class="grid grid-cols-1 lg:grid-cols-2 h-screen bg">
 
-  <div class="padding grid grid-cols-1 lg:grid-cols-2 h-screen bg">
-        <div class="w-full flex flex-col justify-center items-center lg:px-10">
+     <div class="h-screen hidden lg:flex justify-center items-center bg-primario bg-opacity-10">
+        <atropos :shadow='false' class="p-10">
+          <img src="https://res.cloudinary.com/vital-seguros/image/upload/v1666648250/APP/104_ojgfo2.png" data-atropos-offset="0" />
+      </atropos>
+      </div>
+
+        <div class="w-full flex flex-col justify-center items-center lg:px-10 lg:max-w-lg mx-auto px-5">
             <div class="w-full flex flex-col items-center justify-center">
                 <i class="fi fi-rr-key text-primario text-7xl flex justify-center items-center"></i>
                 <p class=" text-xl text-primario mt-5 font-semibold">Inicio de sesion</p>
@@ -22,15 +28,26 @@
                 <p class="w-max">Iniciar sesion</p>
             </div>
 
-            <p @click="cancelLogin" class="text-texto font-light text-sm mt-5 underline cursor-pointer select-none">Cancelar inicio</p>
+            <div class=" flex lg:flex-row flex-col justify-around w-full items-center "> 
+              <p @click="register" class="text-texto font-light text-sm mt-5 underline cursor-pointer select-none">No te haz registrado?, Registrate</p>
+
+            <p @click="cancelLogin" class="text-texto font-light text-sm mt-5 underline cursor-pointer select-none">Cancelar ingreso</p>
+            </div>
         </div>
+
     </div>
 </template>
 <script>
+import Atropos from 'atropos/vue';
 import router from '@/router'
 import { supabase } from "../supabase/init"
 
 export default {
+
+  components: {
+      Atropos,
+    },
+
   data() {
     return {
       loginData: {
@@ -62,6 +79,10 @@ export default {
         }
       }
         
+      },
+
+      register(){
+        router.push('/registro')
       },
 
       async cancelLogin(){

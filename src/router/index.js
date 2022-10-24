@@ -34,7 +34,7 @@ const routes = [
     },
   },
   {
-    path: '/register',
+    path: '/registro',
     name: 'register',
     component: Register,
     meta:{

@@ -1,43 +1,47 @@
 <template>
-  <div class="py-10 px-5 relative">
-    <div class="fixed flex text-sm text-red-700 bg-red-100 rounded-lg top-5 right-5 transition-all" :class="this.classDiv" role="alert">
-      <svg aria-hidden="true" :class="this.classText" class="inline flex-shrink-0 mr-3 w-5 h-5 transition-all" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
-      <div class="transition-all" :class="this.classText">
-        <span class="font-medium">Alerta!</span>{{this.textAlert}}
-      </div>
-    </div>
+  <div class="grid grid-cols-1 lg:grid-cols-2 h-screen bg">
 
-    <form class="flex bg-white" @submit.prevent="onSubmit">
-      <div class="w-full">
-        <div class="mb-5 w-full flex flex-col items-center">
-          <i class="mb-2 flex items-center text-7xl text-primario fi fi-rr-users"></i>
-          <h1 class="text-center text-primario font-bold text-xl">Registrate</h1>
-        </div>
-        <div class="mb-5 w-full">
-          <label for="email" class="mb-2 text-texto font-semibold  text-sm">Correo electronico</label>
-          <div class="border-b border-primario">
-            <input name="email" id="email" type="email" placeholder="Ingresa como quieres que te llamemos" v-model="this.registerData.email" class="px-5 py-1 w-full border-none"/> 
-          </div>
-        </div>
-        <div class="mb-5 w-full">
-          <label for="password" class="mb-2 text-texto font-semibold  text-sm">Contraseña</label>
-          <div class="border-b border-primario">
-            <input name="password" id="password" type="password" placeholder="321385****" v-model="this.registerData.password" class="px-5 py-1 w-full border-none"/> 
-          </div>
-        </div>
-        <div class="mb-10 w-full">
-          <label for="confirm_password" class="mb-2 text-texto font-semibold  text-sm">Confirmar contraseña</label>
-          <div class="border-b border-primario">
-            <input name="confirm_password" id="confirm_password" type="password" placeholder="321385****" v-model="this.registerData.confirm_password" class="px-5 py-1 w-full border-none"/> 
-          </div>
-        </div>
-        <button @click="register" class="px-2 py-2 mb-2 w-full text-white bg-primario rounded-lg">Registrarme</button>
-        <router-link to="/login">
-          <p class="text-center text-primario">Inicia sesion</p>
-        </router-link>
+     <div class="h-screen lg:flex hidden justify-center items-center bg-primario bg-opacity-10">
+        <atropos :shadow='false' class="p-10">
+          <img src="https://res.cloudinary.com/vital-seguros/image/upload/v1666648250/APP/104_ojgfo2.png" data-atropos-offset="0" />
+      </atropos>
       </div>
-    </form>
-  </div>
+
+        <div class="w-full flex flex-col justify-center items-center lg:px-10 lg:max-w-lg mx-auto px-5">
+            <div class="w-full flex flex-col items-center justify-center">
+                <i class="fi fi-rr-key text-primario text-7xl flex justify-center items-center"></i>
+                <p class=" text-xl text-primario mt-5 font-semibold">Registrate en esta familia</p>
+                <p class="text-center leading-tight text-texto font-light px-4 mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat autem nulla dolore</p>
+            </div>
+
+            <div class="w-full flex flex-col mt-10">
+                <label for="email" class=" font-light text-primario text-sm">Email</label>
+                <input v-model="this.registerData.email" type="email" name="password" id="email" class="text-texto border-t-0 border-r-0 border-l-0 border-b focus:border-primario border-primario px-4" placeholder="Ingresa tu correo electronico">
+            </div>
+            <div class="w-full flex flex-col my-5">
+                <label for="password" class="text-primario font-light text-sm">Contraseña</label>
+                <input v-model="this.registerData.password" type="password" name="password" id="password" class="text-texto border-t-0 border-r-0 border-l-0 border-b focus:border-primario border-primario px-4" placeholder="Ingresa tu contraseña">
+            </div>
+
+            <div class="w-full flex flex-col my-5">
+                <label for="passwordConfirm" class="text-primario font-light text-sm">Contraseña</label>
+                <input v-model="this.registerData.confirm_password" type="password" name="password" id="passwordConfirm" class="text-texto border-t-0 border-r-0 border-l-0 border-b focus:border-primario border-primario px-4" placeholder="Confirma tu contraseña">
+            </div>
+            
+
+            <div @click="register" class="bg-primario text-white w-full flex justify-center items-center border-primario px-4 py-3 rounded-lg mt-5 cursor-pointer">
+                <p class="w-max">Registrarte</p>
+            </div>
+
+            <div class=" flex justify-around w-full lg:flex-row flex-col items-center"> 
+              <p @click="login" class="text-texto font-light text-sm mt-5 underline cursor-pointer select-none">Ya tienes cuenta?, Ingresa</p>
+
+            <p @click="cancelRegister" class="text-texto font-light text-sm mt-5 underline cursor-pointer select-none">Cancelar registro</p>
+            </div>
+
+        </div>
+
+    </div>
 </template>
 <script>
 import router from '@/router'
@@ -61,15 +65,26 @@ export default {
   },
 
   mounted() {
+    console.log(this.emailHome);
     if(supabase.auth.user()){
       router.push('/')
     }
+      this.emailChange()
   },
 
   methods: {
+
+    emailChange(){
+      if(this.emailHome != ""){
+        this.registerData.email = this.emailHome
+      } else{
+        this.registerData.email = ""
+      }
+    },
+
     async register(){
        this.verifyData()
-      if (!this.verify) {
+       if (!this.verify) {
         console.log("registrado");
         try{
           let {error } = await supabase.auth.signUp({
@@ -82,23 +97,18 @@ export default {
             console.log(error.message)
         }
       }
-      /* if(this.password === this.confirmPassword){
-        console.log(this.email, this.password, this.confirmPassword)
-        this.verify = false
-        try{
-          let {error } = await supabase.auth.signUp({
-            email: this.email,
-            password: this.confirmPassword
-          })
-          if(error) throw error;
-        }catch(error){
-            console.log(error.message)
-        }
-      }else {
-        this.verify = true
-        console.log("Estoy mal")
-      }  */
+
     },
+
+    async cancelRegister(){
+        const { error } = await supabase.auth.signOut()
+        router.push('/')
+        console.log(error);
+      },
+
+      async login(){
+        router.push('/login')
+      },
 
     verifyData(){
       if (this.registerData.email && this.registerData.password && this.registerData.confirm_password) {
@@ -133,6 +143,12 @@ export default {
           this.classText = "hidden"
         }, 5000);
       }
+    }
+  },
+
+  computed: {
+    emailHome(){
+      return this.$store.state.emailHome
     }
   },
 }
