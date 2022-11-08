@@ -1,10 +1,243 @@
 <template >
-  <div>
+  <div class="">
     <NavGeneral />
 
-    <button @click="recoveyPassword" class="py-3 w-full flex justify-center border font-semibold border-primario text-primario rounded-xl">Recuperar password</button>
+    <div class="padding">
+          <div class="flex flex-col justify-center items-center mt-10">
+      <div v-if="this.user.suscription_helprime === 'premium' " class="p-2 rounded-full border-yellow-400 border-4 relative">
+        <div class="rounded-full h-32 w-32 bg-yellow-400 bg-opacity-10 flex justify-center items-center">
+          <i class="fi fi-rr-man-head flex justify-center items-center text-5xl text-yellow-400"></i>
+        </div>
+        <div class="absolute bg-yellow-400 p-2 rounded-full right-2 bottom-0.5 border-2 border-yellow-400">
+          <i class="fi fi-rr-star flex justify-center items-center text-white text-xl"></i>
+        </div>
+      </div>
 
-    <button @click="signOut" class="py-3 w-full flex justify-center border font-semibold border-primario text-primario rounded-xl">Cerrar sesion</button>
+      <div v-else-if="this.user.suscription_helprime === 'basic' " class="p-2 rounded-full border-green-400 border-4 relative">
+        <div class="rounded-full h-32 w-32 bg-green-400 bg-opacity-10 flex justify-center items-center">
+          <i class="fi fi-rr-man-head flex justify-center items-center text-5xl text-green-400"></i>
+        </div>
+        <div class="absolute bg-green-400 p-2 rounded-full right-2 bottom-0.5 border-2 border-green-400">
+          <i class="fi fi-rr-crown flex justify-center items-center text-white text-xl"></i>
+        </div>
+      </div>
+
+      <div v-else class="p-2 rounded-full border-gray-400 border-4">
+        <div class="rounded-full h-32 w-32 bg-gray-400 bg-opacity-10 flex justify-center items-center">
+          <i class="fi fi-rr-man-head flex justify-center items-center text-5xl text-gray-400"></i>
+        </div>
+      </div>
+
+
+      <div v-if="this.loading" class="flex flex-col items-center my-5 w-full">
+        <input class="text-textoOscuro text-lg font-medium leading-none one w-full text-center flex justify-center" v-model="this.user.fullname" spellcheck="false">
+        <p class="text-texto font-light">{{this.user.alias}}</p>
+      </div>
+
+      <div v-else  class="max-w-sm animate-pulse flex flex-col items-center my-5">
+          <div class="h-2.5 bg-gray-200 rounded-full  w-48 mb-3"></div>
+          <div class="h-2.5 bg-gray-200 rounded-full  w-28 mb-1"></div>
+      </div>
+
+
+    </div>
+
+
+<div class="my-5">
+    <button type="button" @click="this.collapse = !this.collapse" class="flex items-center justify-between w-full py-5 font-medium text-left border-b  border-gray-300  rounded-t-xl">
+      <span class="text-texto font-light">Informacion general</span>
+      <i v-if="this.collapse" class="fi fi-rr-angle-small-up flex justify-center items-center text-texto"></i>
+      <i v-else class="fi fi-rr-angle-small-down flex justify-center items-center text-texto"></i>
+    </button>
+
+  <div v-if="this.collapse" class="flex flex-col px-2" >
+    <label  class="flex flex-col focus:border-transparent border-b border-primario mt-5">
+      <p class="text-texto font-light text-sm">Nombre completo</p>
+      <input type="text" v-model="this.user.fullname" class="border-none text-texto  focus:text-primario " spellcheck="false">
+    </label>
+    <label  class="flex flex-col focus:border-transparent border-b border-primario mt-5">
+      <p class="text-texto font-light text-sm">Como te llamaremos</p>
+      <input type="text" v-model="this.user.alias" class="border-none text-texto  focus:text-primario " spellcheck="false">
+    </label>
+    <label  class="flex flex-col focus:border-transparent border-b border-primario mt-5">
+      <p class="text-texto font-light text-sm">Numero de contacto</p>
+      <input type="text" v-model="this.user.contact_number" class="border-none text-texto  focus:text-primario " spellcheck="false">
+    </label>
+    <label  class="flex flex-col focus:border-transparent border-b border-primario mt-5">
+      <p class="text-texto font-light text-sm">Email</p>
+      <input type="text" v-model="this.user.email" class="border-none text-texto text-opacity-50  focus:text-primario " spellcheck="false" disabled>
+    </label>
+    <label  class="flex flex-col focus:border-transparent border-b border-primario mt-5">
+      <p class="text-texto font-light text-sm">No. de identificacion</p>
+      <input type="text" v-model="this.user.document" class="border-none text-texto  focus:text-primario text-opacity-50 " spellcheck="false" disabled>
+    </label>
+
+    <button @click="updateClient" class='py-2 w-full bg-primario bg-opacity-10 text-primario rounded-lg my-5 hover:bg-opacity-100 transition-all duration-300 hover:text-white flex justify-center' >Actualizar datos</button>
+    
+  </div>
+
+</div>
+
+<div class="mt-5 mb-10">
+    <button type="button" @click="this.collapse2 = !this.collapse2" class="flex items-center justify-between w-full py-5 font-medium text-left border-b  border-gray-300  rounded-t-xl">
+      <span class="text-texto font-light">Subscripcion actual</span>
+      <i v-if="this.collapse2" class="fi fi-rr-angle-small-up flex justify-center items-center text-texto"></i>
+      <i v-else class="fi fi-rr-angle-small-down flex justify-center items-center text-texto"></i>
+    </button>
+
+  <div v-if="this.collapse2" class="flex flex-col px-2" >
+    <div class=" bg-gray-100 p-5 rounded-lg mt-5">
+      <div class="flex w-full items-center justify-between">
+        <div class="flex items-center">
+          <i class="fi fi-rr-kite text-4xl flex justify-center items-center text-texto mr-2"></i>
+          <div>
+            <p class="text-2xl text-texto font-semibold">Basico</p>
+            <p class="text-sm leading-none text-texto"><span class="font-bold">2</span> servicios incluidos</p>
+          </div>
+        </div>
+        <p class="text-texto font-bold">GRATIS</p>
+      </div>
+      <div class="w-full mx-auto border-b border-gray-300 my-5"></div>
+
+      <div class="flex mb-2">
+        <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-secundario"></i>
+        <p class="font-light text-texto">Prioridad de servicio</p> 
+    </div>
+
+    <div class="flex mb-2">
+        <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-secundario"></i>
+        <p class="font-light text-texto">Prioridad de servicio</p> 
+    </div>
+
+    <div class="flex mb-2">
+        <i class="fi fi-rr-cross-circle flex justify-center items-center mr-5 text-texto"></i>
+        <p class="font-light text-texto">Prioridad de servicio</p> 
+    </div>
+
+    <div class="flex mb-2">
+        <i class="fi fi-rr-cross-circle flex justify-center items-center mr-5 text-texto"></i>
+        <p class="font-light text-texto">Prioridad de servicio</p> 
+    </div>
+
+    <div class="flex mb-2">
+        <i class="fi fi-rr-cross-circle flex justify-center items-center mr-5 text-texto"></i>
+        <p class="font-light text-texto">Prioridad de servicio</p> 
+    </div>
+
+    <div class="w-full mx-auto border-b border-gray-300 my-5"></div>
+
+    <button class='py-2 w-full bg-gray-200 text-texto rounded-lg hover:bg-opacity-100 transition-all duration-300 hover:text-white flex justify-center' >Comienza gratis ahora </button>
+    
+
+    </div>
+
+    <div class=" bg-gray-900 p-5 rounded-lg mt-5 ">
+      <div class="flex w-full items-center justify-between">
+        <div class="flex items-center">
+          <i class="fi fi-rr-star text-4xl flex justify-center items-center text-yellow-400 mr-2"></i>
+          <div>
+            <p class="text-2xl text-white font-semibold">Premium</p>
+            <p class="text-sm leading-none text-white"><span class="font-bold">5</span> servicios incluidos</p>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <p class="text-white font-bold text-3xl ">25K</p>
+          <p class="text-white font-light text-sm">Mensual</p>
+        </div>
+      </div>
+      <div class="w-full mx-auto border-b border-gray-300 my-5"></div>
+
+      <div class="flex mb-2">
+        <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-yellow-400"></i>
+        <p class="font-light text-white">Prioridad de servicio</p> 
+    </div>
+
+    <div class="flex mb-2">
+        <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-yellow-400"></i>
+        <p class="font-light text-white">Prioridad de servicio</p> 
+    </div>
+
+    <div class="flex mb-2">
+        <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-yellow-400"></i>
+        <p class="font-light text-white">Prioridad de servicio</p> 
+    </div>
+
+    <div class="flex mb-2">
+        <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-yellow-400"></i>
+        <p class="font-light text-white">Prioridad de servicio</p> 
+    </div>
+
+    <div class="flex mb-2">
+        <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-yellow-400"></i>
+        <p class="font-light text-white">Prioridad de servicio</p> 
+    </div>
+
+    <div class="w-full mx-auto border-b border-gray-300 my-5"></div>
+
+    <button class='py-2 w-full bg-yellow-400 text-textoOscuro rounded-lg hover:bg-opacity-100 transition-all duration-300 hover:text-white flex justify-center' >Elegir este plan </button>
+    
+
+    </div>
+
+    <div class=" bg-gray-100 p-5 rounded-lg mt-5">
+      <div class="flex w-full items-center justify-between">
+        <div class="flex items-center">
+          <i class="fi fi-rr-crown flex justify-center items-center text-4xl mr-3 text-green-400"></i>
+          <div>
+            <p class="text-2xl text-texto font-semibold">Basico</p>
+            <p class="text-sm leading-none text-texto"><span class="font-bold">3</span> servicios incluidos</p>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <p class="text-texto font-bold text-3xl ">10K</p>
+          <p class="text-texto font-light text-sm">Mensual</p>
+        </div>
+      </div>
+      <div class="w-full mx-auto border-b border-gray-300 my-5"></div>
+
+      <div class="flex mb-2">
+        <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-secundario"></i>
+        <p class="font-light text-texto">Prioridad de servicio</p> 
+    </div>
+
+    <div class="flex mb-2">
+        <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-secundario"></i>
+        <p class="font-light text-texto">Prioridad de servicio</p> 
+    </div>
+
+    <div class="flex mb-2">
+        <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-secundario"></i>
+        <p class="font-light text-texto">Prioridad de servicio</p> 
+    </div>
+
+    <div class="flex mb-2">
+        <i class="fi fi-rr-cross-circle flex justify-center items-center mr-5 text-texto"></i>
+        <p class="font-light text-texto">Prioridad de servicio</p> 
+    </div>
+
+    <div class="flex mb-2">
+        <i class="fi fi-rr-cross-circle flex justify-center items-center mr-5 text-texto"></i>
+        <p class="font-light text-texto">Prioridad de servicio</p> 
+    </div>
+
+    <div class="w-full mx-auto border-b border-gray-300 my-5"></div>
+
+    <button class='py-2 w-full bg-gray-200 text-texto rounded-lg hover:bg-opacity-100 transition-all duration-300 hover:text-white flex justify-center' >Elegir este plan</button>
+    
+
+    </div>
+  </div>
+
+</div>
+
+    <button @click="signOut" class="py-3 w-full bg-primario bg-opacity-10 text-primario rounded-lg hover:bg-opacity-100 transition-all duration-300 hover:text-white flex justify-center">Cerrar sesion</button>
+
+    <button @click="recoveyPassword" class="text-center mx-auto w-full mt-5 mb-10 underline text-texto text-sm font-light"> Olvidaste tu contraseña? Recuperala ahora</button>
+
+    </div>
+
+
+
   </div>
 </template>
 <script>
@@ -16,13 +249,23 @@ export default {
     NavGeneral
   },
 
+  data() {
+    return {
+      user: {},
+      loading: false,
+      collapse: false,
+      collapse2: true,
+      table: undefined
+    }
+  },
+
   created() {
     if (this.userAuth === null) {
       this.userAuth = {}
       router.push("/login")
-    } else {
-      console.log(this.userAuth.user.email)
     }
+    this.loading = false
+    this.getCurrentClient()
   },
 
   methods: {
@@ -33,10 +276,69 @@ export default {
     },
 
     async recoveyPassword(){
-      
       const { data, error } = await supabase.auth.api.resetPasswordForEmail(this.userAuth.user.email)
       console.log(data, error);
     },
+
+    async getCurrentClient(){
+      try {
+        const { data, error } = await supabase
+        .from('clients_helprime')
+        .select('*')
+        .eq('id', this.userAuth.user.id)
+        if(error) throw error
+        if (data.length <= 0) {
+          this.user = {}
+          this.getCurrentClientAgencies()
+        } else {
+          this.table = "clients_helprime"
+          this.user = data[0]
+          this.user.alias = data[0].alias.toUpperCase()
+          console.log(this.user);
+          setTimeout(() => {
+            this.loading = true
+          }, 400);
+        }
+      } catch (error) {
+        if(error){
+          console.log(error);
+        }
+      }
+    },
+
+    async getCurrentClientAgencies(){
+     try {
+        const { data, error } = await supabase
+          .from('clients_agencies')
+          .select('*')
+          .eq('id', this.userAuth.user.id)
+          if (error) throw error
+          console.log('soy de las agencias');
+          this.table = "clients_agencies"
+          this.user = data[0]
+          this.user.alias = data[0].alias.toUpperCase()
+          console.log(this.user);
+        } catch (error) {
+          if(error){
+            console.log(error);
+          }
+     }
+    },
+
+    async updateClient(){
+      const { error } = await supabase
+      .from(this.table)
+      .update(
+        {
+            fullname: this.user.fullname,
+            alias: this.user.alias,
+            contact_number: this.user.contact_number,
+            suscription_helprime: this.user.suscription_helprime
+        }
+        )
+      .eq('id', this.userAuth.user.id)
+      this.getCurrentClient()
+    }
 
   },
 

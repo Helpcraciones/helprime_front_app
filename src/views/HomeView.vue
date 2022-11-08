@@ -32,8 +32,6 @@
     </div>
 </template>
 <script>
-
-import router from '@/router'
 import { supabase } from "../supabase/init"
 import NavGeneral from "../components/Home/NavGeneral.vue";
 import BannerGeneral from "../components/Home/BannerGeneral.vue";
