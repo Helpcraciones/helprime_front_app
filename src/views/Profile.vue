@@ -294,7 +294,9 @@ export default {
           this.table = "clients_helprime"
           this.user = data[0]
           this.user.alias = data[0].alias.toUpperCase()
-          
+          setTimeout(() => {
+            this.loading = true
+          }, 400);
         }
       } catch (error) {
         if(error){
