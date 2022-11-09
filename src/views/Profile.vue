@@ -126,7 +126,7 @@
 
     <div class="w-full mx-auto border-b border-gray-300 my-5"></div>
 
-    <button class='py-2 w-full bg-gray-200 text-texto rounded-lg hover:bg-opacity-100 transition-all duration-300 hover:text-white flex justify-center' >Comienza gratis ahora </button>
+    <button @click="suscription(1)" class='py-2 w-full bg-gray-200 text-texto rounded-lg hover:bg-opacity-100 transition-all duration-300 hover:text-white flex justify-center' >Comienza gratis ahora </button>
     
 
     </div>
@@ -174,7 +174,7 @@
 
     <div class="w-full mx-auto border-b border-gray-300 my-5"></div>
 
-    <button class='py-2 w-full bg-yellow-400 text-textoOscuro rounded-lg hover:bg-opacity-100 transition-all duration-300 hover:text-white flex justify-center' >Elegir este plan </button>
+    <button @click="suscription(2)"  class='py-2 w-full bg-yellow-400 text-textoOscuro rounded-lg hover:bg-opacity-100 transition-all duration-300 hover:text-white flex justify-center' >Elegir este plan </button>
     
 
     </div>
@@ -222,7 +222,7 @@
 
     <div class="w-full mx-auto border-b border-gray-300 my-5"></div>
 
-    <button class='py-2 w-full bg-gray-200 text-texto rounded-lg hover:bg-opacity-100 transition-all duration-300 hover:text-white flex justify-center' >Elegir este plan</button>
+    <button @click="suscription(3)"  class='py-2 w-full bg-gray-200 text-texto rounded-lg hover:bg-opacity-100 transition-all duration-300 hover:text-white flex justify-center' >Elegir este plan</button>
     
 
     </div>
@@ -294,10 +294,7 @@ export default {
           this.table = "clients_helprime"
           this.user = data[0]
           this.user.alias = data[0].alias.toUpperCase()
-          console.log(this.user);
-          setTimeout(() => {
-            this.loading = true
-          }, 400);
+          
         }
       } catch (error) {
         if(error){
@@ -317,6 +314,9 @@ export default {
           this.table = "clients_agencies"
           this.user = data[0]
           this.user.alias = data[0].alias.toUpperCase()
+          setTimeout(() => {
+            this.loading = true
+          }, 400);
           console.log(this.user);
         } catch (error) {
           if(error){
@@ -338,6 +338,42 @@ export default {
         )
       .eq('id', this.userAuth.user.id)
       this.getCurrentClient()
+    },
+
+    async suscription(status){
+      if(status === 1){
+        const { error } = await supabase
+        .from(this.table)
+        .update(
+        {
+            suscription_helprime: "free"
+        }
+        )
+      .eq('id', this.userAuth.user.id)
+      this.getCurrentClient()
+      } else if( status === 2){
+         const { error } = await supabase
+        .from(this.table)
+        .update(
+        {
+            suscription_helprime: "premium"
+        }
+        )
+      .eq('id', this.userAuth.user.id)
+      this.getCurrentClient()
+      } else if(status === 3){
+         const { error } = await supabase
+        .from(this.table)
+        .update(
+        {
+            suscription_helprime: "basic"
+        }
+        )
+      .eq('id', this.userAuth.user.id)
+      this.getCurrentClient()
+      } else{
+
+      }
     }
 
   },
