@@ -1,14 +1,13 @@
 <template >
   <div class="">
     <NavGeneral />
-
     <div class="padding">
-          <div class="flex flex-col justify-center items-center mt-10">
+      <div class="flex flex-col justify-center items-center mt-10">
       <div v-if="this.user.suscription_helprime === 'premium' " class="p-2 rounded-full border-yellow-400 border-4 relative">
         <div class="rounded-full h-32 w-32 bg-yellow-400 bg-opacity-10 flex justify-center items-center">
           <i class="fi fi-rr-man-head flex justify-center items-center text-5xl text-yellow-400"></i>
         </div>
-        <div class="absolute bg-yellow-400 p-2 rounded-full right-2 bottom-0.5 border-2 border-yellow-400">
+        <div class="absolute bg-yellow-400 p-2 rounded-full right-2 bottom-0.5 border-2 border-yellow-400"> 
           <i class="fi fi-rr-star flex justify-center items-center text-white text-xl"></i>
         </div>
       </div>
@@ -235,9 +234,6 @@
     <button @click="recoveyPassword" class="text-center mx-auto w-full mt-5 mb-10 underline text-texto text-sm font-light"> Olvidaste tu contraseña? Recuperala ahora</button>
 
     </div>
-
-
-
   </div>
 </template>
 <script>

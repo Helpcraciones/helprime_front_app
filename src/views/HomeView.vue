@@ -1,5 +1,6 @@
 <template>
 <div>
+
   <div class=" lg:mb-16 max-w-7xl lg:mx-auto flex flex-col">
     <NavGeneral class="order-1"/>
 
@@ -54,6 +55,7 @@ export default {
   },
   data() {
     return {
+      time: undefined,
       user: {},
       currentId: "",
       active: undefined
