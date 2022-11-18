@@ -273,7 +273,6 @@ export default {
 
     async recoveyPassword(){
       const { data, error } = await supabase.auth.api.resetPasswordForEmail(this.userAuth.user.email)
-      console.log(data, error);
     },
 
     async getCurrentClient(){
