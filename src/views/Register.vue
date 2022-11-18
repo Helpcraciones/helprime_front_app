@@ -91,7 +91,7 @@ export default {
             email: this.registerData.email,
             password: this.registerData.password
           })
-          router.push('/perfil')
+          router.push('/')
           if(error) throw error;
         }catch(error){
             console.log(error.message)

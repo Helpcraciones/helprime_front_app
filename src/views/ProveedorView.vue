@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="max-w-7xl mx-auto">
     <NavGeneral />
     <ProveedorInfo />
   </div>
