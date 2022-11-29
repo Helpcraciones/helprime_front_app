@@ -131,7 +131,7 @@
     <Carousel  ref="galeria"  :wrap-around="true" class="h-screen w-full">
         <Slide v-for="img in this.imgs" :key="img.id" class="h-screen w-full" @click="this.modalGalery=true">
           <div class="bg-white h-max w-full ">
-            <img :src="img.url" alt="Imagen de galeria" class="object-cover h-full w-full">
+            <img :src="img.url" alt="Imagen de galeria" class="object-cover h-screen w-auto mx-auto">
           </div>
         </Slide>
       </Carousel>

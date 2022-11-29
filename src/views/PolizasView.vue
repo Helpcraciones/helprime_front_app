@@ -2,15 +2,12 @@
   <div class=" h-full mb-5 max-w-7xl mx-auto">
     <NavGeneral/>
     <div class="padding">
-
       <!-- Seccion saludo -->
-
       <div class="pt-8">
         <p class="text-texto">{{this.dateCurrent}}</p>
         <p class="text-texto text-xl font-semibold leading-none">Cristiano Ronaldo</p>
       </div>
-
-
+      
     <div class="flex flex-col lg:grid lg:grid-cols-2 lg:gap-5">
       <div class="bg-green-500 bg-opacity-10 w-full mt-5 rounded-2xl flex justify-start  items-center px-5 py-5">
 
