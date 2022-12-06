@@ -2,8 +2,7 @@
     <div class="padding pt-3 lg:pt-5 flex justify-between items-center">
         <router-link to="/">
         <img src="https://res.cloudinary.com/vital-seguros/image/upload/v1661897865/APP/logo-01_etyrwc.svg" alt="Logo vital seguros" @click="toggleColor" class="h-7 lg:h-8  "></router-link>
-        
-
+    
             <div class="lg:flex hidden gap-3 text-texto">
                  <router-link to="/" class="hover:text-primario transform transition-all duration-300 hover:scale-105 ">Inicio</router-link>
                  <div class="border-primario border-r"></div>

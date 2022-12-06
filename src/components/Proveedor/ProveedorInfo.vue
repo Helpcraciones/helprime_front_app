@@ -58,8 +58,11 @@
   <p class="mt-10 pl-5 text-texto font-bold">Galeria</p>
     <Carousel ref="galeria"  :settings="settings" :breakpoints="breakpoints" :wrap-around="true" class="pl-5 lg:pl-0 mt-3">
         <Slide v-for="img in this.imgs" :key="img.id" class="mr-3" @click="this.modalGalery = true">
-          <div class="bg-white h-36 lg:h-80 w-full rounded-xl">
-            <img :src="img.url" alt="Imagen de galeria" class="object-cover h-full w-full rounded-xl">
+          <div v-if="this.loading" class="flex justify-center items-center py-4 h-40 lg:h-60 bg-gray-200 rounded-lg animate-pulse w-full">
+                  <i class="fi fi-rr-picture text-5xl text-gray-100 flex justify-center items-center"></i>  
+          </div>
+          <div v-else class="bg-white h-40 lg:h-80 w-full rounded-xl">
+            <img :src="img.signedURL" alt="Imagen de galeria" class="object-cover h-full w-full rounded-xl">
           </div>
         </Slide>
 
@@ -130,8 +133,8 @@
 
     <Carousel  ref="galeria"  :wrap-around="true" class="h-screen w-full">
         <Slide v-for="img in this.imgs" :key="img.id" class="h-screen w-full" @click="this.modalGalery=true">
-          <div class="bg-white h-max w-full ">
-            <img :src="img.url" alt="Imagen de galeria" class="object-cover h-screen w-auto mx-auto">
+          <div class="bg-white h-max w-full p-5">
+            <img :src="img.signedURL" alt="Imagen de galeria" class="object-cover h-auto w-screen lg:h-screen lg:w-auto mx-auto">
           </div>
         </Slide>
       </Carousel>
@@ -152,17 +155,11 @@ export default {
   },
   
     data: () => ({
-      
       loader: true,
       imgProfile: "",
       currentInfo : "",
-      imgs: [
-      {id:1, url:""},
-      {id:2, url:""},
-      {id:3, url:""},
-      {id:4, url:""},
-      {id:5, url:""},
-      ],
+      loading: true,
+      imgs: [],
       currentClass: "",
       toggleVer: "",
       modalGalery : false,
@@ -188,6 +185,7 @@ export default {
   }),
 
   async created() {
+    this.loading = true
     this.currentId = this.$route.params.id;
     await this.scroll()
     this.toggleVer = false;
@@ -255,23 +253,17 @@ export default {
       }
     },
 
+
     async getGalery(){
-      for (let index = 1; index <= this.imgs.length; index++) {
-        try {
-          const { signedURL, error } = await supabase.storage.from('proveedores').createSignedUrl(`${this.currentId}/galery/galeryimg${index}`, 60)
-          this.imgs.forEach(img => {
-            if (img.id == index) {
-              img.url = signedURL
-            }
-          });
-          this.loader = false
-          if(error) throw error;
-        } catch (error) {
-          if (error) {
-            this.loader = true
-          }
-        }
-      }
+      console.log(this.currentId);
+      const { data, error } = await supabase.storage
+      .from('proveedores')
+      .createSignedUrls([`${this.currentId}/galery/galeryimg1`, `${this.currentId}/galery/galeryimg2`,`${this.currentId}/galery/galeryimg3`, `${this.currentId}/galery/galeryimg4`, `${this.currentId}/galery/galeryimg5`], 60)
+      console.log(data);
+      this.imgs = data
+      setTimeout(() => {
+        this.loading = false
+      }, 500);
     },
 
     async getCity(){

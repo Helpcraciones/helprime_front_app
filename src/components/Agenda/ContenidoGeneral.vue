@@ -45,12 +45,6 @@
             </div>
           </div>
         </div>
-
-    
-
-
-
-
     <div class="w-full mb-10 lg:mt-10">
       <div v-if="this.proveedores.length != 0" class="grid grid-cols-1 lg:grid-cols-3 gap-5 ">
         <div v-for="(proveedor,index) in this.proveedores" :key="index">
@@ -80,6 +74,8 @@
       </div>
       
     </div>
+
+  
 
 
   </div>

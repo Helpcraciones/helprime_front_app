@@ -3,10 +3,7 @@
 
   <div class=" lg:mb-16 max-w-7xl lg:mx-auto flex flex-col">
     <NavGeneral class="order-1"/>
-
     <InfoGeneral class="order-2"/>
-
-
     <!-- Seccion de saludo personalizado -->
     <div v-if="this.active"  class="order-3 padding my-7 lg:m-0 lg:flex flex-col static lg:fixed top-10 right-10 lg:bg-white lg:p-8 lg:shadow-xl lg:rounded-lg group z-40">
       <div class="relative group">
@@ -15,11 +12,8 @@
       <p class="text-texto leading-none">¿En qué te ayudamos hoy?</p>
       </div>
     </div>
-
     <UneteGeneral class="lg:order-6 order-8"/>
-
     <BannerGeneral class="order-5"/>
-
     <ManagementGeneral class="lg:order-4 order-6"/>
     <SellVehicle class="order-7 hidden"/>
     <MenuGeneral class="lg:hidden flex order-last" />
