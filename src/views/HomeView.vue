@@ -133,6 +133,7 @@
         </div>
     </div> 
   </div>
+
     <div class="p-4 mb-4  rounded-lg " :class="this.color">
       <i class="fi fi-rr-exclamation flex justify-center items-center mr-3"></i>
       <p>{{this.alert}}</p>
@@ -140,6 +141,7 @@
     </div>
 </template>
 <script>
+import emailjs from '@emailjs/browser';
 import { supabase } from "../supabase/init"
 import NavGeneral from "../components/Home/NavGeneral.vue";
 import BannerGeneral from "../components/Home/BannerGeneral.vue";
@@ -183,6 +185,7 @@ export default {
           contact_number: "",
           billing_email: ""
       },
+      sendData: {},
       color: "hidden"
     };
   },
@@ -310,6 +313,9 @@ export default {
         setTimeout(() => {
           this.color= "hidden"
         }, 5000);
+        this.sendData.to_name = this.createData.fullname
+        this.sendData.email = this.currentClient.user.email
+        emailjs.send('service_5njuyze', 'template_4qiipug', this.sendData, 'pfz8wFvetYK3c-deO')
         if (error) throw error
         } catch (error) {
           if(error){

@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@chenfengyuan/vue-countdown": "^2.1.0",
+    "@emailjs/browser": "^3.10.0",
     "@flaticon/flaticon-uicons": "^1.7.0",
     "@supabase/supabase-js": "^1.35.4",
     "atropos": "^1.0.2",
