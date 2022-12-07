@@ -255,11 +255,9 @@ export default {
 
 
     async getGalery(){
-      console.log(this.currentId);
       const { data, error } = await supabase.storage
       .from('proveedores')
       .createSignedUrls([`${this.currentId}/galery/galeryimg1`, `${this.currentId}/galery/galeryimg2`,`${this.currentId}/galery/galeryimg3`, `${this.currentId}/galery/galeryimg4`, `${this.currentId}/galery/galeryimg5`], 60)
-      console.log(data);
       this.imgs = data
       setTimeout(() => {
         this.loading = false
