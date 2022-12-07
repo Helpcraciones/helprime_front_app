@@ -14,19 +14,21 @@
                 <p class="text-center leading-tight text-texto font-light px-4 mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat autem nulla dolore</p>
             </div>
 
-            <div class="w-full flex flex-col mt-10">
+            <div class="w-full flex flex-col mt-10 mb-5">
                 <label for="email" class=" font-light text-primario text-sm">Email</label>
                 <input v-model="this.registerData.email" type="email" name="password" id="email" class="text-texto border-t-0 border-r-0 border-l-0 border-b focus:border-primario border-primario px-4" placeholder="Ingresa tu correo electronico">
             </div>
-            <div class="w-full flex flex-col my-5">
+            <div class="w-full flex flex-col">
                 <label for="password" class="text-primario font-light text-sm">Contraseña</label>
-                <input v-model="this.registerData.password" type="password" name="password" id="password" class="text-texto border-t-0 border-r-0 border-l-0 border-b focus:border-primario border-primario px-4" placeholder="Ingresa tu contraseña">
+                <input @change="passwordEqual" v-model="this.registerData.password" type="password" name="password" id="password" class="text-texto border-t-0 border-r-0 border-l-0 border-b focus:border-primario border-primario px-4" placeholder="Ingresa tu contraseña">
             </div>
 
             <div class="w-full flex flex-col my-5">
                 <label for="passwordConfirm" class="text-primario font-light text-sm">Contraseña</label>
-                <input v-model="this.registerData.confirm_password" type="password" name="password" id="passwordConfirm" class="text-texto border-t-0 border-r-0 border-l-0 border-b focus:border-primario border-primario px-4" placeholder="Confirma tu contraseña">
+                <input @change="passwordEqual" v-model="this.registerData.confirm_password" type="password" name="password" id="passwordConfirm" class="text-texto border-t-0 border-r-0 border-l-0 border-b focus:border-primario border-primario px-4" placeholder="Confirma tu contraseña">
             </div>
+
+            <div v-if="this.registerData.confirm_password != '' " class="mr-auto text-texto font-light text-sm flex items-center"><i v-if="this.alert ==='Las contraseñas no coinciden' " class="fi fi-rr-cross-circle flex justify-center items-end text-red-500"></i> <i v-else class="fi fi-rr-badge-check flex justify-center items-center text-green-500"></i><p class="ml-2">{{this.alert}}</p></div>
             
 
             <div @click="register" class="bg-primario text-white w-full flex justify-center items-center border-primario px-4 py-3 rounded-lg mt-5 cursor-pointer">
@@ -39,6 +41,12 @@
             <p @click="cancelRegister" class="text-texto font-light text-sm mt-5 underline cursor-pointer select-none">Cancelar registro</p>
             </div>
 
+        </div>
+
+        <div :class="this.style" class="absolute  top-5 left-5 rounded-lg shadow-lg transform ease-in-out transition-all duration-300">
+          <div :class="this.text">
+          <i class="fi fi-rr-exclamation flex justify-center items-center"></i> <p class="ml-3">{{this.notification}}</p>
+          </div>
         </div>
 
     </div>
@@ -55,12 +63,10 @@ export default {
         password: "",
         confirm_password: "",
       },
-
-      verify: false,
-      classDiv: "w-0 p-0",
-      classText: "hidden",
-      textAlert: ""
-
+      style: "",
+      text: "sr-only",
+      notification : "",
+      alert : "Las contraseñas no coinciden"
     }
   },
 
@@ -82,22 +88,58 @@ export default {
       }
     },
 
+    passwordEqual(){
+      if(this.registerData.password === this.registerData.confirm_password){
+        this.verify = true
+        this.alert = "Las contraseñas coinciden "
+      } else{
+        this.verify = false
+        this.alert = "Las contraseñas no coinciden"
+      }
+    },
+
     async register(){
-       this.verifyData()
-       if (!this.verify) {
-        console.log("registrado");
+      if(this.verify){
         try{
-          let {error } = await supabase.auth.signUp({
+          const {error } = await supabase.auth.signUp({
             email: this.registerData.email,
             password: this.registerData.password
           })
-          router.push('/')
+          
+        this.notification = "Te haz registrado con éxito"
+        this.style = "bg-green-100 text-green-600 w-max px-5 py-3"
+        this.text = "flex"
+        setTimeout(() => {
+        this.style = "w-0  p-0"
+        this.text = "sr-only"
+         router.push('/') 
+        }, 2000);
+          
+          console.log(error);
           if(error) throw error;
         }catch(error){
-            console.log(error.message)
+          if(error.status === 422){
+            this.notification = 'Unminimo de 6 caracteres'
+            this.style = "bg-yellow-100 text-yellow-600 w-max px-5 py-3"
+            this.text = "flex"
+            setTimeout(() => {
+            this.style = "w-0  p-0"
+            this.text = "sr-only"
+            }, 3000);
+          } else if (error.status === 400){
+            this.notification = 'Usuario ya registrado'
+            this.style = "bg-red-100 text-red-600 w-max px-5 py-3"
+            this.text = "flex"
+            setTimeout(() => {
+            this.style = "w-0  p-0"
+            this.text = "sr-only"
+            router.push("/login")
+            }, 3000);
+          }
         }
+      } else {
+        this.notification = "No se puede hacer el registro, intenta más tarde"
       }
-
     },
 
     async cancelRegister(){
@@ -108,42 +150,7 @@ export default {
 
       async login(){
         router.push('/login')
-      },
-
-    verifyData(){
-      if (this.registerData.email && this.registerData.password && this.registerData.confirm_password) {
-        this.verify = false
-        this.classDiv = "w-0 p-0"
-        this.classText = "hidden"
-
-        if(this.registerData.password === this.registerData.confirm_password){
-          console.log("password igual")
-          this.verify = false
-        }else{
-          this.textAlert = " La contraseña no coincide."
-          this.verify = true
-          this.classDiv = "w-72 p-4"
-          this.classText = "block"
-
-          setTimeout(() => {
-            this.verify = false
-            this.classDiv = "w-0 p-0"
-            this.classText = "hidden"
-          }, 5000);
-        }
-      }else {
-        this.verify = true
-        this.classDiv = "w-72 p-4"
-        this.classText = "block"
-        this.textAlert = " No se admiten campos vacios."
-
-        setTimeout(() => {
-          this.verify = false
-          this.classDiv = "w-0 p-0"
-          this.classText = "hidden"
-        }, 5000);
       }
-    }
   },
 
   computed: {
