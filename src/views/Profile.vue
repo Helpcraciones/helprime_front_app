@@ -306,14 +306,12 @@ export default {
           .select('*')
           .eq('id', this.userAuth.user.id)
           if (error) throw error
-          console.log('soy de las agencias');
           this.table = "clients_agencies"
           this.user = data[0]
           this.user.alias = data[0].alias.toUpperCase()
           setTimeout(() => {
             this.loading = true
           }, 400);
-          console.log(this.user);
         } catch (error) {
           if(error){
             console.log(error);
