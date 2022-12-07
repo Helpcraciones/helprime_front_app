@@ -101,11 +101,11 @@ export default {
     async register(){
       if(this.verify){
         try{
-          const {error } = await supabase.auth.signUp({
+          const {error} = await supabase.auth.signUp({
             email: this.registerData.email,
             password: this.registerData.password
           })
-          
+        if(error) throw error;
         this.notification = "Te haz registrado con éxito"
         this.style = "bg-green-100 text-green-600 w-max px-5 py-3"
         this.text = "flex"
@@ -114,9 +114,7 @@ export default {
         this.text = "sr-only"
          router.push('/') 
         }, 2000);
-          
           console.log(error);
-          if(error) throw error;
         }catch(error){
           if(error.status === 422){
             this.notification = 'Un minimo de 6 caracteres'
