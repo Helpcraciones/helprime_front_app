@@ -25,7 +25,7 @@
 
             <div class="w-full flex flex-col my-5">
                 <label for="passwordConfirm" class="text-primario font-light text-sm">Contraseña</label>
-                <input @change="passwordEqual" v-model="this.registerData.confirm_password" type="password" name="password" id="passwordConfirm" class="text-texto border-t-0 border-r-0 border-l-0 border-b focus:border-primario border-primario px-4" placeholder="Confirma tu contraseña">
+                <input @keyup="passwordEqual" v-model="this.registerData.confirm_password" type="password" name="password" id="passwordConfirm" class="text-texto border-t-0 border-r-0 border-l-0 border-b focus:border-primario border-primario px-4" placeholder="Confirma tu contraseña">
             </div>
 
             <div v-if="this.registerData.confirm_password != '' " class="mr-auto text-texto font-light text-sm flex items-center"><i v-if="this.alert ==='Las contraseñas no coinciden' " class="fi fi-rr-cross-circle flex justify-center items-end text-red-500"></i> <i v-else class="fi fi-rr-badge-check flex justify-center items-center text-green-500"></i><p class="ml-2">{{this.alert}}</p></div>

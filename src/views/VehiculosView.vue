@@ -5,8 +5,8 @@
     </div>
 </template>
 <script>
-import NavGeneral from "../components/Vehiculos/NavGeneral.vue";
-import Vehiculo from "../components/Vehiculos/Vehiculos.vue";
+import NavGeneral from "../components/Vehiculares/NavGeneral.vue";
+import Vehiculo from "../components/Vehiculares/Vehiculos.vue";
 export default {
     components:{
         NavGeneral,

@@ -267,7 +267,6 @@ export default {
   methods: {
     async signOut(){
       await supabase.auth.signOut()
-      console.log(this.$store.state.clientAuth);
       router.push("/")
     },
 
