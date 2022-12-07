@@ -1,12 +1,11 @@
 <template>
     <div class="bg-gray-500 bg-opacity-20 h-screen w-full rounded-t-3xl">
-
         <div class="padding pt-3 flex justify-between items-center">
         <router-link to="/polizas/vehiculares" >
             <i   class="fi fi-rr-arrow-left text-primario text-2xl flex justify-center items-center"></i>
         </router-link>
-        <div class="bg-white text-primario rounded-full px-4 py-1">
-            SOAT
+        <div class="bg-white text-primario rounded-full px-4 py-1 one">
+            {{document.product}}
         </div>
         <i class="fi fi-rr-menu-dots-vertical flex justify-center items-center text-primario"></i>
         </div>
@@ -23,12 +22,11 @@
             </div>
             <div class="w-full flex flex-col justify-start items-start padding">
                 <p class="text-sm text-primario">Placa del vehiculo</p>
-                <p class="text-xl font-bold text-texto">XPK87F COLOMBIA</p>
-                <p class="text-gray-400 font-light">MOTO TVS APACHE 200 FI GRIS NEBULOSA</p>
+                <p class="text-xl font-bold text-texto">{{document.license_plate}} COLOMBIA</p>
             </div>
 
             <div class="padding mt-8">
-                <p class="text-texto font-light leading-tight">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia assumenda deserunt magni fuga, commodi laborum porro iusto voluptatem vero repellendus fugit sapiente illum. Itaque illo facilis in, a sed adipisci?</p>
+                <p class="text-texto font-light leading-tight">{{document.observations}}</p>
             </div>
 
 
@@ -36,10 +34,10 @@
                 <div class="flex flex-col justify-center items-start">
                     <div class="flex items-center">
                         <i class="fi fi-rr-calendar-clock text-primario mr-2 text-xl flex justify-center items-center"></i>
-                        <p class="text-primario font-light">Vigencia:</p>
+                        <p class="text-primario font-light">Vigencia hasta:</p>
                     </div>
                     <p class="text-texto font-semibold text-xl">
-                        24 Dic, 2022
+                        {{document.expiration}}
                     </p>
                 </div>
                 <div>
@@ -49,7 +47,7 @@
                             <p class="text-primario font-light">No. de emergencia:</p>
                         </div>
                         <p class="text-texto font-semibold text-xl">
-                        #444
+                        {{document.emergency_number}}
                     </p>
                     </div>
                 </div>
@@ -66,8 +64,8 @@
                         <i class="fi fi-rr-users text-primario mr-2 text-xl flex justify-center items-center"></i>
                         <p class="text-primario font-light">Proveedor del documento :</p>
                     </div>
-                    <p class="text-texto font-semibold text-xl">
-                        Seguros del estado
+                    <p class="text-texto font-semibold text-xl one">
+                        {{document.insurance_company}}
                     </p>
                 </div>
             </div>
@@ -80,13 +78,13 @@
                 <div class="flex flex-col justify-center items-start">
                     <div class="flex items-center">
                         <i class="fi fi-rr-following text-primario mr-2 text-xl flex justify-center items-center"></i>
-                        <p class="text-primario font-light">Proveedor del documento :</p>
+                        <p class="text-primario font-light">Asesor comercial :</p>
                     </div>
                     <p class="text-texto font-semibold text-xl">
-                        Diego Cardenaz
+                        {{this.manager.fullname}}
                     </p>
                     <p class="text-texto font-light leading-tight">
-                        3144049124
+                        {{this.manager.whatsapp}}
                     </p>
                 </div>
             </div>
@@ -108,20 +106,78 @@
                 </div>
 
             </div>
-             <iframe src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/00008475OPT.PDF?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvMDAwMDg0NzVPUFQuUERGIiwiaWF0IjoxNjYzMzE5MDczLCJleHAiOjE5Nzg2NzkwNzN9.1kpniSPs91dP6AlAgeAWurTEgU0Ks62NmXBJFE-PyWI" class="w-full h-full "></iframe>
+             <iframe :src="this.pdf" class="w-full h-screen "></iframe>
            </div>
         
 
     </div>
 </template>
 <script>
-
+import { supabase } from "../supabase/init"
+import router from '@/router'
 export default {
     data() {
         return {
-            file: false
+            file: false,
+            document: {},
+            manager: {}
         }
     },
+    async created() {
+        this.currentId = this.$route.params.id;
+        await this.getPolicy()
+        await this.getManager()
+        await this.downloadPdf()
+    },
+
+    methods: {
+        async getPolicy(){
+            try {
+                const { data, error } = await supabase
+                .from('policies')
+                .select('*')
+                .eq('id', this.currentId)
+                this.document = data[0]
+                this.policyId = this.document.id
+                console.log(this.document);
+            } catch (error) {
+                if(error){
+                console.log(error);
+                }
+            }
+        },
+
+        async getManager(){
+            try {
+                const { data, error } = await supabase
+                .from('users_agencies')
+                .select('*')
+                .eq('id', this.document.business_manager_id)
+                this.manager = data[0]
+                console.log(this.manager);
+            } catch (error) {
+                if(error){
+                console.log(error);
+                }
+            }
+        },
+
+        async downloadPdf(){
+            try {
+                const { signedURL, error } = await supabase.storage.from('policies').createSignedUrl(`${this.currentClient.id}/${this.policyId}/document`, 60)
+                this.pdf = signedURL
+                if(error) throw error;
+            } catch (error) {
+                console.log(error.message)
+            }
+    },
+    },
+
+    computed:{
+    currentClient(){
+      return this.$store.state.clientAuth.user
+    }
+  }
 }
 </script>
 <style scoped>

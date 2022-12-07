@@ -162,7 +162,7 @@
             </div>
           </div>
           <div @click="deleteFav(fav.id)" class="flex justify-center items-center p-3">
-              <i class="fi fi-rr-heart text-red-600 text-2xl flex justify-center items-center"></i>
+              <i class="fi fi-sr-heart text-red-600 text-2xl flex justify-center items-center"></i>
           </div>
         </div>
       </div>
@@ -310,7 +310,6 @@ export default {
     },
 
     async deleteFav(id){
-      console.log(id);
       const { error } = await supabase
         .from("policies")
         .update(
