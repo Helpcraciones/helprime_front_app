@@ -119,7 +119,7 @@ export default {
           if(error) throw error;
         }catch(error){
           if(error.status === 422){
-            this.notification = 'Unminimo de 6 caracteres'
+            this.notification = 'Un minimo de 6 caracteres'
             this.style = "bg-yellow-100 text-yellow-600 w-max px-5 py-3"
             this.text = "flex"
             setTimeout(() => {
