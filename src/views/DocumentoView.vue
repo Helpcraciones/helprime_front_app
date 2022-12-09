@@ -22,7 +22,7 @@
             </div>
             <div class="w-full flex flex-col justify-start items-start padding">
                 <p class="text-sm text-primario">Placa del vehiculo</p>
-                <p class="text-xl font-bold text-texto">{{document.license_plate}} COLOMBIA</p>
+                <p class="text-xl font-bold text-texto">{{document.license_plate}} </p>
             </div>
 
             <div class="padding mt-8">
