@@ -231,7 +231,7 @@
 
     <button @click="signOut" class="py-3 w-full bg-primario bg-opacity-10 text-primario rounded-lg hover:bg-opacity-100 transition-all duration-300 hover:text-white flex justify-center">Cerrar sesion</button>
 
-    <button @click="recoveyPassword" class="text-center mx-auto w-full mt-5 mb-10 underline text-texto text-sm font-light"> Olvidaste tu contraseña? Recuperala ahora</button>
+    <button @click="recoveyPassword" class="text-center mx-auto w-full mt-5 mb-10 underline text-texto text-sm font-light">Cambiar o recuperar contraseña</button>
 
     </div>
   </div>

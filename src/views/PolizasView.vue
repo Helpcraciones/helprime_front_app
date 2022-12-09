@@ -150,7 +150,7 @@
           <div class="w-full flex flex-col items-start justify-center ml-5">
             <div class="flex flex-col items-start justify-center">
               <p class="text-texto text-sm">Placa del vehiculo</p>
-              <p class="text-texto font-semibold leading-none">{{fav.license_plate}} COLOMBIA</p>
+              <p class="text-texto font-semibold leading-none">{{fav.license_plate}}</p>
             </div>
             <div class="flex flex-col items-start justify-cente my-1">
               <p class="text-texto text-sm">Fecha de vencimiento</p>
