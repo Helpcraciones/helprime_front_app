@@ -4,7 +4,7 @@
         <router-link to="/polizas/vehiculares" >
             <i   class="fi fi-rr-arrow-left text-primario text-2xl flex justify-center items-center"></i>
         </router-link>
-        <div class="bg-white text-primario rounded-full px-4 py-1 one">
+        <div class="bg-white text-primario rounded-full px-4 py-1 one font-bold">
             {{document.product}}
         </div>
         <i class="fi fi-rr-menu-dots-vertical flex justify-center items-center text-primario"></i>
