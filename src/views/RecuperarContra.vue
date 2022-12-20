@@ -15,7 +15,7 @@
 
             <div class="w-full flex flex-col mt-10">
                 <label for="email" class=" font-light text-primario text-sm">Contraseña</label>
-                <input v-model="this.password" type="email" name="password" id="email" class="text-texto border-t-0 border-r-0 border-l-0 border-b focus:border-primario border-primario px-4" placeholder="Ingresa tu contraseña">
+                <input v-model="this.password" type="password" name="password" id="email" class="text-texto border-t-0 border-r-0 border-l-0 border-b focus:border-primario border-primario px-4" placeholder="Ingresa tu contraseña">
             </div>
             <div class="w-full flex flex-col my-5">
                 <label for="passwordConfirm" class="text-primario font-light text-sm">Confirmar contraseña</label>

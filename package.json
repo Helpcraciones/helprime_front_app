@@ -10,7 +10,7 @@
     "@chenfengyuan/vue-countdown": "^2.1.0",
     "@emailjs/browser": "^3.10.0",
     "@flaticon/flaticon-uicons": "^1.7.0",
-    "@supabase/supabase-js": "^1.35.4",
+    "@supabase/supabase-js": "^1.35.7",
     "atropos": "^1.0.2",
     "axios": "^0.27.2",
     "core-js": "^3.8.3",

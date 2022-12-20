@@ -1,6 +1,5 @@
 <template>
     <div class="padding grid grid-cols-1 gap-5 mt-8">
-
         <div class="flex w-full ">
             <select name="" v-model="currentSelect" @change="changeVehicul" class="w-full rounded-lg border-primario text-sm text-texto focus:border-primario">
                     <option value="todos" disabled class="text-gray-300">Todos los vehiculos</option>
