@@ -28,7 +28,7 @@
             </div>
 
 
-            <p @click="cancelProcess" class="text-texto font-light text-sm mt-5 underline cursor-pointer select-none">Cancelar actualizacion</p>
+            <p @click="cancelProcess" class="text-texto font-light text-sm mt-5 underline cursor-pointer select-none">Cancelar recuperación</p>
         </div>
     </div>
 </template>
