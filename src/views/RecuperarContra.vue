@@ -82,8 +82,7 @@ export default {
 
         async resetPassword(){
             console.log("Me estoy ejecutando");
-            if (this.password != '' && this.confirmPassword != '') {
-                if (this.password === this.confirmPassword) {
+            if (this.password === this.confirmPassword) {
                     console.log("Puedo ejecutar la recuperacion");
                 try {
                     const { error, data } = await supabase.auth.update({password: this.confirmPassword,})
@@ -96,9 +95,6 @@ export default {
                 } else {
                     this.alert = "Las contrasenias no coinciden"
                 }
-            } else {
-                this.check = true
-            }
     },
 
 
