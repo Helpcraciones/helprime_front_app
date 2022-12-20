@@ -81,6 +81,7 @@ export default {
         },
 
         async resetPassword(){
+            console.log("Me estoy ejecutando");
             if (this.password != '' && this.confirmPassword != '') {
                 if (this.password === this.confirmPassword) {
                 try {

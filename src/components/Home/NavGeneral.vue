@@ -256,7 +256,7 @@
 
                 </div>
                   <button @click="signOut" class="py-3 w-full bg-primario bg-opacity-10 text-primario rounded-lg hover:bg-opacity-100 transition-all duration-300 hover:text-white flex justify-center">Cerrar sesion</button>
-                  <button @click="recoveyPassword" class="text-center mx-auto w-full mt-5 mb-10 underline text-texto text-sm font-light"> ¿Olvidaste tu contraseña?</button>
+                  <button @click="recoveyPassword" class="text-center mx-auto w-full mt-5 mb-10 underline text-texto text-sm font-light">Cambiar o recuperar contraseña</button>
                 </div>
                 </div>
             </div>
@@ -291,7 +291,6 @@ export default {
       
       async signOut(){
       await supabase.auth.signOut()
-      console.log(this.$store.state.clientAuth);
       this.general = "hidden"
       this.modal = "w-0"
       this.profile = "w-0"
