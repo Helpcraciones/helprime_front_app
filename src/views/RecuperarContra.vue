@@ -81,17 +81,23 @@ export default {
         },
 
         async resetPassword(){
-            console.log("Me estoy ejecutando");
-            console.log(this.passwordConfirm);
-            try {
+            if (this.password != '' && this.passwordConfirm != '') {
+                if (this.password === this.passwordConfirm) {
+                    try {
                     const { error, data } = await supabase.auth.update({password: this.passwordConfirm})
                     if(error) throw error;
                     console.log(data, error);
                     console.log("Me recupere");
                     router.push('/')
-                } catch (error) {
-                    console.log(error);
+                    } catch (error) {
+                        console.log(error);
+                    }
+                } else{
+                    console.log("No son igales");
                 }
+            } else{
+                console.log("Estan vacias las contrasenias");
+            }
     },
 
 
