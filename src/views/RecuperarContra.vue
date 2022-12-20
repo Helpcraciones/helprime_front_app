@@ -52,8 +52,8 @@ export default {
     },
 
     created() {
-        this.eventState();
-
+        /* this.eventState(); */
+        this.view = true
         
     },
 
@@ -82,14 +82,15 @@ export default {
 
         async resetPassword(){
             console.log("Me estoy ejecutando");
+            console.log(this.passwordConfirm);
             try {
-                    const { error, data } = await supabase.auth.update({password: this.confirmPassword,})
+                    const { error, data } = await supabase.auth.update({password: this.passwordConfirm})
                     if(error) throw error;
                     console.log(data, error);
                     console.log("Me recupere");
                     router.push('/')
                 } catch (error) {
-                    console.log(error.message);
+                    console.log(error);
                 }
     },
 
