@@ -3,7 +3,7 @@
         <p class="text-texto lg:text-4xl text-2xl font-light leading-tight text-center">Únete a esta familia <span class="font-bold text-primario">HELPRIME</span></p>
         <div class="grid lg:grid-cols-3 grid-cols-1 w-full gap-10 lg:mt-10 mt-5">
             <div class="rounded-lg bg-white shadow-xl">
-                <img src="https://res.cloudinary.com/vital-seguros/image/upload/v1666356952/APP/woman-driving-automobile_1_zwkfqj.jpg" alt="" class="rounded-t-lg">
+                <img src="https://res.cloudinary.com/vital-seguros/image/upload/v1671712033/APP/woman-driving-automobile_1_zwkfqj-_1__jovz2u.webp" alt="" class="rounded-t-lg w-full h-auto">
                 <div class="p-5 text-center">
                     <p class="text-primario font-semibold text-xl leading-tight mb-5">Reune toda la informacion de tu vehiculo en un solo lugar</p>
                     <p class="two text-sm leading-tight text-texto">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores pariatur commodi esse officia ipsa.</p>
@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div class="rounded-lg bg-white shadow-xl">
-                <img src="https://res.cloudinary.com/vital-seguros/image/upload/v1666303919/APP/confident-call-center-operator-talking-with-client_74855-4059_oqws5n.webp" alt="" class="rounded-t-lg">
+                <img src="https://res.cloudinary.com/vital-seguros/image/upload/v1666303919/APP/confident-call-center-operator-talking-with-client_74855-4059_oqws5n.webp" alt="" class="rounded-t-lg w-full h-auto">
                 <div class="p-5 text-center">
                     <p class="text-primario font-semibold text-xl leading-tight mb-5">Quiero ser proveedor <br> de servicios</p>
                     <p class="two text-sm leading-tight text-texto">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores pariatur commodi esse officia ipsa.</p>
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="rounded-lg bg-white shadow-xl ">
-                <img src="https://res.cloudinary.com/vital-seguros/image/upload/v1666357040/APP/group-graphic-designers-discussing-laptop-their-desk_juzomt.jpg" alt="" class="rounded-t-lg">
+                <img src="https://res.cloudinary.com/vital-seguros/image/upload/v1671712148/APP/group-graphic-designers-discussing-laptop-their-desk_juzomt-_1__eqdztc.webp" alt="" class="rounded-t-lg w-full h-auto">
                 <div class="p-5 text-center">
                     <p class="text-primario font-semibold text-xl leading-tight mb-5">Quiero ser <br> agencia HELPRIME</p>
                     <p class="two text-sm leading-tight text-texto">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores pariatur commodi esse officia ipsa.</p>

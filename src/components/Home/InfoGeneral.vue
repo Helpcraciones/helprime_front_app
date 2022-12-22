@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class=" w-full">
-            <img src="https://res.cloudinary.com/vital-seguros/image/upload/v1666213923/APP/37_2_hslesk.png" alt="" class="w-96 mx-auto">
+            <img rel="dns-prefetch"  src="https://res.cloudinary.com/vital-seguros/image/upload/v1671712266/APP/37_2_hslesk-_1__knetdl.webp" alt="" class="w-96 h-auto mx-auto">
         </div>
     </div>
 </template>

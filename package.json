@@ -12,7 +12,6 @@
     "@flaticon/flaticon-uicons": "^1.7.0",
     "@supabase/supabase-js": "^1.35.7",
     "atropos": "^1.0.2",
-    "axios": "^0.27.2",
     "core-js": "^3.8.3",
     "flowbite": "^1.5.2",
     "register-service-worker": "^1.7.2",

@@ -1,6 +1,5 @@
 <template>
 <div>
-
   <div class=" lg:mb-16 max-w-7xl lg:mx-auto flex flex-col">
     <NavGeneral class="order-1"/>
     <InfoGeneral class="order-2"/>
@@ -17,7 +16,6 @@
     <ManagementGeneral class="lg:order-4 order-6"/>
     <SellVehicle class="order-7 hidden"/>
     <MenuGeneral class="lg:hidden flex order-last" />
-    
   </div>
   <div>
     <Footer class="order-last"/>

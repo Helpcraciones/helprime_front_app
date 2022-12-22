@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full bg-primario bg-opacity-20" id="contactanos">
+    <div class="w-full bg-primario bg-opacity-10" id="contactanos">
         <div class="max-w-7xl mx-auto padding lg:py-10 pt-10 pb-5">
 
             <div class="flex flex-col lg:flex-row lg:items-center justify-between">
@@ -46,15 +46,15 @@
 
                 <div class="flex justify-center items-center gap-5 lg:order-1 mx-auto lg:mx-0">
                     <p>Síguenos</p>
-                    <a href="https://www.google.com" target="_blank"><i     class="fi fi-brands-facebook flex justify-center    items-center text-2xl"></i></a>
-                    <a href="https://www.google.com" target="_blank"><i class="fi fi-brands-instagram flex justify-center items-center text-2xl"></i></a>
+                    <a aria-label="Siguenos en facebook" href="https://www.google.com" target="_blank"><i     class="fi fi-brands-facebook flex justify-center    items-center text-2xl"></i></a>
+                    <a aria-label="Siguenos en instagram" href="https://www.google.com" target="_blank"><i class="fi fi-brands-instagram flex justify-center items-center text-2xl"></i></a>
                 </div>
 
                 <a href="https://helpcreaciones.com/" target="_blank" class="flex leading-none lg:order-2 order-3 text-center"> © Todos los derechos reservados HELPCREACIONES {{this.date}}</a>
 
                 <a href="https://helpcreaciones.com/" target="_blank" class="flex flex-col lg:items-end items-center justify-center lg:order-3 order-2">
                     <p class="w-max">Un desarrollo de la familia:</p>
-                    <img src="https://helpcreaciones.com/img/logo_largo_Mesa%20de%20trabajo%201.png" alt="" class="h-5 opacity-80">
+                    <img src="https://res.cloudinary.com/vital-seguros/image/upload/v1671714522/APP/logo_largo_Mesa-de-trabajo-1-_1__okk2zn.webp" alt="" class="h-5 w-max opacity-80">
                 </a>
             </div>
         </div>

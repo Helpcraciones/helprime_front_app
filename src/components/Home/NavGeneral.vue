@@ -1,6 +1,6 @@
 <template>
     <div class="padding pt-3 lg:pt-5 flex justify-between items-center">
-        <img src="https://res.cloudinary.com/vital-seguros/image/upload/v1661897865/APP/logo-01_etyrwc.svg" alt="Logo vital seguros" @click="toggleColor" class="h-7 lg:h-8  ">
+        <img src="https://res.cloudinary.com/vital-seguros/image/upload/v1661897865/APP/logo-01_etyrwc.svg" alt="Logo vital seguros" @click="toggleColor" class="h-7 w-max lg:h-8  ">
             <i class="fi fi-rr-bell relative text-xl text-primario flex justify-center items-center lg:hidden">
                 <div :class="{colorNotification: color}" class="rounded-full h-3 w-3 absolute -top-0.5 -right-0.5"></div>
             </i>
@@ -255,8 +255,14 @@
                   </div>
 
                 </div>
+                  <div v-if="this.alert != '' " :class="this.alertColor" class="px-5 py-2  leading-none rounded-lg flex items-center mb-5">
+                    <i class="fi fi-rr-exclamation flex justify-center items-center mr-3"></i>
+                    <p>{{ this.alert }}</p>
+                  </div>
                   <button @click="signOut" class="py-3 w-full bg-primario bg-opacity-10 text-primario rounded-lg hover:bg-opacity-100 transition-all duration-300 hover:text-white flex justify-center">Cerrar sesion</button>
+                  
                   <button @click="recoveyPassword" class="text-center mx-auto w-full mt-5 mb-10 underline text-texto text-sm font-light">Cambiar o recuperar contraseña</button>
+                  
                 </div>
                 </div>
             </div>
@@ -269,6 +275,7 @@ export default {
     name: 'NavGeneral',
     data() {
         return {
+          alert: "",
             user: {},
             loading: false,
             collapse: false,
@@ -298,10 +305,39 @@ export default {
     },
 
     async recoveyPassword(){
-      const { data, error } = await supabase.auth.api.resetPasswordForEmail(this.userAuth.user.email)
-      this.general = "hidden"
-      this.modal = "w-0"
-      this.profile = "w-0"
+      try {
+        const { data, error } = await supabase.auth.api.resetPasswordForEmail(this.userAuth.user.email)
+        if(error) throw error
+        this.alertColor = "bg-green-100 text-green-500 text-sm"
+        this.alert = "Se ha enviado un correo para cambiar o recuperar tu contraseña "
+        setTimeout(() => {
+          this.general = "hidden"
+          this.modal = "w-0"
+          this.profile = "w-0"
+          this.alertColor = "bg-none text-none"
+          this.alert = ""
+        }, 5000);
+      } catch (error) {
+        console.log(error);
+        if(error.status = 429){
+          this.alertColor = "bg-yellow-100 text-yellow-500 text-sm"
+          this.alert = "Ya haz enviado una recuperación intentalo nuevamente en un minuto"
+          setTimeout(() => {
+            this.alertColor = "bg-none text-none"
+            this.alert = ""
+          }, 5000);
+        } else{
+          this.alertColor = "bg-red-100 text-yellow-red text-sm"
+          this.alert = "Lo sentimos, no eres tu, somos nostros, ya pronto lo solucionaremos"
+          setTimeout(() => {
+            this.alertColor = "bg-none text-none"
+            this.alert = ""
+            this.general = "hidden"
+            this.modal = "w-0"
+            this.profile = "w-0"
+          }, 5000);
+        }
+      }
     },
 
     closeModal(){

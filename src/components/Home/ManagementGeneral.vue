@@ -5,35 +5,50 @@
 
         <div class=" grid grid-cols-2 lg:grid-cols-6 gap-3 justify-center my-5 w-full">
 
-            <div class="bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out">
-                <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1666649209/APP/e-payment_kmbsv5.png" alt="">
-                <p class="text-primario text-lg  mt-3">E-Card</p>
-            </div>
-
-            <div class="bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out">
-                <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1661907987/APP/insurance_ttdipo.svg" alt="">
-                <p class="text-primario text-lg  mt-3 text-center">Bitácora</p>
-            </div>
-
             <router-link to="/agenda" class="bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out">
                 <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1653068519/APP/directorio_tvr5y5.png" alt="">
                 <p class="text-primario text-lg  mt-3">Servicios</p>
             </router-link>
+
             <router-link to="/polizas" class="bg-white card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out">
                 <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1653067972/APP/documentos_bz6lcd.png" alt="">
                 <p class="text-primario text-lg mt-3">Mis polizas</p>
             </router-link>
 
-            
-
-            <div class=" bg-white card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out">
-                <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1661907795/APP/sirena_hple14.svg" alt="">
-                <p class="text-primario text-lg  mt-3">Siniestros</p>
+            <div class="bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out relative">
+                <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1666649209/APP/e-payment_kmbsv5.png" alt="">
+                <p class="text-primario text-lg  mt-3">E-Card</p>
+                <div class="px-2 py-1 bg-yellow-100 text-yellow-500 text-xs rounded-l-full absolute top-3 right-0">
+                    <p>Proximamente</p>
+                </div>
             </div>
 
-            <div class=" bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out">
+            <div class="bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out relative">
+                <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1661907987/APP/insurance_ttdipo.svg" alt="">
+                <p class="text-primario text-lg  mt-3 text-center">Bitácora</p>
+                <div class="px-2 py-1 bg-yellow-100 text-yellow-500 text-xs rounded-l-full absolute top-3 right-0">
+                    <p>Proximamente</p>
+                </div>
+            </div>
+
+            
+
+            
+
+            <div class=" bg-white card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out relative">
+                <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1661907795/APP/sirena_hple14.svg" alt="">
+                <p class="text-primario text-lg  mt-3">Siniestros</p>
+                <div class="px-2 py-1 bg-yellow-100 text-yellow-500 text-xs rounded-l-full absolute top-3 right-0">
+                    <p>Proximamente</p>
+                </div>
+            </div>
+
+            <div class=" bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-ou relative">
                 <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1653068552/APP/advice_jnkipr.png" alt="">
                 <p class="text-primario text-lg  mt-3">Tips</p>
+                <div class="px-2 py-1 bg-yellow-100 text-yellow-500 text-xs rounded-l-full absolute top-3 right-0">
+                    <p>Proximamente</p>
+                </div>
             </div>
             
         </div>

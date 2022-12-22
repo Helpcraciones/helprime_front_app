@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-gray-500 bg-opacity-20 h-screen w-full rounded-t-3xl">
+    <div class="bg-gray-500 bg-opacity-20 h-screen w-full rounded-t-3xl max-w-7xl mx-auto">
         <div class="padding pt-3 flex justify-between items-center">
         <router-link to="/polizas/vehiculares" >
             <i   class="fi fi-rr-arrow-left text-primario text-2xl flex justify-center items-center"></i>
@@ -41,7 +41,7 @@
                     </p>
                 </div>
                 <div>
-                    <div class="flex flex-col justify-center items-start">
+                    <a :href=" 'tel:'+document.emergency_number" class="flex flex-col justify-center items-start">
                         <div class="flex items-center">
                             <i class="fi fi-rr-phone-call text-primario mr-2 text-xl flex justify-center items-center"></i>
                             <p class="text-primario font-light">No. de emergencia:</p>
@@ -49,7 +49,7 @@
                         <p class="text-texto font-semibold text-xl">
                         {{document.emergency_number}}
                     </p>
-                    </div>
+                    </a>
                 </div>
             </div>
 
@@ -89,7 +89,7 @@
                 </div>
             </div>
 
-            <div @click="this.file = true" class="w-max flex items-center bg-primario rounded-full px-5 py-3 text-white mt-10 sticky bottom-5 ">
+            <div @click="this.file = true" class="w-max flex items-center bg-primario rounded-full px-5 py-3 text-white mt-10 sticky bottom-5 cursor-pointer select-none ">
                 <i class="fi fi-rr-document flex justify-center items-center text-xl mr-5"></i>
                 <p>Ver documento</p>
             </div>

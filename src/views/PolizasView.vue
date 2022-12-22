@@ -1,5 +1,5 @@
 <template >
-  <div class=" h-full mb-5 max-w-7xl mx-auto">
+  <div v-if="this.view" class=" h-full mb-5 max-w-7xl mx-auto">
     <NavGeneral/>
     <div class="padding">
       <!-- Seccion saludo -->
@@ -184,6 +184,7 @@ export default {
   },
   data() {
     return {
+      view: false,
       dateCurrent: "",
       agency:{},
       currentId: "",
@@ -244,8 +245,14 @@ export default {
         .from('clients_agencies')
         .select('*')
         .eq('id', this.currentClient.user.id)
-        this.user = data[0]
         if(error) throw error
+        if(data.length === 0){
+          this.view = false
+          router.push("/agencias")
+        }else{
+          this.view = true
+          this.user = data[0]
+        }
       } catch (error) {
         if(error){
           console.log(error);

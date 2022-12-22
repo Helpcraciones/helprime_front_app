@@ -1,15 +1,15 @@
 <template>
     <div class="padding grid grid-cols-1 gap-5 mt-8">
         <div class="flex w-full ">
-            <select name="" v-model="currentSelect" @change="changeVehicul" class="w-full rounded-lg border-primario text-sm text-texto focus:border-primario">
-                    <option value="todos" disabled class="text-gray-300">Todos los vehiculos</option>
-                    <option v-for="vehicul in this.vehicules" :key="vehicul.id" :value="vehicul.id">{{vehicul.license_plate}} - {{vehicul.brand}} - {{vehicul.line}}</option>
+            <select name="" v-model="this.currentSelect" @change="changeVehicul" class="w-full rounded-lg border-primario text-sm text-texto focus:border-primario">
+                    <option value="todos" class="text-gray-300">Todos los vehiculos</option>
+                    <option v-for="vehicul in this.vehicules" :key="vehicul.id" :value="vehicul.license_plate">{{vehicul.license_plate}} - {{vehicul.brand}} - {{vehicul.line}}</option>
             </select>
         </div>
 
         <div class="w-full grid grid-cols-1 lg:grid-cols-3 gap-5">
 
-        <div v-for="(policy, index) in this.policies" :key="index"  class="relative bg-white shadow-lg w-full h-30 flex justify-center items-center p-5 rounded-2xl transform transition-all hover:scale-105 duration-300 ease-in-out">
+        <div v-for="(policy, index) in this.viewPolicies" :key="index"  class="relative bg-white shadow-lg w-full h-30 flex justify-center items-center p-5 rounded-2xl transform transition-all hover:scale-105 duration-300 ease-in-out">
             <router-link :to="`vehiculares/${policy.id}`" class="flex items-center w-full">
                 <div class="absolute bg-primario bg-opacity-20 top-4 right-0 px-3 py-0.5 rounded-l-full">
                 <p class="text-sm text-primario font-semibold small">{{policy.product}}</p>
@@ -49,6 +49,8 @@ export default {
             vehicules: [],
             policies: [],
             textColor: "",
+            filterPolicies: [],
+            viewPolicies: []
         }
     },
 
@@ -80,6 +82,7 @@ export default {
                 .select('*')
                 .eq('client_id', this.currentClient.id)
                 this.policies = data
+                this.viewPolicies = this.policies
                 this.policies.forEach(policy => {
                     const now = new Date();
                     const expire = new Date(policy.expiration);
@@ -105,6 +108,22 @@ export default {
                 console.log(error);
                 }
             }
+        },
+
+        changeVehicul(){
+                if(this.currentSelect === "todos"){
+                    this.viewPolicies = this.policies
+                } else {
+                    this.viewPolicies = []
+                    this.filterPolicies = []
+                    this.policies.forEach(policy => {
+                    if(policy.license_plate === this.currentSelect){
+                        this.filterPolicies.push(policy)
+                        }
+                    });
+                    this.viewPolicies = this.filterPolicies
+                }
+                
         },
 
         async changeFav(id, status){
