@@ -18,7 +18,7 @@
             <div class="bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out relative">
                 <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1666649209/APP/e-payment_kmbsv5.png" alt="">
                 <p class="text-primario text-lg  mt-3">E-Card</p>
-                <div class="px-2 py-1 bg-yellow-100 text-yellow-500 text-xs rounded-l-full absolute top-3 right-0">
+                <div class="px-2 py-1 bg-yellow-50 text-yellow-500 text-xs rounded-l-full absolute top-3 right-0">
                     <p>Proximamente</p>
                 </div>
             </div>
@@ -26,7 +26,7 @@
             <div class="bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out relative">
                 <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1661907987/APP/insurance_ttdipo.svg" alt="">
                 <p class="text-primario text-lg  mt-3 text-center">Bitácora</p>
-                <div class="px-2 py-1 bg-yellow-100 text-yellow-500 text-xs rounded-l-full absolute top-3 right-0">
+                <div class="px-2 py-1 bg-yellow-50 text-yellow-500 text-xs rounded-l-full absolute top-3 right-0">
                     <p>Proximamente</p>
                 </div>
             </div>
@@ -38,7 +38,7 @@
             <div class=" bg-white card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out relative">
                 <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1661907795/APP/sirena_hple14.svg" alt="">
                 <p class="text-primario text-lg  mt-3">Siniestros</p>
-                <div class="px-2 py-1 bg-yellow-100 text-yellow-500 text-xs rounded-l-full absolute top-3 right-0">
+                <div class="px-2 py-1 bg-yellow-50 text-yellow-500 text-xs rounded-l-full absolute top-3 right-0">
                     <p>Proximamente</p>
                 </div>
             </div>
@@ -46,7 +46,7 @@
             <div class=" bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-ou relative">
                 <img class="h-16 w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1653068552/APP/advice_jnkipr.png" alt="">
                 <p class="text-primario text-lg  mt-3">Tips</p>
-                <div class="px-2 py-1 bg-yellow-100 text-yellow-500 text-xs rounded-l-full absolute top-3 right-0">
+                <div class="px-2 py-1 bg-yellow-50 text-yellow-500 text-xs rounded-l-full absolute top-3 right-0">
                     <p>Proximamente</p>
                 </div>
             </div>
