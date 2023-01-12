@@ -1,4 +1,5 @@
 <template>
+
     <div class="padding flex justify-center flex-col items-center ">
         <p class="text-texto lg:text-4xl text-2xl font-light leading-tight text-center">Únete a esta familia <span class="font-bold text-primario">HELPRIME</span></p>
         <div class="grid lg:grid-cols-3 grid-cols-1 w-full gap-10 lg:mt-10 mt-5">

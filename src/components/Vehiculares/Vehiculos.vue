@@ -81,6 +81,7 @@ export default {
                 .from('policies')
                 .select('*')
                 .eq('client_id', this.currentClient.id)
+                .eq('category', 'autos')
                 this.policies = data
                 this.viewPolicies = this.policies
                 this.policies.forEach(policy => {

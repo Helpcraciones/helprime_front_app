@@ -46,7 +46,7 @@
                             <i class="fi fi-rr-phone-call text-primario mr-2 text-xl flex justify-center items-center"></i>
                             <p class="text-primario font-light">No. de emergencia:</p>
                         </div>
-                        <p class="text-texto font-semibold text-xl">
+                        <p class="text-texto font-semibold text-xl underline">
                         {{document.emergency_number}}
                     </p>
                     </a>
