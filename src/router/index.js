@@ -5,7 +5,17 @@ import HomeView from '../views/HomeView.vue'
 import Agencias from '../views/Agencias.vue'
 import Polizas from "../views/PolizasView.vue"
 import Vehiculos from "../views/VehiculosView.vue"
+import Hogar from "../views/HogarView.vue"
+import Salud from "../views/SaludView.vue"
+import Generales from "../views/GeneralesView.vue"
+import Vida from "../views/VidaView.vue"
+import Riesgo from "../views/RiesgoView.vue"
 import Documento from "../views/DocumentoView.vue"
+import DocumentoVida from "../views/DocVidaView.vue"
+import DocumentoHogar from "../views/DocHogarView.vue"
+import DocumentoGenerales from "../views/DocGeneralesView.vue"
+import DocumentoSalud from "../views/DocSaludView.vue"
+import DocumentoRiesgo from "../views/DocRiesgoView.vue"
 import Agenda from "../views/AgendaView.vue"
 import ParaTiView from "../views/ParaTiView.vue"
 import ProveedorView from "../views/ProveedorView.vue"
@@ -87,6 +97,99 @@ const routes = [
       auth: false
     },
   },
+  {
+    path: '/polizas/vida',
+    name: 'vida',
+    component: Vida,
+    meta:{
+      title: 'vida',
+      auth: false
+    },
+  },
+  {
+    path: '/polizas/vida/:id',
+    name: 'docuementoVida',
+    component: DocumentoVida,
+    meta:{
+      title: 'VidaId',
+      auth: false
+    },
+  },
+  {
+    path: '/polizas/hogar',
+    name: 'hogar',
+    component: Hogar,
+    meta:{
+      title: 'hogar',
+      auth: false
+    },
+  },
+  {
+    path: '/polizas/hogar/:id',
+    name: 'documentoHogar',
+    component: DocumentoHogar,
+    meta:{
+      title: 'HogarId',
+      auth: false
+    },
+  },
+  {
+    path: '/polizas/generales',
+    name: 'generales',
+    component: Generales,
+    meta:{
+      title: 'generales',
+      auth: false
+    },
+  },
+  {
+    path: '/polizas/generales/:id',
+    name: 'documentoGenerales',
+    component: DocumentoGenerales,
+    meta:{
+      title: 'GeneralId',
+      auth: false
+    },
+  },
+  {
+    path: '/polizas/salud',
+    name: 'salud',
+    component: Salud,
+    meta:{
+      title: 'generales',
+      auth: false
+    },
+  },
+  {
+    path: '/polizas/salud/:id',
+    name: 'documentoSalud',
+    component: DocumentoSalud,
+    meta:{
+      title: 'SaludId',
+      auth: false
+    },
+  },
+
+  {
+    path: '/polizas/riesgo',
+    name: 'riesgo',
+    component: Riesgo,
+    meta:{
+      title: 'riesgo',
+      auth: false
+    },
+  },
+
+  {
+    path: '/polizas/riesgo/:id',
+    name: 'documentoRiesgo',
+    component: DocumentoRiesgo,
+    meta:{
+      title: 'RiesgoId',
+      auth: false
+    },
+  },
+
   {
     path: '/agenda',
     name: 'agenda',

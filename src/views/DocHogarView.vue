@@ -1,7 +1,7 @@
 <template>
     <div class="bg-gray-500 bg-opacity-20 h-screen w-full rounded-t-3xl max-w-7xl mx-auto">
         <div class="padding pt-3 flex justify-between items-center">
-        <router-link to="/polizas/vehiculares" >
+        <router-link to="/polizas/hogar" >
             <i   class="fi fi-rr-arrow-left text-primario text-2xl flex justify-center items-center"></i>
         </router-link>
         <div class="bg-white text-primario rounded-full px-4 py-1 one font-bold">
@@ -10,19 +10,15 @@
         <i class="fi fi-rr-menu-dots-vertical flex justify-center items-center text-primario"></i>
         </div>
 
-        <div class="relative top-24 left bg-white rounded-full p-3 w-max">
-            <i class="fi fi-rr-camera flex justify-center items-center text-primario"></i>
-        </div>
-
         <div class="mt-28 bg-white w-full h-full rounded-t-3xl flex flex-col items-center justify-start">
             <div class="relative -top-10 rounded-full bg-white">
                 <div class=" w-24 h-24 bg-primario bg-opacity-20 border-2 border-white rounded-full  flex justify-center items-center shadow-lg" >
-                    <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/vehicles.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvdmVoaWNsZXMucG5nIiwiaWF0IjoxNjYzMzA0NjA4LCJleHAiOjE5Nzg2NjQ2MDh9.aJkhB1DKBzKUhGOUkJ5goLkFjQZsuxYD8JyGxVqYmvM" alt="" class="w-12 h-12">
+                    <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/home.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvaG9tZS5wbmciLCJpYXQiOjE2NjMzMDUwMjcsImV4cCI6MTk3ODY2NTAyN30.meVR9SNdP-dYoRTu1A-vHQ1JzjQGznzTl2-EJEDeTPA" alt="" class="w-12 h-12">
                 </div>
             </div>
             <div class="w-full flex flex-col justify-start items-start padding">
-                <p class="text-sm text-primario">Placa del vehiculo</p>
-                <p class="text-xl font-bold text-texto">{{document.risks}} </p>
+                <p class="text-sm text-primario">Producto</p>
+                <p class="text-xl font-bold text-texto">{{document.product}} </p>
             </div>
 
             <div class="padding mt-8">

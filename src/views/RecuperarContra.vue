@@ -92,7 +92,7 @@ export default {
                         console.log(error);
                     }
                 } else{
-                    console.log("No son igales");
+                    console.log("No son iguales");
                 }
             } else{
                 console.log("Estan vacias las contrasenias");

@@ -22,7 +22,7 @@
             <p class="text-green-400 font-bold one max text-lg leading-tight"> {{this.agency.fullname}}</p>
             <p class="text-texto mt-2 leading-tight text-sm">Estamos para ti</p>
             <a :href="this.agency.api" target="_blank" class="w-auto border bg-green-400 py-1 px-4 flex justify-center items-center rounded-lg text-white cursor-pointer">
-              <id class="fi fi-brands-whatsapp flex justify-center items-center mr-3 "></id>
+              <id class="fi fi-brands-3m flex justify-center items-center mr-3 "></id>
               <p class="font-light">Escríbenos</p>
             </a>
         </div>
@@ -73,41 +73,41 @@
           <p class="text-texto font-light text-sm mt-3">Vehiculares</p>
         </router-link>
 
-
-        <div class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out">
-          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg rounded-2xl flex justify-center items-center">
-            <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/home.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvaG9tZS5wbmciLCJpYXQiOjE2NjMzMDUwMjcsImV4cCI6MTk3ODY2NTAyN30.meVR9SNdP-dYoRTu1A-vHQ1JzjQGznzTl2-EJEDeTPA" alt="Vehiculares" class="w-12 h-12 lg:h-16 lg:w-auto">
-          </div>
-          <p class="text-texto font-light text-sm mt-3">Hogar</p>
-        </div>
-
-         <div class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out">
-          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg  rounded-2xl flex justify-center items-center">
-            <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/first-aid-kit.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvZmlyc3QtYWlkLWtpdC5wbmciLCJpYXQiOjE2NjMzMDUwNDQsImV4cCI6MTk3ODY2NTA0NH0.Jg-jucY0Q8DRGa_iB-Ew7f4LY180BxyormrY213R4nk" alt="Vehiculares" class="w-12 h-12 lg:h-16 lg:w-auto">
-          </div>
-          <p class="text-texto font-light text-sm mt-3">Medicos</p>
-        </div>
-
-         <div class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out">
+         <router-link to="/polizas/vida"  class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out">
           <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg  rounded-2xl flex justify-center items-center">
             <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/health-insurance.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvaGVhbHRoLWluc3VyYW5jZS5wbmciLCJpYXQiOjE2NjMzMDUwMzcsImV4cCI6MTk3ODY2NTAzN30.F_51wVzAE6H_d90EfY6ajRgZw6wyifv1n5lgxpXMwIw" alt="Vehiculares" class="w-12 h-12 lg:h-16 lg:w-auto">
           </div>
           <p class="text-texto font-light text-sm mt-3">Vida</p>
-        </div>
+        </router-link >
 
-         <div class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out" >
-          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg  rounded-2xl flex justify-center items-center">
-            <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/danger-sign.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvZGFuZ2VyLXNpZ24ucG5nIiwiaWF0IjoxNjYzMzA1MDQwLCJleHAiOjE5Nzg2NjUwNDB9.1N9254CJl-xpN9I7OB5rQKsvVBeMi2QhMDCDmTfPZmg" alt="Vehiculares" class="w-12 h-12 lg:h-16 lg:w-auto">
+        <router-link to="/polizas/hogar" class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out">
+          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg rounded-2xl flex justify-center items-center">
+            <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/home.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvaG9tZS5wbmciLCJpYXQiOjE2NjMzMDUwMjcsImV4cCI6MTk3ODY2NTAyN30.meVR9SNdP-dYoRTu1A-vHQ1JzjQGznzTl2-EJEDeTPA" alt="Vehiculares" class="w-12 h-12 lg:h-16 lg:w-auto">
           </div>
-          <p class="text-texto font-light text-sm mt-3">T. Riesgo</p>
-        </div>
+          <p class="text-texto font-light text-sm mt-3">Hogar</p>
+        </router-link>
 
-         <div class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out">
+         <router-link to="/polizas/salud" class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out">
           <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg  rounded-2xl flex justify-center items-center">
-            <i class="fi fi-rr-menu-dots flex justify-center items-center text-3xl text-primario"></i>
+            <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/first-aid-kit.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvZmlyc3QtYWlkLWtpdC5wbmciLCJpYXQiOjE2NjMzMDUwNDQsImV4cCI6MTk3ODY2NTA0NH0.Jg-jucY0Q8DRGa_iB-Ew7f4LY180BxyormrY213R4nk" alt="Vehiculares" class="w-12 h-12 lg:h-16 lg:w-auto">
           </div>
-          <p class="text-texto font-light text-sm mt-3">Varios</p>
-        </div>
+          <p class="text-texto font-light text-sm mt-3">Salud</p>
+         </router-link>
+
+
+         <router-link to="/polizas/generales" class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out" >
+          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg  rounded-2xl flex justify-center items-center">
+            <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/generales.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvZ2VuZXJhbGVzLnBuZyIsImlhdCI6MTY2NjYyNjQ1NSwiZXhwIjoxOTgxOTg2NDU1fQ.xSwvrDBDZrttSCJDSgWmchtzm62i_vmA7prfnMCHrG8" alt="Generales" class="w-12 h-12 lg:h-16 lg:w-auto">
+          </div>
+          <p class="text-texto font-light text-sm mt-3">Generales</p>
+         </router-link>
+
+         <router-link to="/polizas/riesgo" class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out">
+          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg  rounded-2xl flex justify-center items-center">
+            <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/cumplimiento.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvY3VtcGxpbWllbnRvLnBuZyIsImlhdCI6MTY2NjYyNjQ2NSwiZXhwIjoxOTgxOTg2NDY1fQ.cg63yH8iDyLheOBQIOLLm2t6TF_ih7bbQHe9Nl3VFDw" alt="Cumplimiento" class="w-12 h-12 lg:h-16 lg:w-auto">
+          </div>
+          <p class="text-texto font-light text-sm mt-3">T. riesgo</p>
+         </router-link>
 
       </div>
 
@@ -146,11 +146,11 @@
           <div class="absolute bg-primario bg-opacity-20 top-4 right-0 px-3 py-0.5 rounded-l-full">
             <p class="text-sm text-primario font-semibold small">{{fav.product}}</p>
           </div>
-          <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/vehicles.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvdmVoaWNsZXMucG5nIiwiaWF0IjoxNjYzMzA0NjA4LCJleHAiOjE5Nzg2NjQ2MDh9.aJkhB1DKBzKUhGOUkJ5goLkFjQZsuxYD8JyGxVqYmvM" alt="Imagen de documento" class="h-12 w-12">
+          <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/vehicles.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvdmVoaWNsZXMucG5nIiwiaWF0IjoxNjYzMzA0NjA4LCJleHAiOjE5Nzg2NjQ2MDh9.aJkhB1DKBzKUhGOUkJ5goLkFjQZsuxYD8JyGxVqYmvM" alt="Imagenvvr de documento" class="h-12 w-12">
           <div class="w-full flex flex-col items-start justify-center ml-5">
             <div class="flex flex-col items-start justify-center">
               <p class="text-texto text-sm">Placa del vehiculo</p>
-              <p class="text-texto font-semibold leading-none">{{fav.license_plate}}</p>
+              <p class="text-texto font-semibold leading-none">{{fav.risks}}</p>
             </div>
             <div class="flex flex-col items-start justify-cente my-1">
               <p class="text-texto text-sm">Fecha de vencimiento</p>
@@ -207,8 +207,7 @@ export default {
       await this.downloadImage()
       await this.whatsApp()
       await this.fetchPolicies()
-    }
-    
+    } 
   },
 
   mounted() {

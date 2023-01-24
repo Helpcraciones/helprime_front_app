@@ -1,24 +1,19 @@
 <template>
     <div class="padding grid grid-cols-1 gap-5 mt-8">
-        <div class="flex w-full ">
-            <select name="" v-model="this.currentSelect" @change="changeVehicul" class="w-full rounded-lg border-primario text-sm text-texto focus:border-primario">
-                    <option value="todos" class="text-gray-300">Todos los vehiculos</option>
-                    <option v-for="vehicul in this.vehicules" :key="vehicul.id" :value="vehicul.license_plate">{{vehicul.license_plate}} - {{vehicul.brand}} - {{vehicul.line}}</option>
-            </select>
+
+        <div class="max-w-7xl w-full p-10 bg-primario bg-opacity-20 rounded-xl">
+            <p class="text-2xl text-texto font-light text-center">Tus polizas de salud a <span class="text-primario font-semibold">un solo click</span> </p>
         </div>
 
         <div class="w-full grid grid-cols-1 lg:grid-cols-3 gap-5">
 
         <div v-for="(policy, index) in this.viewPolicies" :key="index"  class="relative bg-white shadow-lg w-full h-30 flex justify-center items-center p-5 rounded-2xl transform transition-all hover:scale-105 duration-300 ease-in-out">
-            <router-link :to="`vehiculares/${policy.id}`" class="flex items-center w-full">
-                <div class="absolute bg-primario bg-opacity-20 top-4 right-0 px-3 py-0.5 rounded-l-full">
-                <p class="text-sm text-primario font-semibold small">{{policy.product}}</p>
-                </div>
-                <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/vehicles.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvdmVoaWNsZXMucG5nIiwiaWF0IjoxNjYzMzA0NjA4LCJleHAiOjE5Nzg2NjQ2MDh9.aJkhB1DKBzKUhGOUkJ5goLkFjQZsuxYD8JyGxVqYmvM" alt="Imagen de documento" class="h-12 w-12">
+            <router-link :to="`vida/${policy.id}`" class="flex items-center w-full">
+                <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/first-aid-kit.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvZmlyc3QtYWlkLWtpdC5wbmciLCJpYXQiOjE2NjMzMDUwNDQsImV4cCI6MTk3ODY2NTA0NH0.Jg-jucY0Q8DRGa_iB-Ew7f4LY180BxyormrY213R4nk" alt="Imagen de documento" class="h-12 w-12">
                 <div class="w-full flex flex-col items-start justify-center ml-5">
                 <div class="flex flex-col items-start justify-center">
-                <p class="text-texto text-sm">Placa del vehiculo</p>
-                <p class="text-texto font-semibold leading-none">{{policy.risk}}</p>
+                <p class="text-texto text-sm">Producto</p>
+                <p class="text-texto font-semibold leading-none">{{policy.product}}</p>
                 </div>
                 <div class="flex flex-col items-start justify-cente my-1">
                 <p  class=" text-sm text-texto">Fecha de vencimiento</p>
@@ -46,7 +41,6 @@ export default {
     data() {
         return {
             currentSelect: "todos",
-            vehicules: [],
             policies: [],
             textColor: "",
             filterPolicies: [],
@@ -55,33 +49,17 @@ export default {
     },
 
     async created() {
-        await this.platesUser()
         await this.fetchPolicies()
     },
 
     methods: {
-        async platesUser(){
-            try {
-                const { data, error } = await supabase
-                .from('license_plates')
-                .select('*')
-                .eq('client_id', this.currentClient.id)
-                .eq('status', true)
-                this.vehicules = data
-                if(error) throw error
-            } catch (error) {
-                if(error){
-                console.log(error);
-                }
-            }
-        },
         async fetchPolicies(){
             try {
                 const { data, error } = await supabase
                 .from('policies')
                 .select('*')
                 .eq('client_id', this.currentClient.id)
-                .eq('category', 'autos')
+                .eq('category', 'salud')
                 this.policies = data
                 this.viewPolicies = this.policies
                 this.policies.forEach(policy => {
@@ -111,21 +89,6 @@ export default {
             }
         },
 
-        changeVehicul(){
-                if(this.currentSelect === "todos"){
-                    this.viewPolicies = this.policies
-                } else {
-                    this.viewPolicies = []
-                    this.filterPolicies = []
-                    this.policies.forEach(policy => {
-                    if(policy.license_plate === this.currentSelect){
-                        this.filterPolicies.push(policy)
-                        }
-                    });
-                    this.viewPolicies = this.filterPolicies
-                }
-                
-        },
 
         async changeFav(id, status){
             console.log(id, status);
