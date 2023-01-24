@@ -22,7 +22,7 @@
             <p class="text-green-400 font-bold one max text-lg leading-tight"> {{this.agency.fullname}}</p>
             <p class="text-texto mt-2 leading-tight text-sm">Estamos para ti</p>
             <a :href="this.agency.api" target="_blank" class="w-auto border bg-green-400 py-1 px-4 flex justify-center items-center rounded-lg text-white cursor-pointer">
-              <id class="fi fi-brands-3m flex justify-center items-center mr-3 "></id>
+              <i class="fi fi-brands-whatsapp flex justify-center items-center mr-3 "></i>
               <p class="font-light">Escríbenos</p>
             </a>
         </div>
@@ -50,7 +50,7 @@
 
           <div class="border border-primario w-full border-opacity-30 my-3"></div>
 
-          <p class="text-texto leading-none"> Estas al <span class="text-primario font-bold" >25%</span> de estar <br> <span class="text-primario font-bold">100% protegido</span></p>
+          <p class="text-texto leading-none">Contacta a tu agencia <span class="text-primario font-semibold">para agregar nuevas polizas</span> </p>
 
         </div>
       </div>
@@ -66,7 +66,12 @@
 
       <div class="grid grid-cols-3 lg:grid-cols-6 gap-3 w-full">
 
-        <router-link to="/polizas/vehiculares" class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out">
+        <router-link to="/polizas/vehiculares" class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out relative">
+          <div v-if="this.numberAutos != 0" class="absolute h-6 w-6 text-sm text-white text-center bg-green-400 shadow-md  rounded -top-1 -right-1 flex justify-center items-center">
+          <p>
+            {{ this.numberAutos }}
+          </p>
+        </div>
           <div class="h-24 w-24 lg:w-full lg:h-40  bg-white shadow-lg  rounded-2xl flex justify-center items-center">
             <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/vehicles.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvdmVoaWNsZXMucG5nIiwiaWF0IjoxNjYzMzA0NjA4LCJleHAiOjE5Nzg2NjQ2MDh9.aJkhB1DKBzKUhGOUkJ5goLkFjQZsuxYD8JyGxVqYmvM" alt="Vehiculares" class="w-12 h-12 lg:h-16 lg:w-auto">
           </div>
@@ -74,21 +79,36 @@
         </router-link>
 
          <router-link to="/polizas/vida"  class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out">
-          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg  rounded-2xl flex justify-center items-center">
+          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg  rounded-2xl flex justify-center items-center relative">
+            <div v-if="this.numberVida != 0" class="absolute h-6 w-6 text-sm text-white text-center bg-green-400 shadow-md  rounded -top-1 -right-1 flex justify-center items-center">
+          <p>
+            {{ this.numberVida }}
+          </p>
+        </div>
             <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/health-insurance.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvaGVhbHRoLWluc3VyYW5jZS5wbmciLCJpYXQiOjE2NjMzMDUwMzcsImV4cCI6MTk3ODY2NTAzN30.F_51wVzAE6H_d90EfY6ajRgZw6wyifv1n5lgxpXMwIw" alt="Vehiculares" class="w-12 h-12 lg:h-16 lg:w-auto">
           </div>
           <p class="text-texto font-light text-sm mt-3">Vida</p>
         </router-link >
 
         <router-link to="/polizas/hogar" class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out">
-          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg rounded-2xl flex justify-center items-center">
+          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg rounded-2xl flex justify-center items-center relative">
+            <div v-if="this.numberHogar != 0" class="absolute h-6 w-6 text-sm text-white text-center bg-green-400 shadow-md  rounded -top-1 -right-1 flex justify-center items-center">
+          <p>
+            {{ this.numberHogar }}
+          </p>
+        </div>
             <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/home.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvaG9tZS5wbmciLCJpYXQiOjE2NjMzMDUwMjcsImV4cCI6MTk3ODY2NTAyN30.meVR9SNdP-dYoRTu1A-vHQ1JzjQGznzTl2-EJEDeTPA" alt="Vehiculares" class="w-12 h-12 lg:h-16 lg:w-auto">
           </div>
           <p class="text-texto font-light text-sm mt-3">Hogar</p>
         </router-link>
 
          <router-link to="/polizas/salud" class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out">
-          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg  rounded-2xl flex justify-center items-center">
+          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg  rounded-2xl flex justify-center items-center relative">
+            <div v-if="this.numberSalud != 0" class="absolute h-6 w-6 text-sm text-white text-center bg-green-400 shadow-md  rounded -top-1 -right-1 flex justify-center items-center">
+          <p>
+            {{ this.numberSalud }}
+          </p>
+        </div>
             <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/first-aid-kit.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvZmlyc3QtYWlkLWtpdC5wbmciLCJpYXQiOjE2NjMzMDUwNDQsImV4cCI6MTk3ODY2NTA0NH0.Jg-jucY0Q8DRGa_iB-Ew7f4LY180BxyormrY213R4nk" alt="Vehiculares" class="w-12 h-12 lg:h-16 lg:w-auto">
           </div>
           <p class="text-texto font-light text-sm mt-3">Salud</p>
@@ -96,7 +116,12 @@
 
 
          <router-link to="/polizas/generales" class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out" >
-          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg  rounded-2xl flex justify-center items-center">
+          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg  rounded-2xl flex justify-center items-center relative">
+            <div v-if="this.numberGenerales != 0" class="absolute h-6 w-6 text-sm text-white text-center bg-green-400 shadow-md  rounded -top-1 -right-1 flex justify-center items-center">
+          <p>
+            {{ this.numberGenerales }}
+          </p>
+        </div>
             <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/generales.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvZ2VuZXJhbGVzLnBuZyIsImlhdCI6MTY2NjYyNjQ1NSwiZXhwIjoxOTgxOTg2NDU1fQ.xSwvrDBDZrttSCJDSgWmchtzm62i_vmA7prfnMCHrG8" alt="Generales" class="w-12 h-12 lg:h-16 lg:w-auto">
           </div>
           <p class="text-texto font-light text-sm mt-3">Generales</p>
@@ -104,6 +129,11 @@
 
          <router-link to="/polizas/riesgo" class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out">
           <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg  rounded-2xl flex justify-center items-center">
+            <div v-if="this.numberRiesgo != 0" class="absolute h-6 w-6 text-sm text-white text-center bg-green-400 shadow-md  rounded -top-1 -right-1 flex justify-center items-center">
+          <p>
+            {{ this.numberRiesgo }}
+          </p>
+        </div>
             <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/cumplimiento.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvY3VtcGxpbWllbnRvLnBuZyIsImlhdCI6MTY2NjYyNjQ2NSwiZXhwIjoxOTgxOTg2NDY1fQ.cg63yH8iDyLheOBQIOLLm2t6TF_ih7bbQHe9Nl3VFDw" alt="Cumplimiento" class="w-12 h-12 lg:h-16 lg:w-auto">
           </div>
           <p class="text-texto font-light text-sm mt-3">T. riesgo</p>
@@ -191,7 +221,13 @@ export default {
       user: {},
       policies:[],
       dateExpire: 0,
-      favorite: []
+      favorite: [],
+      numberAutos: 0,
+      numberVida : 0,
+      numberHogar : 0,
+      numberSalud : 0,
+      numberGenerales : 0,
+      numberRiesgo: 0
       }
   },
 
@@ -207,6 +243,12 @@ export default {
       await this.downloadImage()
       await this.whatsApp()
       await this.fetchPolicies()
+      await this.getNumberAutos()
+      await this.getNumberVida()
+      await this.getNumberHogar()
+      await this.getNumberSalud()
+      await this.getNumberGenerales()
+      await this.getNumberRiesgo()
     } 
   },
 
@@ -215,6 +257,62 @@ export default {
   },
 
   methods: {
+
+    async getNumberRiesgo(){
+      const { data, error } = await supabase
+        .from('policies')
+        .select('*')
+        .eq('client_id', this.currentClient.user.id)
+        .eq('category', "riesgo")
+        this.numberRiesgo= data.length
+    },
+
+    async getNumberGenerales(){
+      const { data, error } = await supabase
+        .from('policies')
+        .select('*')
+        .eq('client_id', this.currentClient.user.id)
+        .eq('category', "generales")
+        this.numberGenerales= data.length
+    },
+
+    async getNumberSalud(){
+      const { data, error } = await supabase
+        .from('policies')
+        .select('*')
+        .eq('client_id', this.currentClient.user.id)
+        .eq('category', "salud")
+        this.numberSalud= data.length
+    },
+
+    async getNumberHogar(){
+      const { data, error } = await supabase
+        .from('policies')
+        .select('*')
+        .eq('client_id', this.currentClient.user.id)
+        .eq('category', "hogar")
+        this.numberHogar= data.length
+    },
+
+    async getNumberAutos(){
+      const { data, error } = await supabase
+        .from('policies')
+        .select('*')
+        .eq('client_id', this.currentClient.user.id)
+        .eq('category', "autos")
+        this.numberAutos = data.length
+    },
+
+    async getNumberVida(){
+      const { data, error } = await supabase
+        .from('policies')
+        .select('*')
+        .eq('client_id', this.currentClient.user.id)
+        .eq('category', "vida")
+        this.numberVida = data.length
+    },
+
+
 
     whatsApp(){
       this.agency.api = "https://wa.me/57"+ `${this.agency.whatsapp}` +  `?text=Hola ${this.agency.fullname},  necesito de tu ayuda.`
