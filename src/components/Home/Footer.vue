@@ -31,7 +31,6 @@
                     </a>
                 </div>
                 <div class="text-texto flex flex-col gap-2 underline font-light">
-                    <a href="mailto:servicioalcliente@lahaus.com">holis@helprime.com</a>
                     <a href="/terminos-y-condiciones">Términos y Condiciones</a>
                     <a href="/politicas-tratamiento-datos">Políticas de Tratamiento de Datos</a>
                     <a href="/static/politica-cookies-co-v1">Política de Cookies</a>
