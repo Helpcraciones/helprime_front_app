@@ -5,8 +5,9 @@
       <i class="fi fi-rr-spinner flex justify-center items-center text-4xl text-primario animate-spin"></i>
       <p class="w-full max-w-xs text-center mt-5 animate-bounce">Estamos cargando esta linda familia para ti</p>
     </div>
-    <div class="flex justify-center items-center mb-5 lg:my-10 mt-5 lg:py-20 py-10 px-5 bg-primario bg-opacity-10 rounded-xl ">
-            <p class="text-texto lg:text-4xl text-2xl font-light leading-tight text-center  ">Los mejores proveedores solo <span class="font-bold text-primario">para ti</span> </p>
+    <div class="flex flex-col justify-center items-center mb-5 lg:my-10 mt-5 lg:py-20 py-10 px-5 bg-primario bg-opacity-10 rounded-xl ">
+            <p class="text-texto lg:text-4xl text-2xl font-light leading-tight text-center  ">Los mejores proveedores de servicios solo <span class="font-bold text-primario">para ti</span> </p>
+            <p class="mt-2 text-texto lg:text-xl text-sm font-semibold leading-tight text-center  ">Excelente atencion, prioridad del servicio, garantía del servicio</p>
         </div>
 
         <p class="text-texto mb-5 text-opacity-80">Busca según tu interés</p>
