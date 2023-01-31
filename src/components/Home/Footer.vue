@@ -9,28 +9,29 @@
 
             <div class="w-full border border-primario border-opacity-30 my-10"></div>
 
-            <div class="my-10 grid lg:grid-cols-3 gap-10 lg:gap-0 lg:px-5">
-                <div class="text-texto flex flex-col">
+            <div class="my-10 grid justify-center lg:grid-cols-3 gap-10 lg:gap-0 lg:px-5">
+                <div class="flex justify-center text-texto lg:hidden">
+                    <p class="text-xl font-bold">Contactanos</p>
+                </div>
+                <div class="text-texto flex flex-col items-center">
                     <p class=" font-bold mb-3">Administrativo</p>
-                    <p>Quintas de Morelia</p>
-                    <p class="leading-none" >Carrera 49 # 51 - 21</p>
-                    <p class="font-semibold mt-2">Villavicencio - Meta</p>
+                    <p class="mt-2">servicioalcliente@helprime.com</p>
+                    <p class="font-semibold mt-2">Colombia</p>
                     <a href="#" target="_blank" rel="" class="px-10 py-2 bg-primario text-white rounded-full mt-5 flex w-max">
                     <i class="fi fi-brands-whatsapp mr-2 flex justify-center items-center " title="Bogotá WhatsApp" aria-hidden="true">
                     </i> WhatsApp
                     </a>
                 </div>
-                <div class="text-texto flex flex-col">
+                <div class="text-texto flex flex-col items-center">
                     <p class=" font-bold mb-3">Desarrollo y marca</p>
-                    <p>Los cerezos</p>
-                    <p class="leading-none" >Carrera 49 # 51 - 21</p>
-                    <p class="font-semibold mt-2">Villavicencio - Meta</p>
+                    <a href="http://helpcreaciones.com" target="_blank" class="leading-none">helpcreaciones.com</a>
+                    <p class="font-semibold mt-2">Colombia</p>
                     <a href="#" target="_blank" rel="" class="px-10 py-2 bg-primario text-white rounded-full mt-5 flex w-max">
                     <i class="fi fi-brands-whatsapp mr-2 flex justify-center items-center " title="Bogotá WhatsApp" aria-hidden="true">
                     </i> WhatsApp
                     </a>
                 </div>
-                <div class="text-texto flex flex-col gap-2 underline font-light">
+                <div class="text-texto flex flex-col items-center gap-2 underline font-light">
                     <a href="/terminos-y-condiciones">Términos y Condiciones</a>
                     <a href="/politicas-tratamiento-datos">Políticas de Tratamiento de Datos</a>
                     <a href="/static/politica-cookies-co-v1">Política de Cookies</a>

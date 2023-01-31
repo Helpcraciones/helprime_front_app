@@ -7,7 +7,7 @@
     <div v-if="this.active"  class="order-3 padding my-7 lg:m-0 lg:flex flex-col static lg:fixed top-10 right-10 lg:bg-white lg:p-8 lg:shadow-xl lg:rounded-lg group z-40">
       <div class="relative group">
       <i @click="this.active = false" class="fi fi-rr-cross-circle hidden lg:flex justify-center items-center absolute -top-5 -right-5 group-hover:text-primario text-texto"></i>
-      <p class="text-texto font-ligth text-xl">Hola<span v-if="this.user.alias != '' " class="font-bold text-primario">, {{this.user.alias}}</span> <span class="font-semibold" v-else>,  estamos super felices que estés aquí!</span> </p>
+      <p class="text-texto font-ligth text-xl">Hola<span v-if="this.user.alias != '' " class="font-bold text-primario">, {{this.user.alias}}</span> <span class="font-semibold" v-else>,  estamos super felices de que estés aquí!</span> </p>
       <!-- <p class="text-texto leading-none">¿En qué te ayudamos hoy?</p> -->
       </div>
     </div>
