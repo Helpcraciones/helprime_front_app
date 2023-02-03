@@ -8,9 +8,11 @@
                 <div class="p-5 text-center">
                     <p class="text-primario font-semibold text-xl leading-tight mb-5">Reune toda la informacion de tu vehiculo en un solo lugar</p>
                     <p class="two text-sm leading-tight text-texto">Tenemos una plataforma muy completa, donde vas a poder guardar informacion de tus vehiculos, recibir alertas ,  recibir información en caso de un accidente y saber de tus seguros, que vas andar sin preocupaciones.</p>
-                    <button class="w-full bg-primario rounded-lg py-3 mt-5 bg-opacity-10 text-primario font-medium hover:bg-opacity-100 hover:text-white transition-all duration-300 ease-in-out border ">
-                        Quiero mas informacion
-                    </button>
+                    <router-link to="/info">
+                        <button class="w-full bg-primario rounded-lg py-3 mt-5 bg-opacity-10 text-primario font-medium hover:bg-opacity-100 hover:text-white transition-all duration-300 ease-in-out border ">
+                            Quiero mas informacion
+                        </button>
+                    </router-link>
                 </div>
             </div>
             <div class="rounded-lg bg-white shadow-xl">
@@ -18,10 +20,11 @@
                 <div class="p-5 text-center">
                     <p class="text-primario font-semibold text-xl leading-tight mb-5">Quiero ser proveedor <br> de servicios</p>
                     <p class="two text-sm leading-tight text-texto">Si eres una empresa relacionada al gremio y te gustan los medios digitales, HELPRIME es tu mejor aliado para ofrecer tus servicios a la comunidad.</p>
-
-                    <button class="w-full bg-primario rounded-lg py-3 mt-5 bg-opacity-10 text-primario font-medium hover:bg-opacity-100 hover:text-white transition-all duration-300 ease-in-out border ">
-                        Quiero mas informacion
-                    </button>
+                    <router-link to="/info">
+                        <button class="w-full bg-primario rounded-lg py-3 mt-5 bg-opacity-10 text-primario font-medium hover:bg-opacity-100 hover:text-white transition-all duration-300 ease-in-out border ">
+                            Quiero mas informacion
+                        </button>
+                    </router-link>
                 </div>
             </div>
             <div class="rounded-lg bg-white shadow-xl ">
@@ -29,9 +32,11 @@
                 <div class="p-5 text-center">
                     <p class="text-primario font-semibold text-xl leading-tight mb-5">Quiero ser <br> agencia HELPRIME</p>
                     <p class="two text-sm leading-tight text-texto">HELPRIME ofrece sus plataformas a las Agencias que deseen vincularse, digitalizar su negocio y tener un control total de sus clientes sin tener que gastar una millonada en desarrollo.</p>
-                    <button class="w-full bg-primario rounded-lg py-3 mt-5 bg-opacity-10 text-primario font-medium hover:bg-opacity-100 hover:text-white transition-all duration-300 ease-in-out border ">
-                        Quiero mas informacion
-                    </button>
+                    <router-link to="/info">
+                        <button class="w-full bg-primario rounded-lg py-3 mt-5 bg-opacity-10 text-primario font-medium hover:bg-opacity-100 hover:text-white transition-all duration-300 ease-in-out border ">
+                            Quiero mas informacion
+                        </button>
+                    </router-link>
                 </div>
             </div>
             

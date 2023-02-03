@@ -233,23 +233,19 @@ export default {
 
   async created() {
     this.agency.profile = ""
-    if(!supabase.auth.user()){
-      router.push('/agencias')
-    } else {
-      this.scroll()
-      this.currentDateChange()
-      await this.getCurrentClient()
-      await this.currentAgency()
-      await this.downloadImage()
-      await this.whatsApp()
-      await this.fetchPolicies()
-      await this.getNumberAutos()
-      await this.getNumberVida()
-      await this.getNumberHogar()
-      await this.getNumberSalud()
-      await this.getNumberGenerales()
-      await this.getNumberRiesgo()
-    } 
+    this.scroll()
+    this.currentDateChange()
+    await this.getCurrentClient()
+    await this.currentAgency()
+    await this.downloadImage()
+    await this.whatsApp()
+    await this.fetchPolicies()
+    await this.getNumberAutos()
+    await this.getNumberVida()
+    await this.getNumberHogar()
+    await this.getNumberSalud()
+    await this.getNumberGenerales()
+    await this.getNumberRiesgo()
   },
 
   mounted() {

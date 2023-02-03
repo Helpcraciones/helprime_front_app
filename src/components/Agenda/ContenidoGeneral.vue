@@ -5,47 +5,48 @@
       <i class="fi fi-rr-spinner flex justify-center items-center text-4xl text-primario animate-spin"></i>
       <p class="w-full max-w-xs text-center mt-5 animate-bounce">Estamos cargando esta linda familia para ti</p>
     </div>
+    
     <div class="flex flex-col justify-center items-center mb-5 lg:my-10 mt-5 lg:py-20 py-10 px-5 bg-primario bg-opacity-10 rounded-xl ">
-            <p class="text-texto lg:text-4xl text-2xl font-light leading-tight text-center  ">Los mejores proveedores de servicios solo <span class="font-bold text-primario">para ti</span> </p>
-            <p class="mt-2 text-texto lg:text-xl text-sm font-semibold leading-tight text-center  ">Excelente atencion, prioridad del servicio, garantía del servicio</p>
-        </div>
+      <p class="text-texto lg:text-4xl text-2xl font-light leading-tight text-center  ">Los mejores proveedores de servicios solo <span class="font-bold text-primario">para ti</span> </p>
+      <p class="mt-2 text-texto lg:text-xl text-sm font-semibold leading-tight text-center  ">Excelente atencion, prioridad del servicio, garantía del servicio</p>
+    </div>
 
-        <p class="text-texto mb-5 text-opacity-80">Busca según tu interés</p>
+    <p class="text-texto mb-5 text-opacity-80">Busca según tu interés</p>
 
-        <div class="grid lg:grid-cols-2 grid-cols-1 lg:gap-5 gap-2 w-full items-center">
-          <div class="flex justify-between mb-2 lg:mb-0">
-      <div class="w-full">
-        <select v-model="this.department" @change="getCities"  class=" text-texto text-xs w-full bg-white border-0 border-b border-primario   focus:border-primario">
-          <option disabled selected value= "">
-            Departamento
-          </option>
-          <option v-for="department in this.departments" :key="department.id" :value="department.id" >{{department.name.toUpperCase()}}</option>
-        </select>
-      </div>
-      <div class="w-full mx-2">
-        <select v-model="this.city"  class=" text-texto text-xs w-full bg-white border-0 border-b border-primario   focus:border-primario">
-          <option disabled selected value= "">Ciudades</option>
-          <option v-for="city in this.cities" :key="city.id" :value="city.id" >{{city.name}}</option>
-        </select>
-      </div>
-      <div class="w-full">
-        <select v-model="this.category"  class=" text-texto text-xs w-full bg-white border-0 border-b border-primario   focus:border-primario">
-          <option disabled selected value= "">
-            Categoria
-          </option>
-          <option v-for="category in this.categories" :key="category.id" :value="category.id" >{{category.name.toUpperCase()}}</option>
-        </select>
-      </div>
-          </div>
-          <div class="flex mb-3 lg:mb-0 w-full">
-            <button @click="filter" class="w-4/5 w- bg-primario bg-opacity-10 border focus:bg-primario focus:text-white mr-2 flex justify-center items-center text-primario py-2 rounded-md text-sm cursor-pointer">
-              <p>{{this.change}}</p>
-            </button>
-            <div @click="clear" class="w-1/5 bg-primario border border-primario flex justify-center items-center rounded-md cursor-pointer">
-              <i class="fi fi-rr-trash flex justify-center items-center text-white"></i>
-            </div>
-          </div>
+    <div class="grid lg:grid-cols-2 grid-cols-1 lg:gap-5 gap-2 w-full items-center">
+      <div class="flex justify-between mb-2 lg:mb-0">
+        <div class="w-full">
+          <select v-model="this.department" @change="getCities"  class=" text-texto text-xs w-full bg-white border-0 border-b border-primario   focus:border-primario">
+            <option disabled selected value= "">
+              Departamento
+            </option>
+            <option v-for="department in this.departments" :key="department.id" :value="department.id" >{{department.name.toUpperCase()}}</option>
+          </select>
         </div>
+        <div class="w-full mx-2">
+          <select v-model="this.city"  class=" text-texto text-xs w-full bg-white border-0 border-b border-primario   focus:border-primario">
+            <option disabled selected value= "">Ciudades</option>
+            <option v-for="city in this.cities" :key="city.id" :value="city.id" >{{city.name}}</option>
+          </select>
+        </div>
+        <div class="w-full">
+          <select v-model="this.category"  class=" text-texto text-xs w-full bg-white border-0 border-b border-primario   focus:border-primario">
+            <option disabled selected value= "">
+              Categoria
+            </option>
+            <option v-for="category in this.categories" :key="category.id" :value="category.id" >{{category.name.toUpperCase()}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="flex mb-3 lg:mb-0 w-full">
+        <button @click="filter" class="w-4/5 w- bg-primario bg-opacity-10 border focus:bg-primario focus:text-white mr-2 flex justify-center items-center text-primario py-2 rounded-md text-sm cursor-pointer">
+          <p>{{this.change}}</p>
+        </button>
+        <div @click="clear" class="w-1/5 bg-primario border border-primario flex justify-center items-center rounded-md cursor-pointer">
+          <i class="fi fi-rr-trash flex justify-center items-center text-white"></i>
+        </div>
+      </div>
+    </div>
     <div class="w-full mb-10 lg:mt-10">
       <div v-if="this.proveedores.length != 0" class="grid grid-cols-1 lg:grid-cols-3 gap-5 ">
         <div v-for="(proveedor,index) in this.proveedores" :key="index">
