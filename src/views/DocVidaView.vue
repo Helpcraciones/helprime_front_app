@@ -120,7 +120,7 @@ export default {
         }
     },
     async created() {
-        this.currentId = this.$route.params.id;
+        this.currentId = this.$arams.id;
         await this.getPolicy()
         await this.getManager()
         await this.downloadPdf()
