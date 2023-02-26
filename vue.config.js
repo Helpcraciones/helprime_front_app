@@ -4,8 +4,8 @@ module.exports = defineConfig({
   pwa: {
     name: 'HELPRIME ',
     themeColor: '#fff',
-    backgroundColor: "#fff",
     msTileColor: '#fff',
+    appleMobileWebAppCapable: 'yes',
     workboxPluginMode: 'GenerateSW',
     workboxOptions: {
       skipWaiting: true,
@@ -93,7 +93,9 @@ module.exports = defineConfig({
           sizes: "150x150",
           type: "image/png",
         },
-      ]
+      ],
+      theme_color: '#fff',
+      background_color: '#fff',
       }
     }
 })
