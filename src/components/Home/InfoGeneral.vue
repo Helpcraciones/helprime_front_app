@@ -1,7 +1,7 @@
 <template>
     <div class="lg:grid hidden gridd padding mx-auto w-11/12 mt-20 max-w-7xl">
         <div class="my-auto">
-            <p class="text-6xl leading-8 text-primario font-light">soy el dist<br> <span class="font-bold text-9xl">buscas</span> <br> en un  solo lugar</p>
+            <p class="text-6xl leading-8 text-primario font-light">Todo lo que<br> <span class="font-bold text-9xl">buscas</span> <br> en un  solo lugar</p>
             <p class="leading-tight text-texto mt-8 w-5/6 font-light">Llega a este mundo la solucion para que tengas toda la documentacion de tus cosas al alcance de un clic.</p>
             <div class="flex w-5/6 justify-start items-center mt-10 bg-gray-50 rounded-l-lg shadow-2xl p-2 rounded-lg">
                 <input v-model="this.email" type="text" class="w-full border-none bg-transparent text-texto px-5 font-light" placeholder="Correo electronico">
