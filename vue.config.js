@@ -14,7 +14,7 @@ module.exports = defineConfig({
       faviconSVG: 'https://res.cloudinary.com/vital-seguros/image/upload/v1656450064/APP/ICON_Mesa_de_trabajo_1_tnkmtc.svg',
       favicon32: 'https://res.cloudinary.com/vital-seguros/image/upload/v1656450064/APP/ICON_Mesa_de_trabajo_1_tnkmtc.svg',
       favicon16: 'https://res.cloudinary.com/vital-seguros/image/upload/v1656450064/APP/ICON_Mesa_de_trabajo_1_tnkmtc.svg',
-      appleTouchIcon: 'https://res.cloudinary.com/vital-seguros/image/upload/v1656450064/APP/ICON_Mesa_de_trabajo_1_tnkmtc.svg',
+      appleTouchIcon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/768px-Google_%22G%22_Logo.svg.png',
       maskIcon: 'https://res.cloudinary.com/vital-seguros/image/upload/v1656450064/APP/ICON_Mesa_de_trabajo_1_tnkmtc.svg',
       msTileImage: 'https://res.cloudinary.com/vital-seguros/image/upload/v1656450064/APP/ICON_Mesa_de_trabajo_1_tnkmtc.svg',
       msTileImage: 'https://res.cloudinary.com/vital-seguros/image/upload/v1656450064/APP/ICON_Mesa_de_trabajo_1_tnkmtc.svg'
