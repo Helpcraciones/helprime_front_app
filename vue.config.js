@@ -4,6 +4,7 @@ module.exports = defineConfig({
   pwa: {
     name: 'HELPRIME ',
     themeColor: '#fff',
+    backgroundColor: "#fff",
     msTileColor: '#fff',
     workboxPluginMode: 'GenerateSW',
     workboxOptions: {
@@ -79,7 +80,20 @@ module.exports = defineConfig({
         },
         {
           src: "https://res.cloudinary.com/vital-seguros/image/upload/v1677427165/APP/ICON_Mesa_de_trabajo_1_tnkmtc-_4__oorfez.png",
-        }]
+          sizes: "32x32",
+          type: "image/png",
+        },
+        {
+          src: "https://res.cloudinary.com/vital-seguros/image/upload/v1677427165/APP/ICON_Mesa_de_trabajo_1_tnkmtc-_4__oorfez.png",
+          sizes: "144x144",
+          type: "image/png",
+        },
+        {
+          src: "https://res.cloudinary.com/vital-seguros/image/upload/v1677427165/APP/ICON_Mesa_de_trabajo_1_tnkmtc-_4__oorfez.png",
+          sizes: "150x150",
+          type: "image/png",
+        },
+      ]
       }
     }
 })
