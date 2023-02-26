@@ -11,13 +11,13 @@ module.exports = defineConfig({
       skipWaiting: true,
     },
     iconPaths: {
-      faviconSVG: 'https://res.cloudinary.com/vital-seguros/image/upload/v1677429993/APP/ICON_Mesa_de_trabajo_1_tnkmtc_4_ar3izh.svg',
-      favicon32: 'https://res.cloudinary.com/vital-seguros/image/upload/v1677429993/APP/ICON_Mesa_de_trabajo_1_tnkmtc_4_ar3izh.svg',
-      favicon16: 'https://res.cloudinary.com/vital-seguros/image/upload/v1677429993/APP/ICON_Mesa_de_trabajo_1_tnkmtc_4_ar3izh.svg',
-      appleTouchIcon: 'https://res.cloudinary.com/vital-seguros/image/upload/v1677429993/APP/ICON_Mesa_de_trabajo_1_tnkmtc_4_ar3izh.svg',
-      maskIcon: 'https://res.cloudinary.com/vital-seguros/image/upload/v1677429993/APP/ICON_Mesa_de_trabajo_1_tnkmtc_4_ar3izh.svg',
-      msTileImage: 'https://res.cloudinary.com/vital-seguros/image/upload/v1677429993/APP/ICON_Mesa_de_trabajo_1_tnkmtc_4_ar3izh.svg',
-      msTileImage: 'https://res.cloudinary.com/vital-seguros/image/upload/v1677429993/APP/ICON_Mesa_de_trabajo_1_tnkmtc_4_ar3izh.svg'
+      faviconSVG: 'https://res.cloudinary.com/vital-seguros/image/upload/v1677430504/APP/ICON_Mesa_de_trabajo_1_tnkmtc_4_ar3izh_vdbanx.png',
+      favicon32: 'https://res.cloudinary.com/vital-seguros/image/upload/v1677430504/APP/ICON_Mesa_de_trabajo_1_tnkmtc_4_ar3izh_vdbanx.png',
+      favicon16: 'https://res.cloudinary.com/vital-seguros/image/upload/v1677430504/APP/ICON_Mesa_de_trabajo_1_tnkmtc_4_ar3izh_vdbanx.png',
+      appleTouchIcon: 'https://res.cloudinary.com/vital-seguros/image/upload/v1677430504/APP/ICON_Mesa_de_trabajo_1_tnkmtc_4_ar3izh_vdbanx.png',
+      maskIcon: 'https://res.cloudinary.com/vital-seguros/image/upload/v1677430504/APP/ICON_Mesa_de_trabajo_1_tnkmtc_4_ar3izh_vdbanx.png',
+      msTileImage: 'https://res.cloudinary.com/vital-seguros/image/upload/v1677430504/APP/ICON_Mesa_de_trabajo_1_tnkmtc_4_ar3izh_vdbanx.png',
+      msTileImage: 'https://res.cloudinary.com/vital-seguros/image/upload/v1677430504/APP/ICON_Mesa_de_trabajo_1_tnkmtc_4_ar3izh_vdbanx.png'
     },
     manifestOptions: {
       icons: [
