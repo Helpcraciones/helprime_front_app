@@ -23,6 +23,7 @@ import Profile from "../views/Profile.vue"
 import Formulario from "../views/Formulario.vue"
 import Recuperacion from "../views/RecuperarContra.vue"
 import Info from "../views/InfoView.vue"
+import Identity from "../views/IdentityView.vue"
 import { supabase } from '@/supabase/init'
 
 const routes = [
@@ -41,6 +42,15 @@ const routes = [
     component: Agencias,
     meta:{
       title: 'agencias',
+      auth: false
+    },
+  },
+  {
+    path: '/identity',
+    name: 'identity',
+    component: Identity,
+    meta:{
+      title: 'identity',
       auth: false
     },
   },
