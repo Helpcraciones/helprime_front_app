@@ -15,7 +15,7 @@
                 </div>
                 <div class="text-texto flex flex-col items-center">
                     <p class=" font-bold mb-3">Administrativo</p>
-                    <p class="mt-2">servicioalcliente@helprime.com</p>
+                    <p class="mt-2">helpcreaciones@gmail.com</p>
                     <p class="font-semibold mt-2">Colombia</p>
                     <a href="#" target="_blank" rel="" class="px-10 py-2 bg-primario text-white rounded-full mt-5 flex w-max">
                     <i class="fi fi-brands-whatsapp mr-2 flex justify-center items-center " title="Bogotá WhatsApp" aria-hidden="true">
