@@ -353,15 +353,15 @@ export default {
 
 
      async openProfile(){
-          if(this.userAuth === null){
-            router.push("/login")
-          } else{
-            this.loading = false
-            this.general = "block"
-            this.modal = "w-screen"
-            this.profile = "max-w-sm w-full shadow-lg"
-            this.getCurrentClient()
-          }
+        if(this.userAuth === null){
+          router.push("/login")
+        } else{
+          this.loading = false
+          this.general = "block"
+          this.modal = "w-screen"
+          this.profile = "max-w-sm w-full shadow-lg"
+          this.getCurrentClient()
+        }
           
 
       },
@@ -398,14 +398,12 @@ export default {
           .select('*')
           .eq('id', this.userAuth.user.id)
           if (error) throw error
-          console.log('soy de las agencias');
           this.table = "clients_agencies"
           this.user = data[0]
           this.user.alias = data[0].alias.toUpperCase()
           setTimeout(() => {
             this.loading = true
           }, 400);
-          console.log(this.user);
         } catch (error) {
           if(error){
             console.log(error);
