@@ -10,7 +10,7 @@
             <div class="w-full flex flex-col items-center justify-center">
                 <i class="fi fi-rr-password text-primario text-7xl flex justify-center items-center"></i>
                 <p class=" text-xl text-primario mt-5 font-semibold">Actualizar contraseña</p>
-                <p class="text-center leading-tight text-texto font-light px-4 mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat autem nulla dolore</p>
+                <!-- <p class="text-center leading-tight text-texto font-light px-4 mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat autem nulla dolore</p> -->
             </div>
 
             <div class="w-full flex flex-col mt-10">
@@ -86,9 +86,8 @@ export default {
                     try {
                     const { error, data } = await supabase.auth.update({password: this.passwordConfirm})
                     if(error) throw error;
-                    router.push('/')
+                    this.cancelProcess()
                     } catch (error) {
-                        
                         console.log(error);
                     }
                 } else{
