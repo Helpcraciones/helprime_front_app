@@ -14,8 +14,8 @@
                 
             </div>
             
-              <div class="lg:flex hidden gap-3">
-                <a href="https://dashboard.helprime.com" class="text-primario bg-primario bg-opacity-10 px-5 py-2 rounded-lg transform transition-all duration-300 hover:scale-105">Dashboard</a>
+            <div class="lg:flex hidden gap-3">
+                <!-- <a href="https://dashboard.helprime.com" class="text-primario bg-primario bg-opacity-10 px-5 py-2 rounded-lg transform transition-all duration-300 hover:scale-105">Dashboard</a> -->
                 <button @click="openProfile" class="text-white bg-primario px-5 py-2 rounded-lg transform transition-all duration-300 hover:scale-105">Mi perfil</button>
             </div>
 
