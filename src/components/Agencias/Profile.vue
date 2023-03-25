@@ -46,7 +46,9 @@
           <div class='flex gap-3 mt-5'>
             <a :href='agency.web' target="_blank" class='py-2 w-full bg-primario bg-opacity-10 text-primario rounded-lg hover:bg-opacity-100 transition-all duration-300 hover:text-white flex justify-center' >Ver mas informacion</a>
             <div class='bg-white shadow-lg rounded-full p-3 group ' >
-            <i class="fi fi-brands-whatsapp cursor-pointer  text-green-500 flex justify-center items-center transition-all transform duration-300 ease-in-out"></i>
+            <a :href="agency.whatsapp_link" target="_blank">
+              <i class="fi fi-brands-whatsapp cursor-pointer  text-green-500 flex justify-center items-center transition-all transform duration-300 ease-in-out"></i>
+            </a>
           </div>
           </div>
         </div>
@@ -90,6 +92,10 @@ export default {
         .from('agencies')
         .select('*')
           this.agencies = data
+
+          this.agencies.forEach((agency) => {
+            agency.whatsapp_link = `https://api.whatsapp.com/send?phone=57${agency.whatsapp}&text=Hola ${agency.fullname}, te encontré en HELPRIME 🥳. Me gustaría recibir información de:`
+          })
 
           this.downloadImage()
           this.getDepartmentsAgency()
