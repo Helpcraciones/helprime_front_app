@@ -35,9 +35,26 @@
                     <p class="text-center leading-tight text-texto font-light mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat autem nulla dolore</p>
                 </div>
                     <form class="space-y-6" action="#">
-                      <div class="w-full flex flex-col mt-10">
-                        <label for="fullname" class=" font-light text-primario text-sm">Nombre completo</label>
-                        <input v-model="this.createData.fullname" type="text" name="fullname" id="fullname" class="text-texto border-t-0 border-r-0 border-l-0 border-b  border-primario px-4 " placeholder="Ingresa tu nombre completo">
+                      <div class="grid grid-cols-2">
+                        <div class="pr-1 w-full flex flex-col mt-10">
+                          <label for="first_name" class=" font-light text-primario text-sm">Primer Nombre</label>
+                          <input v-model="this.createData.first_name" type="text" name="first_name" id="first_name" class="text-texto border-t-0 border-r-0 border-l-0 border-b  border-primario px-4 " placeholder="Ingresa tu primer nombre">
+                        </div>
+                        <div class="pl-1 w-full flex flex-col mt-10">
+                          <label for="second_name" class=" font-light text-primario text-sm">Segundo Nombre</label>
+                          <input v-model="this.createData.second_name" type="text" name="second_name" id="second_name" class="text-texto border-t-0 border-r-0 border-l-0 border-b  border-primario px-4 " placeholder="Ingresa tu segundo nombre nombre">
+                        </div>
+                      </div>
+
+                      <div class="grid grid-cols-2">
+                        <div class="pr-1 w-full flex flex-col mt-10">
+                          <label for="first_last_name" class=" font-light text-primario text-sm">Primer Apellido</label>
+                          <input v-model="this.createData.first_last_name" type="text" name="first_last_name" id="first_last_name" class="text-texto border-t-0 border-r-0 border-l-0 border-b  border-primario px-4 " placeholder="Ingresa tu primer nombre">
+                        </div>
+                        <div class="pl-1 w-full flex flex-col mt-10">
+                          <label for="second_last_name" class=" font-light text-primario text-sm">Segundo Apellido</label>
+                          <input v-model="this.createData.second_last_name" type="text" name="second_last_name" id="second_last_name" class="text-texto border-t-0 border-r-0 border-l-0 border-b  border-primario px-4 " placeholder="Ingresa tu segundo nombre nombre">
+                        </div>
                       </div>
 
                       <div class="w-full flex flex-col">
@@ -175,7 +192,10 @@ export default {
       cities: [],
       city: "",
       createData:{
-          fullname: "",
+          first_name: "",
+          second_name: "",
+          first_last_name: "",
+          second_last_name: "",
           alias: "",
           type_document: "",
           document: "",
@@ -285,14 +305,17 @@ export default {
     },
 
     async dataRegister(){
-      if(this.createData.fullname != "" && this.createData.alias != "" && this.createData.type_document != "" && this.createData.document != "" && this.gender != "" && this.createData.date_of_birth != "" && this.createData.contact_number != "" && this.department_id != "" && this.city_id != "" && this.createData.billing_email != ""){
+      if(this.createData.first_name != "" && this.createData.first_last_name != "" && this.createData.second_last_name != "" && this.createData.alias != "" && this.createData.type_document != "" && this.createData.document != "" && this.gender != "" && this.createData.date_of_birth != "" && this.createData.contact_number != "" && this.department_id != "" && this.city_id != "" && this.createData.billing_email != ""){
         try {
         const { error } = await supabase
         .from('clients_helprime')
         .insert({ 
           id: this.currentClient.user.id, 
           created_at: this.currentClient.user.created_at,
-          fullname: this.createData.fullname,
+          first_name: this.createData.first_name,
+          second_name: this.createData.second_name,
+          first_last_name: this.createData.first_last_name,
+          second_last_name: this.createData.second_last_name,
           alias: this.createData.alias,
           email: this.currentClient.user.email,
           type_document: this.createData.type_document,
@@ -311,7 +334,7 @@ export default {
         setTimeout(() => {
           this.color= "hidden"
         }, 5000);
-        this.sendData.to_name = this.createData.fullname
+        this.sendData.to_name = this.createData.first_name
         this.sendData.email = this.currentClient.user.email
         emailjs.send('service_5njuyze', 'template_4qiipug', this.sendData, 'pfz8wFvetYK3c-deO')
         if (error) throw error

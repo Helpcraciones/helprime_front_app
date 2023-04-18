@@ -29,7 +29,11 @@
 
 
       <div v-if="this.loading" class="flex flex-col items-center my-5 w-full">
-        <input class="text-textoOscuro text-lg font-medium leading-none one w-full text-center flex justify-center" v-model="this.user.fullname" spellcheck="false">
+        <div class="flex justify-center gap-1">
+          <p class="text-textoOscuro text-lg font-medium leading-none one text-center">{{ this.user.first_name }} {{ this.user.first_last_name }}</p>
+          <!-- <input class="text-textoOscuro text-lg font-medium leading-none one w-min text-center flex justify-center" v-model="this.user.first_name" spellcheck="false">
+          <input class="text-textoOscuro text-lg font-medium leading-none one w-min text-center flex justify-center" v-model="this.user.first_last_name" spellcheck="false"> -->
+        </div>
         <p class="text-texto font-light">{{this.user.alias}}</p>
       </div>
 
@@ -50,10 +54,26 @@
     </button>
 
   <div v-if="this.collapse" class="flex flex-col px-2" >
-    <label  class="flex flex-col focus:border-transparent border-b border-primario mt-5">
-      <p class="text-texto font-light text-sm">Nombre completo</p>
-      <input type="text" v-model="this.user.fullname" class="border-none text-texto  focus:text-primario " spellcheck="false">
-    </label>
+    <div class="grid grid-cols-2">
+      <label  class="pr-1 flex flex-col focus:border-transparent border-b border-primario mt-5">
+        <p class="text-texto font-light text-sm">Primer Nombre</p>
+        <input type="text" v-model="this.user.first_name" class="border-none text-texto  focus:text-primario " spellcheck="false">
+      </label>
+      <label  class="pl-1 flex flex-col focus:border-transparent border-b border-primario mt-5">
+        <p class="text-texto font-light text-sm">Segundo Nombre</p>
+        <input type="text" v-model="this.user.second_name" class="border-none text-texto  focus:text-primario " spellcheck="false">
+      </label>
+    </div>
+    <div class="grid grid-cols-2">
+      <label  class="pr-1 flex flex-col focus:border-transparent border-b border-primario mt-5">
+        <p class="text-texto font-light text-sm">Primer Apellido</p>
+        <input type="text" v-model="this.user.first_last_name" class="border-none text-texto  focus:text-primario " spellcheck="false">
+      </label>
+      <label  class="pl-1 flex flex-col focus:border-transparent border-b border-primario mt-5">
+        <p class="text-texto font-light text-sm">Segundo Apellido</p>
+        <input type="text" v-model="this.user.second_last_name" class="border-none text-texto  focus:text-primario " spellcheck="false">
+      </label>
+    </div>
     <label  class="flex flex-col focus:border-transparent border-b border-primario mt-5">
       <p class="text-texto font-light text-sm">Como te llamaremos</p>
       <input type="text" v-model="this.user.alias" class="border-none text-texto  focus:text-primario " spellcheck="false">
@@ -357,7 +377,10 @@ export default {
       .from(this.table)
       .update(
         {
-            fullname: this.user.fullname,
+            first_name: this.user.first_name,
+            second_name: this.user.second_name,
+            first_last_name: this.user.first_last_name,
+            second_last_name: this.user.second_last_name,
             alias: this.user.alias,
             contact_number: this.user.contact_number,
             suscription_helprime: this.user.suscription_helprime
