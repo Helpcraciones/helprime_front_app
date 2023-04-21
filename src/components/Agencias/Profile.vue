@@ -33,7 +33,7 @@
           <img v-if="agency.profile != '' " :src="agency.profile" alt="Img" class="h-36 w-36 object-cover rounded-full">
           <i v-else class="fi fi-rr-building flex justify-center items-center text-3xl text-green-500"></i>
         </div>
-        <div class='px-5 pb-5 grid' style="grid-template-row: auto 1fr auto;">  
+        <div class='px-5 pb-5 w-full grid' style="grid-template-row: auto 1fr auto;">  
           <div>
             <p class='text-gray-600 font-semibold text-xl one'>{{agency.fullname.toUpperCase()}}</p>
             <div class='leading-none text-xs text-green-500 px-3 py-1.5 my-1 bg-green-500 bg-opacity-10 w-max rounded-full'>{{agency.city}} - {{agency.department}}</div>
@@ -91,6 +91,7 @@ export default {
         const { data, error } = await supabase
         .from('agencies')
         .select('*')
+        .eq("app_status", true)
           this.agencies = data
 
           this.agencies.forEach((agency) => {
