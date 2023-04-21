@@ -63,7 +63,7 @@ export default {
         async platesUser(){
             try {
                 const { data, error } = await supabase
-                .from('license_plates')
+                .from('license_plates_agencies')
                 .select('*')
                 .eq('client_id', this.currentClient.id)
                 .eq('status', true)
