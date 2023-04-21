@@ -2,7 +2,7 @@
   <div class="padding pt-3 lg:pt-5 flex justify-between items-center">
     <img src="https://res.cloudinary.com/vital-seguros/image/upload/v1661897865/APP/logo-01_etyrwc.svg" alt="Logo vital seguros" @click="toggleColor" class="h-7 w-max lg:h-8  ">
     <router-link v-if="this.userAuth == null" to="/login" class="lg:hidden">
-      <button class="text-white bg-primario font-bold text-sm px-2 py-2 rounded-lg transform transition-all duration-300 hover:scale-105">Iniciar sesion</button>
+      <button class="text-white bg-primario text-sm px-2 py-2 rounded-lg transform transition-all duration-300 hover:scale-105">Iniciar sesion</button>
     </router-link>
     <i class="fi fi-rr-bell relative text-xl text-primario flex justify-center items-center lg:hidden">
       <div :class="{colorNotification: color}" class="rounded-full h-3 w-3 absolute -top-0.5 -right-0.5"></div>
@@ -19,7 +19,7 @@
     <div class="lg:flex hidden gap-3">
       <!-- <a href="https://dashboard.helprime.com" class="text-primario bg-primario bg-opacity-10 px-5 py-2 rounded-lg transform transition-all duration-300 hover:scale-105">Dashboard</a> -->
       <router-link v-if="this.userAuth == null" to="/login">
-        <button class="text-primario bg-white border border-primario font-bold px-5 py-2 rounded-lg transform transition-all duration-300 hover:scale-105">Iniciar sesion</button>
+        <button class="text-primario bg-white border border-primario px-5 py-2 rounded-lg transform transition-all duration-300 hover:scale-105">Iniciar sesion</button>
       </router-link>
       <button @click="openProfile" class="text-white bg-primario px-5 py-2 rounded-lg transform transition-all duration-300 hover:scale-105">Mi perfil</button>
     </div>

@@ -8,7 +8,7 @@
 
     <div class="px-5 pt-5 w-full flex lg:hidden">
       <router-link to="/" >
-        <i class="fi fi-rr-arrow-left text-primario text-4xl flex justify-center text-left"></i>
+        <i class="fi fi-rr-arrow-left text-primario text-2xl flex justify-center text-left"></i>
       </router-link>
     </div>
 
