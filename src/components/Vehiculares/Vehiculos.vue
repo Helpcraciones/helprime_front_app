@@ -18,7 +18,7 @@
                 <div class="w-full flex flex-col items-start justify-center ml-5">
                 <div class="flex flex-col items-start justify-center">
                 <p class="text-texto text-sm">Placa del vehiculo</p>
-                <p class="text-texto font-semibold leading-none">{{policy.risk}}</p>
+                <p class="text-texto font-semibold leading-none">{{policy.risks}}</p>
                 </div>
                 <div class="flex flex-col items-start justify-cente my-1">
                 <p  class=" text-sm text-texto">Fecha de vencimiento</p>
