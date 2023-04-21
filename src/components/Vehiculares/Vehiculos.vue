@@ -112,19 +112,18 @@ export default {
         },
 
         changeVehicul(){
-                if(this.currentSelect === "todos"){
-                    this.viewPolicies = this.policies
-                } else {
-                    this.viewPolicies = []
-                    this.filterPolicies = []
-                    this.policies.forEach(policy => {
-                    if(policy.license_plate === this.currentSelect){
-                        this.filterPolicies.push(policy)
-                        }
-                    });
-                    this.viewPolicies = this.filterPolicies
+          if(this.currentSelect === "todos"){
+            this.viewPolicies = this.policies
+          } else {
+            this.viewPolicies = []
+            this.filterPolicies = []
+            this.policies.forEach(policy => {
+            if(policy.risks === this.currentSelect){
+                this.filterPolicies.push(policy)
                 }
-                
+            });
+            this.viewPolicies = this.filterPolicies
+          }
         },
 
         async changeFav(id, status){

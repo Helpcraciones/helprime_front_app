@@ -139,7 +139,6 @@ export default {
                 .eq('id', this.currentId)
                 this.document = data[0]
                 this.policyId = this.document.id
-                console.log(this.document);
             } catch (error) {
                 if(error){
                 console.log(error);
@@ -150,7 +149,7 @@ export default {
         async getManager(){
             try {
                 const { data, error } = await supabase
-                .from('users_agencies')
+                .from('team_agencies')
                 .select('*')
                 .eq('id', this.document.business_manager_id)
                 this.manager = data[0]
