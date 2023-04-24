@@ -108,13 +108,11 @@ export default {
           if (data.length) {
             this.res1 = data[0]
             this.currentData = data[0]
-            console.log(data);
           } else{
             try{
               const { data, error } = await supabase.from('clients_agencies').select('*').eq('email', this.loginData.email )
               this.res2 = data[0]
               this.currentData = data[0]
-              console.log(data);
               if(error) throw error;
             } catch (e){
               console.log(e)
