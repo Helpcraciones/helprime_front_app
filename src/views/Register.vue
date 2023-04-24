@@ -80,7 +80,7 @@ export default {
         console.log("registro");
         try{
           let {user, session, error } = await supabase.auth.signUp({
-            email: this.registerData.email,
+            email: this.registerData.email.toLowerCase(),
             password: this.registerData.password
           })
           if(supabase.auth.user()){

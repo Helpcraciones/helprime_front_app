@@ -82,23 +82,6 @@ export default {
   },
 
   methods: {
-    /* async login(){
-      
-      try {
-        const { user, session, error } = await supabase.auth.signIn({
-          email: this.loginData.email,
-          password: this.loginData.password,
-        })
-          if(error) throw error
-          router.push("/#categorias")
-      } catch (error) {
-        if (error){
-          console.log(error.message);
-        }
-      }
-        
-    }, */
-
     async verifyLogin(){
       this.verifyData()
       if (!this.verify) {
