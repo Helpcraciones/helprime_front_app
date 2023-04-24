@@ -85,6 +85,7 @@ export default {
     async verifyLogin(){
       this.verifyData()
       if (!this.verify) {
+        this.loginData.email = this.loginData.email.toLowerCase()
         try{
           const { data, error } = await supabase.from('clients_helprime').select('*').eq('email', this.loginData.email )
           if(error) throw error;
