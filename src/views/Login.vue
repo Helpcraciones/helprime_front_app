@@ -104,27 +104,25 @@ export default {
       if (!this.verify) {
         try{
           const { data, error } = await supabase.from('clients_helprime').select('*').eq('email', this.loginData.email )
-          this.res1 = data[0]
           if(error) throw error;
+          if (data.length) {
+            this.res1 = data[0]
+            this.currentData = data[0]
+            console.log(data);
+          } else{
+            try{
+              const { data, error } = await supabase.from('clients_agencies').select('*').eq('email', this.loginData.email )
+              this.res2 = data[0]
+              this.currentData = data[0]
+              console.log(data);
+              if(error) throw error;
+            } catch (e){
+              console.log(e)
+            }
+          }
         } catch (e){
           console.log(e)
         }  
-
-        try{
-          const { data, error } = await supabase.from('clients_agencies').select('*').eq('email', this.loginData.email )
-          this.res2 = data[0]
-          if(error) throw error;
-        } catch (e){
-          console.log(e)
-        }
-
-        if (this.res1) {
-          this.currentData = this.res1
-        } else if(this.res2){
-          this.currentData = this.res2
-        } else {
-          this.currentData = null
-        }
 
         this.login()
         
