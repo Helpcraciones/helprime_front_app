@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
+import ResetPassword from '../views/ResetPassword.vue'
 import HomeView from '../views/HomeView.vue'
 import Agencias from '../views/Agencias.vue'
 import Polizas from "../views/PolizasView.vue"
@@ -80,6 +81,15 @@ const routes = [
       title: 'login',
       auth: false
     }
+  },
+  {
+    path: '/reset-password',
+    name: 'resetPassword',
+    component: ResetPassword,
+    meta:{
+      title: 'ResetPassword',
+      auth: false
+    },
   },
   {
     path: '/reestablecer',

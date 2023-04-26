@@ -75,7 +75,7 @@
           <div class="h-24 w-24 lg:w-full lg:h-40  bg-white shadow-lg  rounded-2xl flex justify-center items-center">
             <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/vehicles.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvdmVoaWNsZXMucG5nIiwiaWF0IjoxNjYzMzA0NjA4LCJleHAiOjE5Nzg2NjQ2MDh9.aJkhB1DKBzKUhGOUkJ5goLkFjQZsuxYD8JyGxVqYmvM" alt="Vehiculares" class="w-12 h-12 lg:h-16 lg:w-auto">
           </div>
-          <p class="text-texto font-light text-sm mt-3">Vehiculares</p>
+          <p class="text-texto font-light text-sm mt-3">Autos</p>
         </router-link>
 
          <router-link to="/polizas/vida"  class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out">
@@ -127,17 +127,20 @@
           <p class="text-texto font-light text-sm mt-3">Generales</p>
          </router-link>
 
-         <router-link to="/polizas/riesgo" class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out">
+         <div  class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out">
           <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg  rounded-2xl flex justify-center items-center">
             <div v-if="this.numberRiesgo != 0" class="absolute h-6 w-6 text-sm text-white text-center bg-green-400 shadow-md  rounded -top-1 -right-1 flex justify-center items-center">
-          <p>
-            {{ this.numberRiesgo }}
-          </p>
-        </div>
-            <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/cumplimiento.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvY3VtcGxpbWllbnRvLnBuZyIsImlhdCI6MTY2NjYyNjQ2NSwiZXhwIjoxOTgxOTg2NDY1fQ.cg63yH8iDyLheOBQIOLLm2t6TF_ih7bbQHe9Nl3VFDw" alt="Cumplimiento" class="w-12 h-12 lg:h-16 lg:w-auto">
+              <p>
+                {{ this.numberRiesgo }}
+              </p>
+            </div>
+            <img class="w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1653068552/APP/advice_jnkipr.png">
           </div>
-          <p class="text-texto font-light text-sm mt-3">T. riesgo</p>
-         </router-link>
+          <p class="text-texto font-light text-sm mt-3">Vencimientos</p>
+          <div class="px-2 py-1 bg-yellow-50 text-yellow-500 text-xs rounded-l-full absolute top-3 right-0">
+              <p>Proximamente</p>
+          </div>
+         </div>
 
       </div>
 
@@ -172,15 +175,20 @@
         </div>
         </div>
 
-        <div v-else v-for="(fav, index) in this.favorite" :key="index"  class="relative bg-white shadow-lg w-full h-30 flex justify-center items-center p-5 rounded-2xl transform transition-all hover:scale-105 duration-300 ease-in-out">
+        <div v-else v-for="(fav, index) in this.favorite" :key="index" @click="redirectPolicyFav(fav)"  class="relative bg-white shadow-lg w-full h-30 flex justify-center items-center p-5 rounded-2xl transform transition-all hover:scale-105 duration-300 ease-in-out">
           <div class="absolute bg-primario bg-opacity-20 top-4 right-0 px-3 py-0.5 rounded-l-full">
             <p class="text-sm text-primario font-semibold small">{{fav.product}}</p>
           </div>
           <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/vehicles.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvdmVoaWNsZXMucG5nIiwiaWF0IjoxNjYzMzA0NjA4LCJleHAiOjE5Nzg2NjQ2MDh9.aJkhB1DKBzKUhGOUkJ5goLkFjQZsuxYD8JyGxVqYmvM" alt="Imagenvvr de documento" class="h-12 w-12">
           <div class="w-full flex flex-col items-start justify-center ml-5">
-            <div class="flex flex-col items-start justify-center">
-              <p class="text-texto text-sm">Placa del vehiculo</p>
+            <div v-if="fav.category == 'autos' || fav.category == 'hogar' || fav.category == 'generales'" class="flex flex-col items-start justify-center">
+              <p v-if="fav.category == 'autos'" class="text-texto text-sm">Placa del vehiculo</p>
+              <p v-else class="text-texto text-sm">Riesgo</p>
               <p class="text-texto font-semibold leading-none">{{fav.risks}}</p>
+            </div>
+            <div v-else class="flex flex-col items-start justify-center">
+              <p class="text-texto text-sm">Seguro</p>
+              <p class="text-texto font-semibold leading-none">{{fav.category.toUpperCase()}}</p>
             </div>
             <div class="flex flex-col items-start justify-cente my-1">
               <p class="text-texto text-sm">Fecha de vencimiento</p>
@@ -420,9 +428,31 @@ export default {
       .eq('id', id)
       this.favorite =[]
       this.fetchPolicies()
+    },
+
+    redirectPolicyFav(policy){
+      if (policy.category == 'autos') {
+        this.$store.commit("SaveUrlPolicy", policy)
+        router.push('/polizas/vehiculares')
+
+      } else if (policy.category == 'vida'){
+        this.$store.commit("SaveUrlPolicy", policy)
+        router.push('/polizas/vida')
+
+      }else if (policy.category == 'hogar'){
+        this.$store.commit("SaveUrlPolicy", policy)
+        router.push('/polizas/hogar')
+
+      }else if (policy.category == 'salud'){
+        this.$store.commit("SaveUrlPolicy", policy)
+        router.push('/polizas/salud')
+
+      }else if (policy.category == 'generales'){
+        this.$store.commit("SaveUrlPolicy", policy)
+        router.push('/polizas/generales')
+
+      }
     }
-
-
   },
 
   computed:{

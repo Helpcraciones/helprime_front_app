@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-gray-500 bg-opacity-20 h-screen w-full rounded-t-3xl max-w-7xl mx-auto">
+    <div class="bg-primario bg-opacity-10 h-screen w-full rounded-t-3xl max-w-7xl mx-auto">
         <div class="padding pt-3 flex justify-between items-center">
         <router-link to="/polizas/vida" >
             <i   class="fi fi-rr-arrow-left text-primario text-2xl flex justify-center items-center"></i>
@@ -135,7 +135,6 @@ export default {
                 .eq('id', this.currentId)
                 this.document = data[0]
                 this.policyId = this.document.id
-                console.log(this.document);
             } catch (error) {
                 if(error){
                 console.log(error);
@@ -145,12 +144,23 @@ export default {
 
         async getManager(){
             try {
-                const { data, error } = await supabase
-                .from('users_agencies')
-                .select('*')
-                .eq('id', this.document.business_manager_id)
-                this.manager = data[0]
-                console.log(this.manager);
+                const { data, error } = await supabase.from('agencies').select('*').eq('id', this.document.business_manager_id)
+                if(error) throw error;
+
+                if (data[0]) {
+                    this.manager = data[0]
+                }else {
+                    try {
+                        const { data, error } = await supabase.from('team_agencies').select('*').eq('id', this.document.business_manager_id)
+                        if(error) throw error;
+                        
+                        this.manager = data[0]
+                    } catch (error) {
+                        if(error){
+                        console.log(error);
+                        }
+                    }
+                }
             } catch (error) {
                 if(error){
                 console.log(error);

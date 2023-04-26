@@ -4,7 +4,8 @@ export default createStore({
   state: {
     clientAuth:null,
     eventCurrent: null,
-    emailHome: ""
+    emailHome: "",
+    policyRedirect: null,
   },
   getters: {
   },
@@ -21,6 +22,10 @@ export default createStore({
 
     emailRegister(state, email){
       state.emailHome = email
+    },
+
+    SaveUrlPolicy(state, policy){
+      state.policyRedirect = policy
     }
   },
   modules: {

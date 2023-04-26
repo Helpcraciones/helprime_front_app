@@ -1,9 +1,9 @@
 <template>
   <div class="grid grid-cols-1 lg:grid-cols-2 h-screen bg">
      <div class="h-screen lg:flex hidden justify-center items-center bg-primario bg-opacity-10">
-        <!-- <atropos :shadow='false' class="p-10">
+        <atropos :shadow='false' class="p-10">
           <img src="https://res.cloudinary.com/vital-seguros/image/upload/v1666648250/APP/104_ojgfo2.png" data-atropos-offset="0" />
-        </atropos> -->
+        </atropos>
       </div>
 
       <div class="w-full flex flex-col justify-center items-center lg:px-10 lg:max-w-lg mx-auto px-5">
@@ -40,8 +40,7 @@
 
         <div class=" flex justify-around w-full lg:flex-row flex-col items-center"> 
           <p @click="login" class="text-texto font-light text-sm mt-5 underline cursor-pointer select-none">Ya tienes cuenta?, Ingresa</p>
-
-        <p @click="cancelRegister" class="text-texto font-light text-sm mt-5 underline cursor-pointer select-none">Cancelar registro</p>
+          <p @click="cancelRegister" class="text-texto font-light text-sm mt-5 underline cursor-pointer select-none">Cancelar registro</p>
         </div>
       </div>
     </div>

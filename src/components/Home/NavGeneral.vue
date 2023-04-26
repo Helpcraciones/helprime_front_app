@@ -83,26 +83,22 @@
             </button>
 
           <div v-if="this.collapse" class="flex flex-col px-2" >
-            <div class="grid grid-cols-2">
-              <label  class=" flex flex-col focus:border-transparent border-b border-primario mt-5">
-                <p class="text-texto font-light text-sm">Primer Nombre</p>
-                <input type="text" v-model="this.user.first_name" class="pr-1 border-none text-texto  focus:text-primario " spellcheck="false">
-              </label>
-              <label  class=" flex flex-col focus:border-transparent border-b border-primario mt-5">
-                <p class="text-texto font-light text-sm">Segundo Nombre</p>
-                <input type="text" v-model="this.user.second_name" class="pl-1 border-none text-texto  focus:text-primario " spellcheck="false">
-              </label>
-            </div>
-            <div class="grid grid-cols-2">
-              <label  class="pr-1 flex flex-col focus:border-transparent border-b border-primario mt-5">
-                <p class="text-texto font-light text-sm">Primer Apellido</p>
-                <input type="text" v-model="this.user.first_last_name" class="border-none text-texto  focus:text-primario " spellcheck="false">
-              </label>
-              <label  class="pl-1 flex flex-col focus:border-transparent border-b border-primario mt-5">
-                <p class="text-texto font-light text-sm">Segundo Apellido</p>
-                <input type="text" v-model="this.user.second_last_name" class="border-none text-texto  focus:text-primario " spellcheck="false">
-              </label>
-            </div>
+            <label  class=" flex flex-col focus:border-transparent border-b border-primario mt-5">
+              <p class="text-texto font-light text-sm">Primer Nombre</p>
+              <input type="text" v-model="this.user.first_name" class=" border-none text-texto  focus:text-primario " spellcheck="false">
+            </label>
+            <label  class=" flex flex-col focus:border-transparent border-b border-primario mt-5">
+              <p class="text-texto font-light text-sm">Segundo Nombre</p>
+              <input type="text" v-model="this.user.second_name" class=" border-none text-texto  focus:text-primario " spellcheck="false">
+            </label>
+            <label  class="flex flex-col focus:border-transparent border-b border-primario mt-5">
+              <p class="text-texto font-light text-sm">Primer Apellido</p>
+              <input type="text" v-model="this.user.first_last_name" class="border-none text-texto  focus:text-primario " spellcheck="false">
+            </label>
+            <label  class="flex flex-col focus:border-transparent border-b border-primario mt-5">
+              <p class="text-texto font-light text-sm">Segundo Apellido</p>
+              <input type="text" v-model="this.user.second_last_name" class="border-none text-texto  focus:text-primario " spellcheck="false">
+            </label>
             <label  class="flex flex-col focus:border-transparent border-b border-primario mt-5">
               <p class="text-texto font-light text-sm">Como te llamaremos</p>
               <input type="text" v-model="this.user.alias" class="border-none text-texto  focus:text-primario " spellcheck="false">

@@ -35,6 +35,7 @@
     </div>
 </template>
 <script>
+import router from "@/router"
 import { supabase } from "../../supabase/init"
 export default {
     name: "Vehiculos",
@@ -48,6 +49,10 @@ export default {
     },
 
     async created() {
+        if (this.policyRedirect) {
+            router.push(`generales/${this.policyRedirect.id}`)
+            this.$store.commit("SaveUrlPolicy", null)
+        }
         await this.fetchPolicies()
     },
 
@@ -89,7 +94,6 @@ export default {
         },
 
         async changeFav(id, status){
-            console.log(id, status);
             if(status === true){
                 const { error } = await supabase
                 .from("policies")
@@ -118,8 +122,11 @@ export default {
     },
 
     computed:{
-    currentClient(){
-        return this.$store.state.clientAuth.user
+        currentClient(){
+            return this.$store.state.clientAuth.user
+        },
+        policyRedirect(){
+            return this.$store.state.policyRedirect
         }
     }
 }
