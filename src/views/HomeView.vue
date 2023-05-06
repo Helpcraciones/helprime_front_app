@@ -91,6 +91,11 @@
 
                         <div class="flex items-center gap-1">
                           <input type="radio" id="otro" class="text-primario" value="otro" v-model="this.gender" />
+                          <label for="juridico">Jurídico</label>
+                        </div>
+
+                        <div class="flex items-center gap-1">
+                          <input type="radio" id="otro" class="text-primario" value="otro" v-model="this.gender" />
                           <label for="otro">Otro</label>
                         </div>
 

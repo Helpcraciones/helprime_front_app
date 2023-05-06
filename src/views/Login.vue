@@ -40,7 +40,7 @@
       </div>
 
       <div class=" flex lg:flex-row flex-col justify-around w-full items-center "> 
-        <p @click="register" class="text-texto font-light text-sm mt-5 underline cursor-pointer select-none">No te haz registrado?, Registrate</p>
+        <p @click="register" class="text-texto font-light text-sm mt-5 underline cursor-pointer select-none">No te has registrado?, Registrate</p>
         <p @click="cancelLogin" class="text-texto font-light text-sm mt-5 underline cursor-pointer select-none">Cancelar ingreso</p>
       </div>
       <div class=" flex justify-around w-full lg:flex-row flex-col items-center"> 

@@ -154,7 +154,6 @@
           <div class="absolute bg-primario bg-opacity-20 top-4 right-0 px-3 py-0.5 rounded-l-full">
             <p class="text-sm text-primario font-semibold">SOAT</p>
           </div>
-          <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/vehicles.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvdmVoaWNsZXMucG5nIiwiaWF0IjoxNjYzMzA0NjA4LCJleHAiOjE5Nzg2NjQ2MDh9.aJkhB1DKBzKUhGOUkJ5goLkFjQZsuxYD8JyGxVqYmvM" alt="Imagen de documento" class="h-12 w-12">
           <div class="w-full flex flex-col items-start justify-center ml-5 filter blur-sm">
             <div class="flex flex-col items-start justify-center">
               <p class="text-texto text-sm">Placa del vehiculo</p>
@@ -179,10 +178,13 @@
           <div class="absolute bg-primario bg-opacity-20 top-4 right-0 px-3 py-0.5 rounded-l-full">
             <p class="text-sm text-primario font-semibold small">{{fav.product}}</p>
           </div>
-          <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/vehicles.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvdmVoaWNsZXMucG5nIiwiaWF0IjoxNjYzMzA0NjA4LCJleHAiOjE5Nzg2NjQ2MDh9.aJkhB1DKBzKUhGOUkJ5goLkFjQZsuxYD8JyGxVqYmvM" alt="Imagenvvr de documento" class="h-12 w-12">
+          <div v-for="(icon, index) in this.iconsFav" :key="index">
+            <img v-if="icon.category == fav.category" :src="icon.url" alt="Imagen de documento" class="h-auto w-16">
+          </div>
           <div class="w-full flex flex-col items-start justify-center ml-5">
             <div v-if="fav.category == 'autos' || fav.category == 'hogar' || fav.category == 'generales'" class="flex flex-col items-start justify-center">
               <p v-if="fav.category == 'autos'" class="text-texto text-sm">Placa del vehiculo</p>
+              <p v-else-if="fav.category == 'hogar'" class="text-texto text-sm">Hogar</p>
               <p v-else class="text-texto text-sm">Riesgo</p>
               <p class="text-texto font-semibold leading-none">{{fav.risks}}</p>
             </div>
@@ -235,7 +237,30 @@ export default {
       numberHogar : 0,
       numberSalud : 0,
       numberGenerales : 0,
-      numberRiesgo: 0
+      numberRiesgo: 0,
+
+      iconsFav:[
+        {
+          url:"https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/vehicles.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvdmVoaWNsZXMucG5nIiwiaWF0IjoxNjYzMzA0NjA4LCJleHAiOjE5Nzg2NjQ2MDh9.aJkhB1DKBzKUhGOUkJ5goLkFjQZsuxYD8JyGxVqYmvM",
+          category:"autos"
+        },
+        {
+          url:"https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/first-aid-kit.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvZmlyc3QtYWlkLWtpdC5wbmciLCJpYXQiOjE2ODI1MzAwODMsImV4cCI6MTcxNDA2NjA4M30.1OguqpWLK9UTVzZjVMxNnBTWVWF8XDInYI1olTmX_Cs&t=2023-04-26T17%3A28%3A03.562Z",
+          category:"salud"
+        },
+        {
+          url:"https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/home.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvaG9tZS5wbmciLCJpYXQiOjE2ODI1MzAwNTQsImV4cCI6MTcxNDA2NjA1NH0.5blcGEmqMRQsDmaDh3PxRgomBCsyaMupfK911PwSeks&t=2023-04-26T17%3A27%3A34.725Z",
+          category:"hogar"
+        },
+        {
+          url:"https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/health-insurance.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvaGVhbHRoLWluc3VyYW5jZS5wbmciLCJpYXQiOjE2ODI1MzAxMTQsImV4cCI6MTcxNDA2NjExNH0.-okdiN9EJqsaoicKWV-yywIPeKTfhVXlwSmmUdm51H4&t=2023-04-26T17%3A28%3A34.397Z",
+          category:"vida"
+        },
+        {
+          url:"https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/generales.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvZ2VuZXJhbGVzLnBuZyIsImlhdCI6MTY4MjUzMDAzMSwiZXhwIjoxNzE0MDY2MDMxfQ.pCwSwqJfj8zaa9_3qn6qgTVr_RN5Ge8oWF0yV-u02ZY&t=2023-04-26T17%3A27%3A11.896Z",
+          category:"generales"
+        },
+      ]
       }
   },
 

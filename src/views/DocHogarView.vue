@@ -1,16 +1,19 @@
 <template>
-    <div class="bg-primario bg-opacity-10 h-screen w-full rounded-t-3xl max-w-7xl mx-auto">
-        <div class="padding pt-3 flex justify-between items-center">
-        <router-link to="/polizas/hogar" >
-            <i   class="fi fi-rr-arrow-left text-primario text-2xl flex justify-center items-center"></i>
-        </router-link>
-        <div class="bg-white text-primario rounded-full px-4 py-1 one font-bold">
-            {{document.product}}
-        </div>
-        <i class="fi fi-rr-menu-dots-vertical flex justify-center items-center text-primario"></i>
+    <div class="max-w-7xl w-full mx-auto">
+        <div class="bg-primario bg-opacity-10 w-full max-h-60 rounded-t-3xl relative">
+            <div class="padding w-full pt-3 flex justify-between items-center absolute z-10">
+                <router-link to="/polizas/vehiculares" >
+                    <i   class="fi fi-rr-arrow-left text-primario text-2xl flex justify-center items-center"></i>
+                </router-link>
+                <div class="bg-white text-primario rounded-full px-4 py-1 one font-bold">
+                    {{document.product}}
+                </div>
+                <i class="fi fi-rr-menu-dots-vertical flex justify-center items-center text-primario"></i>
+            </div>
+            <img class="w-full max-h-60 h-full opacity-20 filter grayscale object-cover object-center rounded-t-3xl" src="https://img.freepik.com/foto-gratis/primer-plano-manos-pasando-contrato-al-empresario-irreconocible_1098-19612.jpg?w=1380&t=st=1682528776~exp=1682529376~hmac=d9b7b4f2cbb7586e770c8792eabc5adc310a2eac1a3b51a859a71a8ce9a6ddc6" alt="">
         </div>
 
-        <div class="mt-28 bg-white w-full h-full rounded-t-3xl flex flex-col items-center justify-start">
+        <div class=" bg-white w-full h-full rounded-t-3xl flex flex-col items-center justify-start relative -top-10">
             <div class="relative -top-10 rounded-full bg-white">
                 <div class=" w-24 h-24 bg-primario bg-opacity-20 border-2 border-white rounded-full  flex justify-center items-center shadow-lg" >
                     <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/home.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvaG9tZS5wbmciLCJpYXQiOjE2NjMzMDUwMjcsImV4cCI6MTk3ODY2NTAyN30.meVR9SNdP-dYoRTu1A-vHQ1JzjQGznzTl2-EJEDeTPA" alt="" class="w-12 h-12">
@@ -116,7 +119,8 @@ export default {
         return {
             file: false,
             document: {},
-            manager: {}
+            manager: {},
+            meses: ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'],
         }
     },
     async created() {
@@ -134,6 +138,8 @@ export default {
                 .select('*')
                 .eq('id', this.currentId)
                 this.document = data[0]
+                let fecha = new Date(this.document.expiration)
+                this.document.expiration = fecha.getDate() + ' de ' + this.meses[fecha.getMonth()] + ' de ' + fecha.getUTCFullYear()
                 this.policyId = this.document.id
             } catch (error) {
                 if(error){
