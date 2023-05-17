@@ -1,7 +1,7 @@
 <template >
-  <div class="">
+  <div class="h-full">
     <NavGeneral />
-    <div class="padding">
+    <div class="padding h-full">
       <div class="flex flex-col justify-center items-center mt-10">
       <div v-if="this.user.suscription_helprime === 'premium' " class="p-2 rounded-full border-yellow-400 border-4 relative">
         <div class="rounded-full h-32 w-32 bg-yellow-400 bg-opacity-10 flex justify-center items-center">
@@ -97,157 +97,157 @@
 
 </div>
 
-<div class="mt-5 mb-10">
-    <button type="button" @click="this.collapse2 = !this.collapse2" class="flex items-center justify-between w-full py-5 font-medium text-left border-b  border-gray-300  rounded-t-xl">
-      <span class="text-texto font-light">Subscripcion actual</span>
-      <i v-if="this.collapse2" class="fi fi-rr-angle-small-up flex justify-center items-center text-texto"></i>
-      <i v-else class="fi fi-rr-angle-small-down flex justify-center items-center text-texto"></i>
-    </button>
+<!--     <div class="mt-5 mb-10">
+        <button type="button" @click="this.collapse2 = !this.collapse2" class="flex items-center justify-between w-full py-5 font-medium text-left border-b  border-gray-300  rounded-t-xl">
+          <span class="text-texto font-light">Subscripcion actual</span>
+          <i v-if="this.collapse2" class="fi fi-rr-angle-small-up flex justify-center items-center text-texto"></i>
+          <i v-else class="fi fi-rr-angle-small-down flex justify-center items-center text-texto"></i>
+        </button>
 
-  <div v-if="this.collapse2" class="flex flex-col px-2" >
-    <div class=" bg-gray-100 p-5 rounded-lg mt-5">
-      <div class="flex w-full items-center justify-between">
-        <div class="flex items-center">
-          <i class="fi fi-rr-kite text-4xl flex justify-center items-center text-texto mr-2"></i>
-          <div>
-            <p class="text-2xl text-texto font-semibold">Basico</p>
-            <p class="text-sm leading-none text-texto"><span class="font-bold">2</span> servicios incluidos</p>
+      <div v-if="this.collapse2" class="flex flex-col px-2" >
+        <div class=" bg-gray-100 p-5 rounded-lg mt-5">
+          <div class="flex w-full items-center justify-between">
+            <div class="flex items-center">
+              <i class="fi fi-rr-kite text-4xl flex justify-center items-center text-texto mr-2"></i>
+              <div>
+                <p class="text-2xl text-texto font-semibold">Basico</p>
+                <p class="text-sm leading-none text-texto"><span class="font-bold">2</span> servicios incluidos</p>
+              </div>
+            </div>
+            <p class="text-texto font-bold">GRATIS</p>
           </div>
+          <div class="w-full mx-auto border-b border-gray-300 my-5"></div>
+
+          <div class="flex mb-2">
+            <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-secundario"></i>
+            <p class="font-light text-texto">Prioridad de servicio</p> 
         </div>
-        <p class="text-texto font-bold">GRATIS</p>
-      </div>
-      <div class="w-full mx-auto border-b border-gray-300 my-5"></div>
 
-      <div class="flex mb-2">
-        <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-secundario"></i>
-        <p class="font-light text-texto">Prioridad de servicio</p> 
-    </div>
+        <div class="flex mb-2">
+            <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-secundario"></i>
+            <p class="font-light text-texto">Prioridad de servicio</p> 
+        </div>
 
-    <div class="flex mb-2">
-        <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-secundario"></i>
-        <p class="font-light text-texto">Prioridad de servicio</p> 
-    </div>
+        <div class="flex mb-2">
+            <i class="fi fi-rr-cross-circle flex justify-center items-center mr-5 text-texto"></i>
+            <p class="font-light text-texto">Prioridad de servicio</p> 
+        </div>
 
-    <div class="flex mb-2">
-        <i class="fi fi-rr-cross-circle flex justify-center items-center mr-5 text-texto"></i>
-        <p class="font-light text-texto">Prioridad de servicio</p> 
-    </div>
+        <div class="flex mb-2">
+            <i class="fi fi-rr-cross-circle flex justify-center items-center mr-5 text-texto"></i>
+            <p class="font-light text-texto">Prioridad de servicio</p> 
+        </div>
 
-    <div class="flex mb-2">
-        <i class="fi fi-rr-cross-circle flex justify-center items-center mr-5 text-texto"></i>
-        <p class="font-light text-texto">Prioridad de servicio</p> 
-    </div>
+        <div class="flex mb-2">
+            <i class="fi fi-rr-cross-circle flex justify-center items-center mr-5 text-texto"></i>
+            <p class="font-light text-texto">Prioridad de servicio</p> 
+        </div>
 
-    <div class="flex mb-2">
-        <i class="fi fi-rr-cross-circle flex justify-center items-center mr-5 text-texto"></i>
-        <p class="font-light text-texto">Prioridad de servicio</p> 
-    </div>
+        <div class="w-full mx-auto border-b border-gray-300 my-5"></div>
 
-    <div class="w-full mx-auto border-b border-gray-300 my-5"></div>
+        <button @click="suscription(1)" class='py-2 w-full bg-gray-200 text-texto rounded-lg hover:bg-opacity-100 transition-all duration-300 hover:text-white flex justify-center' >Comienza gratis ahora </button>
+        
 
-    <button @click="suscription(1)" class='py-2 w-full bg-gray-200 text-texto rounded-lg hover:bg-opacity-100 transition-all duration-300 hover:text-white flex justify-center' >Comienza gratis ahora </button>
-    
+        </div>
 
-    </div>
-
-    <div class=" bg-gray-900 p-5 rounded-lg mt-5 ">
-      <div class="flex w-full items-center justify-between">
-        <div class="flex items-center">
-          <i class="fi fi-rr-star text-4xl flex justify-center items-center text-yellow-400 mr-2"></i>
-          <div>
-            <p class="text-2xl text-white font-semibold">Premium</p>
-            <p class="text-sm leading-none text-white"><span class="font-bold">5</span> servicios incluidos</p>
+        <div class=" bg-gray-900 p-5 rounded-lg mt-5 ">
+          <div class="flex w-full items-center justify-between">
+            <div class="flex items-center">
+              <i class="fi fi-rr-star text-4xl flex justify-center items-center text-yellow-400 mr-2"></i>
+              <div>
+                <p class="text-2xl text-white font-semibold">Premium</p>
+                <p class="text-sm leading-none text-white"><span class="font-bold">5</span> servicios incluidos</p>
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <p class="text-white font-bold text-3xl ">25K</p>
+              <p class="text-white font-light text-sm">Mensual</p>
+            </div>
           </div>
+          <div class="w-full mx-auto border-b border-gray-300 my-5"></div>
+
+          <div class="flex mb-2">
+            <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-yellow-400"></i>
+            <p class="font-light text-white">Prioridad de servicio</p> 
         </div>
-        <div class="flex flex-col">
-          <p class="text-white font-bold text-3xl ">25K</p>
-          <p class="text-white font-light text-sm">Mensual</p>
+
+        <div class="flex mb-2">
+            <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-yellow-400"></i>
+            <p class="font-light text-white">Prioridad de servicio</p> 
         </div>
-      </div>
-      <div class="w-full mx-auto border-b border-gray-300 my-5"></div>
 
-      <div class="flex mb-2">
-        <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-yellow-400"></i>
-        <p class="font-light text-white">Prioridad de servicio</p> 
-    </div>
+        <div class="flex mb-2">
+            <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-yellow-400"></i>
+            <p class="font-light text-white">Prioridad de servicio</p> 
+        </div>
 
-    <div class="flex mb-2">
-        <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-yellow-400"></i>
-        <p class="font-light text-white">Prioridad de servicio</p> 
-    </div>
+        <div class="flex mb-2">
+            <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-yellow-400"></i>
+            <p class="font-light text-white">Prioridad de servicio</p> 
+        </div>
 
-    <div class="flex mb-2">
-        <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-yellow-400"></i>
-        <p class="font-light text-white">Prioridad de servicio</p> 
-    </div>
+        <div class="flex mb-2">
+            <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-yellow-400"></i>
+            <p class="font-light text-white">Prioridad de servicio</p> 
+        </div>
 
-    <div class="flex mb-2">
-        <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-yellow-400"></i>
-        <p class="font-light text-white">Prioridad de servicio</p> 
-    </div>
+        <div class="w-full mx-auto border-b border-gray-300 my-5"></div>
 
-    <div class="flex mb-2">
-        <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-yellow-400"></i>
-        <p class="font-light text-white">Prioridad de servicio</p> 
-    </div>
+        <button @click="suscription(2)"  class='py-2 w-full bg-yellow-400 text-textoOscuro rounded-lg hover:bg-opacity-100 transition-all duration-300 hover:text-white flex justify-center' >Elegir este plan </button>
+        
 
-    <div class="w-full mx-auto border-b border-gray-300 my-5"></div>
+        </div>
 
-    <button @click="suscription(2)"  class='py-2 w-full bg-yellow-400 text-textoOscuro rounded-lg hover:bg-opacity-100 transition-all duration-300 hover:text-white flex justify-center' >Elegir este plan </button>
-    
-
-    </div>
-
-    <div class=" bg-gray-100 p-5 rounded-lg mt-5">
-      <div class="flex w-full items-center justify-between">
-        <div class="flex items-center">
-          <i class="fi fi-rr-crown flex justify-center items-center text-4xl mr-3 text-green-400"></i>
-          <div>
-            <p class="text-2xl text-texto font-semibold">Basico</p>
-            <p class="text-sm leading-none text-texto"><span class="font-bold">3</span> servicios incluidos</p>
+        <div class=" bg-gray-100 p-5 rounded-lg mt-5">
+          <div class="flex w-full items-center justify-between">
+            <div class="flex items-center">
+              <i class="fi fi-rr-crown flex justify-center items-center text-4xl mr-3 text-green-400"></i>
+              <div>
+                <p class="text-2xl text-texto font-semibold">Basico</p>
+                <p class="text-sm leading-none text-texto"><span class="font-bold">3</span> servicios incluidos</p>
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <p class="text-texto font-bold text-3xl ">10K</p>
+              <p class="text-texto font-light text-sm">Mensual</p>
+            </div>
           </div>
+          <div class="w-full mx-auto border-b border-gray-300 my-5"></div>
+
+          <div class="flex mb-2">
+            <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-secundario"></i>
+            <p class="font-light text-texto">Prioridad de servicio</p> 
         </div>
-        <div class="flex flex-col">
-          <p class="text-texto font-bold text-3xl ">10K</p>
-          <p class="text-texto font-light text-sm">Mensual</p>
+
+        <div class="flex mb-2">
+            <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-secundario"></i>
+            <p class="font-light text-texto">Prioridad de servicio</p> 
+        </div>
+
+        <div class="flex mb-2">
+            <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-secundario"></i>
+            <p class="font-light text-texto">Prioridad de servicio</p> 
+        </div>
+
+        <div class="flex mb-2">
+            <i class="fi fi-rr-cross-circle flex justify-center items-center mr-5 text-texto"></i>
+            <p class="font-light text-texto">Prioridad de servicio</p> 
+        </div>
+
+        <div class="flex mb-2">
+            <i class="fi fi-rr-cross-circle flex justify-center items-center mr-5 text-texto"></i>
+            <p class="font-light text-texto">Prioridad de servicio</p> 
+        </div>
+
+        <div class="w-full mx-auto border-b border-gray-300 my-5"></div>
+
+        <button @click="suscription(3)"  class='py-2 w-full bg-gray-200 text-texto rounded-lg hover:bg-opacity-100 transition-all duration-300 hover:text-white flex justify-center' >Elegir este plan</button>
+        
+
         </div>
       </div>
-      <div class="w-full mx-auto border-b border-gray-300 my-5"></div>
 
-      <div class="flex mb-2">
-        <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-secundario"></i>
-        <p class="font-light text-texto">Prioridad de servicio</p> 
-    </div>
-
-    <div class="flex mb-2">
-        <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-secundario"></i>
-        <p class="font-light text-texto">Prioridad de servicio</p> 
-    </div>
-
-    <div class="flex mb-2">
-        <i class="fi fi-sr-badge-check flex justify-center items-center mr-5 text-secundario"></i>
-        <p class="font-light text-texto">Prioridad de servicio</p> 
-    </div>
-
-    <div class="flex mb-2">
-        <i class="fi fi-rr-cross-circle flex justify-center items-center mr-5 text-texto"></i>
-        <p class="font-light text-texto">Prioridad de servicio</p> 
-    </div>
-
-    <div class="flex mb-2">
-        <i class="fi fi-rr-cross-circle flex justify-center items-center mr-5 text-texto"></i>
-        <p class="font-light text-texto">Prioridad de servicio</p> 
-    </div>
-
-    <div class="w-full mx-auto border-b border-gray-300 my-5"></div>
-
-    <button @click="suscription(3)"  class='py-2 w-full bg-gray-200 text-texto rounded-lg hover:bg-opacity-100 transition-all duration-300 hover:text-white flex justify-center' >Elegir este plan</button>
-    
-
-    </div>
-  </div>
-
-</div>
+    </div> -->
 
 
     <div v-if="this.alert != '' " :class="this.alertColor" class="px-5 py-2  leading-none rounded-lg flex items-center mb-5">

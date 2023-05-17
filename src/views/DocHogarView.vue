@@ -2,7 +2,7 @@
     <div class="max-w-7xl w-full mx-auto">
         <div class="bg-primario bg-opacity-10 w-full max-h-60 rounded-t-3xl relative">
             <div class="padding w-full pt-3 flex justify-between items-center absolute z-10">
-                <router-link to="/polizas/vehiculares" >
+                <router-link to="/polizas/hogar" >
                     <i   class="fi fi-rr-arrow-left text-primario text-2xl flex justify-center items-center"></i>
                 </router-link>
                 <div class="bg-white text-primario rounded-full px-4 py-1 one font-bold">
@@ -85,6 +85,25 @@
                     <p class="text-texto font-light leading-tight">
                         {{this.manager.whatsapp}}
                     </p>
+                </div>
+            </div>
+
+            <div v-if="document.is_financed" class="padding w-full my-10">
+                <div class="w-full border border-primario border-opacity-20"></div>
+            </div>
+
+            <div v-if="document.is_financed" class="padding w-full flex justify-between items-center">
+                <div class="w-full flex flex-col justify-center items-start">
+                    <div class="flex items-center">
+                        <i class="fi fi-rr-users text-primario mr-2 text-xl flex justify-center items-center"></i>
+                        <p class="text-primario font-light">Financiado por:</p>
+                    </div>
+                    <p class="mb-5 text-texto font-semibold text-xl one">
+                        {{document.financial}}
+                    </p>
+                    <div class="w-full flex justify-center">
+                        <img src="../assets/medios_pago.jpg" alt="medio de pago" class=" max-w-lg w-full">
+                    </div>
                 </div>
             </div>
 

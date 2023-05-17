@@ -22,6 +22,7 @@
                 <div class="flex flex-col items-start justify-center">
                     <p class="text-primario text-sm">No. de emergencia</p>
                     <p class="text-primario font-semibold leading-none">{{policy.emergency_number}}</p>
+                    <p v-if="policy.is_insurance_company" class="text-primario text-sm">{{policy.insurance_company}}</p>
                 </div>
           </div>
             </router-link >

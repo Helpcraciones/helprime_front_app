@@ -88,6 +88,25 @@
                 </div>
             </div>
 
+            <div v-if="document.is_financed" class="padding w-full my-10">
+                <div class="w-full border border-primario border-opacity-20"></div>
+            </div>
+
+            <div v-if="document.is_financed" class="padding w-full flex justify-between items-center">
+                <div class="w-full flex flex-col justify-center items-start">
+                    <div class="flex items-center">
+                        <i class="fi fi-rr-users text-primario mr-2 text-xl flex justify-center items-center"></i>
+                        <p class="text-primario font-light">Financiado por:</p>
+                    </div>
+                    <p class="mb-5 text-texto font-semibold text-xl one">
+                        {{document.financial}}
+                    </p>
+                    <div class="w-full flex justify-center">
+                        <img src="../assets/medios_pago.jpg" alt="medio de pago" class=" max-w-lg w-full">
+                    </div>
+                </div>
+            </div>
+
             <div @click="this.file = true" class="w-max flex items-center bg-primario rounded-full px-5 py-3 text-white mt-10 sticky bottom-5 cursor-pointer select-none ">
                 <i class="fi fi-rr-document flex justify-center items-center text-xl mr-5"></i>
                 <p>Ver documento</p>

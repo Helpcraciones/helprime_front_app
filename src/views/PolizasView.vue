@@ -127,7 +127,7 @@
           <p class="text-texto font-light text-sm mt-3">Generales</p>
          </router-link>
 
-         <div  class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out">
+         <router-link to="/polizas/vencimientos" class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out">
           <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg  rounded-2xl flex justify-center items-center">
             <div v-if="this.numberRiesgo != 0" class="absolute h-6 w-6 text-sm text-white text-center bg-green-400 shadow-md  rounded -top-1 -right-1 flex justify-center items-center">
               <p>
@@ -137,10 +137,7 @@
             <img class="w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1653068552/APP/advice_jnkipr.png">
           </div>
           <p class="text-texto font-light text-sm mt-3">Vencimientos</p>
-          <div class="px-2 py-1 bg-yellow-50 text-yellow-500 text-xs rounded-l-full absolute top-3 right-0">
-              <p>Proximamente</p>
-          </div>
-         </div>
+         </router-link>
 
       </div>
 
@@ -199,6 +196,7 @@
             <div class="flex flex-col items-start justify-center">
               <p class="text-primario text-sm">No. de emergencia</p>
               <p class="text-primario font-semibold leading-none">{{fav.emergency_number}}</p>
+              <p v-if="fav.is_insurance_company" class="text-primario text-sm">{{fav.insurance_company}}</p>
             </div>
           </div>
           <div @click="deleteFav(fav.id)" class="flex justify-center items-center p-3">
@@ -475,7 +473,9 @@ export default {
       }else if (policy.category == 'generales'){
         this.$store.commit("SaveUrlPolicy", policy)
         router.push('/polizas/generales')
-
+      }else if (policy.category == 'vencimientos'){
+        this.$store.commit("SaveUrlPolicy", policy)
+        router.push('/polizas/vencimientos')
       }
     }
   },

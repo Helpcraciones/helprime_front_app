@@ -1,38 +1,66 @@
 <template>
-    <div class="padding grid grid-cols-1 gap-5 mt-8">
+	<div class="padding grid grid-cols-1 gap-5 mt-8">
+		<div class="max-w-7xl w-full p-10 bg-primario bg-opacity-20 rounded-xl">
+			<p class="text-2xl text-texto font-light text-center">Tus polizas generales a <span class="text-primario font-semibold">un solo click</span> </p>
+		</div>
 
-        <div class="max-w-7xl w-full p-10 bg-primario bg-opacity-20 rounded-xl">
-            <p class="text-2xl text-texto font-light text-center">Tus polizas generales a <span class="text-primario font-semibold">un solo click</span> </p>
-        </div>
+		<div class="flex w-full ">
+      <select name="" v-model="this.currentSelect" @change="changeRisks" class="w-full rounded-lg border-primario text-sm text-texto focus:border-primario">
+        <option value="todos" class="text-gray-300">Todos los Riesgos</option>
+        <option v-for="risk in this.risks" :key="risk.id" :value="risk.fullname">{{risk.fullname}} - {{risk.city}} - {{risk.department}}</option>
+      </select>
+    </div>
 
-        <div class="w-full grid grid-cols-1 lg:grid-cols-3 gap-5">
-
-        <div v-for="(policy, index) in this.viewPolicies" :key="index"  class="relative bg-white shadow-lg w-full h-30 flex justify-center items-center p-5 rounded-2xl transform transition-all hover:scale-105 duration-300 ease-in-out">
-            <router-link :to="`generales/${policy.id}`" class="flex items-center w-full">
-                <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/generales.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvZ2VuZXJhbGVzLnBuZyIsImlhdCI6MTY2NjYyNjQ1NSwiZXhwIjoxOTgxOTg2NDU1fQ.xSwvrDBDZrttSCJDSgWmchtzm62i_vmA7prfnMCHrG8" alt="Imagen de documento" class="h-12 w-12">
-                <div class="w-full flex flex-col items-start justify-center ml-5">
-                <div class="flex flex-col items-start justify-center">
-                <p class="text-texto text-sm">Producto</p>
-                <p class="text-texto font-semibold leading-none">{{policy.product}}</p>
-                </div>
-                <div class="flex flex-col items-start justify-cente my-1">
-                <p  class=" text-sm text-texto">Fecha de vencimiento</p>
-                <p :class="policy.textColorDate" class="text-texto font-semibold leading-none">{{policy.expiration}}</p>
-                </div>
-                <div class="flex flex-col items-start justify-center">
-                    <p class="text-primario text-sm">No. de emergencia</p>
-                    <p class="text-primario font-semibold leading-none">{{policy.emergency_number}}</p>
-                </div>
+		<div v-if="this.currentSelect == 'todos'" class="w-full grid grid-cols-1 lg:grid-cols-3 gap-5">
+      <div v-for="(risk, index) in this.risks" :key="index"  class="relative bg-white shadow-lg w-full h-30 h-30 flex justify-center items-center p-5 rounded-2xl transform transition-all hover:scale-105 duration-300 ease-in-out">
+        <div @click="changeSection(risk.fullname)" class="flex items-center w-full">
+          <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/generales.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvZ2VuZXJhbGVzLnBuZyIsImlhdCI6MTY2NjYyNjQ1NSwiZXhwIjoxOTgxOTg2NDU1fQ.xSwvrDBDZrttSCJDSgWmchtzm62i_vmA7prfnMCHrG8" alt="Imagen de documento" class="h-12 w-12">
+          <div class="w-full flex flex-col items-start justify-center ml-5">
+            <div class="flex flex-col items-start justify-center">
+              <p class="text-primario text-sm">Riesgo</p>
+              <p class="text-primario font-semibold leading-none">{{risk.fullname}}</p>
+            </div>
+            <div class="flex flex-col items-start justify-cente my-1">
+              <p  class=" text-sm text-texto">Tipo</p>
+              <p class="text-texto font-semibold leading-none">{{risk.type_risk}}</p>
+            </div>
+            <div class="flex flex-col items-start justify-center">
+              <p class="text-texto text-sm">Direccion</p>
+              <p class="text-texto font-semibold leading-none">{{risk.address}}</p>
+            </div>
           </div>
-            </router-link >
-          
-          <div @click="changeFav(policy.id ,policy.favorite)" class="flex justify-center items-center p-3">
-              <i v-if="policy.favorite === true" :class="policy.textColor" class="fi fi-sr-heart  text-2xl flex justify-center items-center"></i>
-              <i v-else class="fi fi-rr-heart  text-2xl flex justify-center items-center text-texto"></i>
-          </div>
-        </div>
+        </div >
       </div>
     </div>
+
+		<div v-else class="w-full grid grid-cols-1 lg:grid-cols-3 gap-5">
+			<div v-for="(policy, index) in this.viewPolicies" :key="index"  class="relative bg-white shadow-lg w-full h-30 flex justify-center items-center p-5 rounded-2xl transform transition-all hover:scale-105 duration-300 ease-in-out">
+				<router-link :to="`generales/${policy.id}`" class="flex items-center w-full">
+					<img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/generales.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvZ2VuZXJhbGVzLnBuZyIsImlhdCI6MTY2NjYyNjQ1NSwiZXhwIjoxOTgxOTg2NDU1fQ.xSwvrDBDZrttSCJDSgWmchtzm62i_vmA7prfnMCHrG8" alt="Imagen de documento" class="h-12 w-12">
+					<div class="w-full flex flex-col items-start justify-center ml-5">
+						<div class="flex flex-col items-start justify-center">
+							<p class="text-texto text-sm">Producto</p>
+							<p class="text-texto font-semibold leading-none">{{policy.product}}</p>
+						</div>
+						<div class="flex flex-col items-start justify-cente my-1">
+							<p  class=" text-sm text-texto">Fecha de vencimiento</p>
+							<p :class="policy.textColorDate" class="text-texto font-semibold leading-none">{{policy.expiration}}</p>
+						</div>
+						<div class="flex flex-col items-start justify-center">
+							<p class="text-primario text-sm">No. de emergencia</p>
+							<p class="text-primario font-semibold leading-none">{{policy.emergency_number}}</p>
+							<p v-if="policy.is_insurance_company" class="text-primario text-sm">{{policy.insurance_company}}</p>
+						</div>
+					</div>
+				</router-link >
+				
+				<div @click="changeFav(policy.id ,policy.favorite)" class="flex justify-center items-center p-3">
+					<i v-if="policy.favorite === true" :class="policy.textColor" class="fi fi-sr-heart  text-2xl flex justify-center items-center"></i>
+					<i v-else class="fi fi-rr-heart  text-2xl flex justify-center items-center text-texto"></i>
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
 <script>
 import router from "@/router"
@@ -44,7 +72,9 @@ export default {
             currentSelect: "todos",
             policies: [],
             textColor: "",
-            viewPolicies: []
+            viewPolicies: [],
+						filterPolicies: [],
+						risks:[]
         }
     },
 
@@ -53,10 +83,55 @@ export default {
             router.push(`generales/${this.policyRedirect.id}`)
             this.$store.commit("SaveUrlPolicy", null)
         }
+        await this.risksUser()
         await this.fetchPolicies()
     },
 
     methods: {
+			async risksUser(){
+				try {
+					const { data, error } = await supabase
+					.from('general_risks')
+					.select('*')
+					.eq('client_id', this.currentClient.id)
+					.eq('status', true)
+					if(error) throw error
+					this.risks = data
+					this.getDepartments()
+          this.getCities()
+				} catch (error) {
+					if(error){
+					console.log(error);
+					}
+				}
+			},
+
+			async getDepartments(){
+      this.risks.forEach(async (risk) => {
+        try{
+          const { data, error } = await supabase.from('departments').select('*').eq('id', risk.department_id)
+          risk.department = data[0].name.toUpperCase()
+
+          if(error) throw error;
+        } catch (error){
+          console.log(error.message)
+        }
+      });
+    },
+
+    async getCities(){
+      this.risks.forEach(async (risk) => {
+        try{
+          const { data, error } = await supabase.from('cities').select('*').eq('id', risk.city_id)
+          risk.city = data[0].name
+  
+          if(error) throw error;
+        } catch (error){
+          console.log(error.message)
+        }
+      });
+    },
+
         async fetchPolicies(){
             try {
                 const { data, error } = await supabase
@@ -91,6 +166,26 @@ export default {
                 console.log(error);
                 }
             }
+        },
+
+				changeSection(risk){
+          this.currentSelect = risk
+          this.changeRisks()
+        },
+
+				changeRisks(){
+          if(this.currentSelect === "todos"){
+            this.viewPolicies = this.policies
+          } else {
+            this.viewPolicies = []
+            this.filterPolicies = []
+            this.policies.forEach(policy => {
+            if(policy.risks === this.currentSelect){
+                this.filterPolicies.push(policy)
+                }
+            });
+            this.viewPolicies = this.filterPolicies
+          }
         },
 
         async changeFav(id, status){

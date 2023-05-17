@@ -9,6 +9,7 @@ import Vehiculos from "../views/VehiculosView.vue"
 import Hogar from "../views/HogarView.vue"
 import Salud from "../views/SaludView.vue"
 import Generales from "../views/GeneralesView.vue"
+import Vencimientos from "../views/VencimientosView.vue"
 import Vida from "../views/VidaView.vue"
 import Riesgo from "../views/RiesgoView.vue"
 import Documento from "../views/DocumentoView.vue"
@@ -216,6 +217,16 @@ const routes = [
     component: DocumentoRiesgo,
     meta:{
       title: 'RiesgoId',
+      auth: false
+    },
+  },
+
+  {
+    path: '/polizas/vencimientos',
+    name: 'vencimientos',
+    component: Vencimientos,
+    meta:{
+      title: 'vencimeintos',
       auth: false
     },
   },
