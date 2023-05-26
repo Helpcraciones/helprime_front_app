@@ -66,9 +66,10 @@ export default {
   },
 
   mounted() {
-    if(supabase.auth.user()){
+    router.push('/login')
+    /* if(supabase.auth.user()){
       router.push('/')
-    }
+    } */
   },
 
   methods: {

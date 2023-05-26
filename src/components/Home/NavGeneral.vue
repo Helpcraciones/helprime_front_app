@@ -4,9 +4,6 @@
     <router-link v-if="this.userAuth == null" to="/login" class="lg:hidden">
       <button class="text-white bg-primario text-sm px-2 py-2 rounded-lg transform transition-all duration-300 hover:scale-105">Iniciar sesion</button>
     </router-link>
-    <i class="fi fi-rr-bell relative text-xl text-primario flex justify-center items-center lg:hidden">
-      <div :class="{colorNotification: color}" class="rounded-full h-3 w-3 absolute -top-0.5 -right-0.5"></div>
-    </i>
 
     <div class="lg:flex hidden gap-3 text-texto">
       <router-link to="/agencias" class="hover:text-primario transform transition-all duration-300 hover:scale-105">Agencias</router-link>

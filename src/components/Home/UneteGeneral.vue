@@ -5,7 +5,7 @@
 			<div class="rounded-lg bg-white shadow-xl">
 				<img src="https://res.cloudinary.com/vital-seguros/image/upload/v1671712033/APP/woman-driving-automobile_1_zwkfqj-_1__jovz2u.webp" alt="" class="rounded-t-lg w-full h-auto">
 				<div class="p-5 text-center">
-					<p class="text-primario font-semibold text-xl leading-tight mb-5">Reune toda la informacion de tu poliza en un solo lugar</p>
+					<p class="text-primario font-semibold text-xl leading-tight mb-5">Reune toda la informacion de tus polizas en un solo lugar</p>
 					<p class="two text-sm leading-tight text-texto">Tenemos una plataforma muy completa, donde vas a poder afiliarte a una aseguradora y ver cuando desees todos tus seguros adquiridos.</p>
 					<div @click="routeValidation">
 						<button class="w-full bg-primario rounded-lg py-3 mt-5 bg-opacity-10 text-primario font-medium hover:bg-opacity-100 hover:text-white transition-all duration-300 ease-in-out border ">
