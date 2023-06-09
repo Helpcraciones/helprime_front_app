@@ -2,6 +2,20 @@
   <div class="padding pb-10 flex justify-center flex-col items-center ">
 		<div class="grid lg:grid-cols-3 grid-cols-1 w-full gap-10 lg:mt-10 mt-5">
 			<div class="rounded-lg bg-white shadow-xl">
+				<img src="https://res.cloudinary.com/vital-seguros/image/upload/v1671712148/APP/group-graphic-designers-discussing-laptop-their-desk_juzomt-_1__eqdztc.webp" alt="" class="rounded-t-lg w-full h-auto">
+				<div class="p-5 text-center">
+					<p class="text-primario font-semibold text-xl leading-tight mb-5">Mision</p>
+					<p class="text-sm leading-tight text-texto">Somos una empresa 100% Colombiana que busca conectar a los clientes de las agencias de seguros con la digitalización de sus productos, mediante nuestra plataforma appweb.</p>
+				</div>
+			</div>
+			<div class="rounded-lg bg-white shadow-xl">
+				<img src="https://res.cloudinary.com/vital-seguros/image/upload/v1666303919/APP/confident-call-center-operator-talking-with-client_74855-4059_oqws5n.webp" alt="" class="rounded-t-lg w-full h-auto">
+				<div class="p-5 text-center">
+					<p class="text-primario font-semibold text-xl leading-tight mb-5">Vision</p>
+					<p class="text-sm leading-tight text-texto">Ser el medio de comunicación más efectivo entre las empresas y los clientes, generando valor por medio de la digitalización de sus procesos e información, siendo un ecosistema sostenible para todos..</p>
+				</div>
+			</div>
+			<div class="rounded-lg bg-white shadow-xl">
 				<img src="https://res.cloudinary.com/vital-seguros/image/upload/v1671712033/APP/woman-driving-automobile_1_zwkfqj-_1__jovz2u.webp" alt="" class="rounded-t-lg w-full h-auto">
 				<div class="p-5 text-center">
 					<p class="text-primario font-semibold text-xl leading-tight mb-5">Reune toda la informacion de tus polizas en un solo lugar</p>
