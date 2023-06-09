@@ -39,35 +39,6 @@
                         {{document.expiration}}
                     </p>
                 </div>
-                <div class="pl-2">
-                    <a :href="'tel:'+document.emergency_number" class="flex flex-col justify-center items-start">
-                        <div class="flex items-center">
-                            <i class="fi fi-rr-phone-call text-primario mr-2 text-xl flex justify-center items-center"></i>
-                            <p class="text-primario font-light">No. de emergencia:</p>
-                        </div>
-                        <p class="text-texto font-semibold text-xl underline">{{document.emergency_number}}</p>
-                    </a>
-                </div>
-            </div>
-            <div class="padding mt-5 w-full grid grid-cols-2">
-                <div class="flex flex-col justify-center items-start">
-                    <!-- <div class="flex items-center">
-                        <i class="fi fi-rr-calendar-clock text-primario mr-2 text-xl flex justify-center items-center"></i>
-                        <p class="text-primario font-light">Vigencia hasta:</p>
-                    </div>
-                    <p class="text-texto font-semibold text-xl">
-                        {{document.expiration}}
-                    </p> -->
-                </div>
-                <div class="pl-2">
-                    <a :href="'https://api.whatsapp.com/send?phone=57'+document.whatsapp_company" target="_blank" class="flex flex-col justify-center items-start">
-                        <div class="flex items-center">
-                            <i class="fi fi-rr-phone-call text-primario mr-2 text-xl flex justify-center items-center"></i>
-                            <p class="text-primario font-light">No. de whatsapp:</p>
-                        </div>
-                        <p class="text-texto font-semibold text-xl underline">{{document.whatsapp_company}}</p>
-                    </a>
-                </div>
             </div>
 
             <div class="padding w-full my-10">
@@ -75,8 +46,8 @@
             </div>
 
 
-            <div class="padding w-full flex justify-between items-center">
-                <div class="flex flex-col justify-center items-start">
+            <div class="padding w-full flex flex-col justify-start items-center">
+                <div class="w-full flex flex-col justify-center items-start">
                     <div class="flex items-center">
                         <i class="fi fi-rr-users text-primario mr-2 text-xl flex justify-center items-center"></i>
                         <p class="text-primario font-light">Proveedor del documento :</p>
@@ -84,6 +55,26 @@
                     <p class="text-texto font-semibold text-xl one">
                         {{document.insurance_company}}
                     </p>
+                </div>
+                <div class="mt-5 w-full grid grid-cols-2">
+                    <div class="pr-2">
+                        <a :href="'tel:'+document.emergency_number" class="flex flex-col justify-center items-start">
+                            <div class="flex items-center">
+                                <i class="fi fi-rr-phone-call text-primario mr-2 text-xl flex justify-center items-center"></i>
+                                <p class="text-primario font-light">No. de emergencia:</p>
+                            </div>
+                            <p class="text-texto font-semibold text-xl underline">{{document.emergency_number}}</p>
+                        </a>
+                    </div>
+                    <div class="pl-2">
+                        <a :href="'https://api.whatsapp.com/send?phone=57'+document.whatsapp_company" target="_blank" class="flex flex-col justify-center items-start">
+                            <div class="flex items-center">
+                                <i class="fi fi-rr-phone-call text-primario mr-2 text-xl flex justify-center items-center"></i>
+                                <p class="text-primario font-light">No. de whatsapp:</p>
+                            </div>
+                            <p class="text-texto font-semibold text-xl underline">{{document.whatsapp_company}}</p>
+                        </a>
+                    </div>
                 </div>
             </div>
 
