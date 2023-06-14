@@ -204,7 +204,7 @@ export default {
 
         async downloadPdf(){
             try {
-                const { signedURL, error } = await supabase.storage.from('policies').createSignedUrl(`${this.currentClient.id}/${this.policyId}/document`, 60)
+                const { signedURL, error } = await supabase.storage.from('policies').createSignedUrl(`${this.currentClient.id}/${this.policyId}/document`, 3600)
                 this.pdf = signedURL
                 if(error) throw error;
             } catch (error) {
