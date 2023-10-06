@@ -1,37 +1,33 @@
 <template>
-    <div class="w-full lg:mb-20">
-
-        <div class="flex justify-center">
-          <p class="hidden lg:block text-4xl text-texto font-light"> Esta informacion <span class="text-primario font-bold">es para ti</span> </p>
-        </div>
-        
-
-        <Carousel :autoplay="4000"  :settings="settings" :breakpoints="breakpoints" :wrap-around="true" class="mt-3 lg:mt-10">
-          <Slide aria-hidden="false" v-for="(banner, index) in this.banners" :key="index" class="pr-2 lg:pr-5 rounded-lg ">
-            <div class="bg-white h-48 lg:h-96 w-full rounded-lg">
-              <div v-if="this.loading" class="flex justify-center items-center mb-4 h-48 lg:h-96 h bg-gray-200 rounded-lg animate-pulse">
-                  <i class="fi fi-rr-picture text-5xl text-gray-100 flex justify-center items-center"></i>  
-              </div>
-              <a  href="https://google.com" v-else>
-                <img  :src="banner.url" alt="Imagen de galeria" class="object-cover h-full w-full rounded-lg">
-              </a>
-              
-            </div>
-          </Slide>
-
-          <template #addons>
-              <Navigation  class="lg:block hidden text-primario"  />
-          </template>
-
+  <div class="w-full lg:mb-20">
+    <div class="flex justify-center mb-5">
+      <p class="hidden lg:block text-4xl text-texto font-light"> Esta informacion <span class="text-primario font-bold">es para ti</span> </p>
+    </div>
+    <div class="p-2 lg:p-5 w-full flex justify-center rounded-lg">
+      <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/banners/inicio/anuncio1?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJiYW5uZXJzL2luaWNpby9hbnVuY2lvMSIsImlhdCI6MTY5NjU5MzkzNywiZXhwIjoxNzI4MTI5OTM3fQ.h9YrOgT5V7kjwVh7qzUc-tVFh1NgYjRZPve9PGYC2PU&t=2023-10-06T12%3A05%3A36.029Z" alt="" class="w-full bg-gray-200 rounded-lg">
+    </div>
+    <!-- <Carousel :autoplay="4000"  :settings="settings" :breakpoints="breakpoints" :wrap-around="true" class="mt-3 lg:mt-10">
+      <Slide aria-hidden="false" v-for="(banner, index) in this.banners" :key="index" class="pr-2 lg:pr-5 rounded-lg ">
+        <div class="bg-white h-48 lg:h-96 w-full rounded-lg">
+          <div v-if="this.loading" class="flex justify-center items-center mb-4 h-48 lg:h-96 h bg-gray-200 rounded-lg animate-pulse">
+              <i class="fi fi-rr-picture text-5xl text-gray-100 flex justify-center items-center"></i>  
+          </div>
+          <a  href="https://google.com" v-else>
+            <img  :src="banner.url" alt="Imagen de galeria" class="object-cover h-full w-full rounded-lg">
+          </a>
           
-      </Carousel>
+        </div>
+      </Slide>
 
-           <vueper-slides class="hidden">
-        <vueper-slide class="hidden"
-          v-for="(slide, i) in 2"
-          :key="i"/>
-      </vueper-slides>
-      </div>
+      <template #addons>
+        <Navigation  class="lg:block hidden text-primario"  />
+      </template>
+    </Carousel>
+
+    <vueper-slides class="hidden">
+      <vueper-slide class="hidden" v-for="(slide, i) in 2" :key="i"/>
+    </vueper-slides> -->
+  </div>
 </template>
 
 <script>
@@ -82,7 +78,7 @@ export default{
 
   created() {
     this.loading = true
-    this.getBanners()
+    /* this.getBanners() */
   },
 
   methods: {
