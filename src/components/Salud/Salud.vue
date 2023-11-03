@@ -7,7 +7,7 @@
 
         <div class="w-full grid grid-cols-1 lg:grid-cols-3 gap-5">
 
-        <div v-for="(policy, index) in this.viewPolicies" :key="index"  class="relative bg-white shadow-lg w-full h-30 flex justify-center items-center p-5 rounded-2xl transform transition-all hover:scale-105 duration-300 ease-in-out">
+        <div v-for="(policy, index) in this.viewPolicies" :key="index"  class="relative bg-white  border border-gray-100 shadow-md w-full h-30 flex justify-center items-center p-5 rounded-2xl transform transition-all hover:scale-105 duration-300 ease-in-out">
             <router-link :to="`vida/${policy.id}`" class="flex items-center w-full">
                 <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/first-aid-kit.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvZmlyc3QtYWlkLWtpdC5wbmciLCJpYXQiOjE2NjMzMDUwNDQsImV4cCI6MTk3ODY2NTA0NH0.Jg-jucY0Q8DRGa_iB-Ew7f4LY180BxyormrY213R4nk" alt="Imagen de documento" class="h-12 w-12">
                 <div class="w-full flex flex-col items-start justify-center ml-5">

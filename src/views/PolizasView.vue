@@ -5,7 +5,7 @@
       <!-- Seccion saludo -->
       <div class="pt-8">
         <p class="text-texto">{{this.dateCurrent}}</p>
-        <p class="text-texto text-xl font-semibold leading-tight one">{{this.user.fullname}}</p>
+        <p class="text-texto text-xl font-semibold leading-tight one">{{this.user.first_name}}</p>
       </div>
       
     <div class="flex flex-col lg:grid lg:grid-cols-2 lg:gap-5">
@@ -72,14 +72,14 @@
             {{ this.numberAutos }}
           </p>
         </div>
-          <div class="h-24 w-24 lg:w-full lg:h-40  bg-white shadow-lg  rounded-2xl flex justify-center items-center">
+          <div class="h-24 w-24 lg:w-full lg:h-40  bg-white  border border-gray-100 shadow-md  rounded-2xl flex justify-center items-center">
             <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/vehicles.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvdmVoaWNsZXMucG5nIiwiaWF0IjoxNjYzMzA0NjA4LCJleHAiOjE5Nzg2NjQ2MDh9.aJkhB1DKBzKUhGOUkJ5goLkFjQZsuxYD8JyGxVqYmvM" alt="Vehiculares" class="w-12 h-12 lg:h-16 lg:w-auto">
           </div>
           <p class="text-texto font-light text-sm mt-3">Autos</p>
         </router-link>
 
          <router-link to="/polizas/vida"  class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out">
-          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg  rounded-2xl flex justify-center items-center relative">
+          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white  border border-gray-100 shadow-md  rounded-2xl flex justify-center items-center relative">
             <div v-if="this.numberVida != 0" class="absolute h-6 w-6 text-sm text-white text-center bg-green-400 shadow-md  rounded -top-1 -right-1 flex justify-center items-center">
           <p>
             {{ this.numberVida }}
@@ -91,7 +91,7 @@
         </router-link >
 
         <router-link to="/polizas/hogar" class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out">
-          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg rounded-2xl flex justify-center items-center relative">
+          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white  border border-gray-100 shadow-md rounded-2xl flex justify-center items-center relative">
             <div v-if="this.numberHogar != 0" class="absolute h-6 w-6 text-sm text-white text-center bg-green-400 shadow-md  rounded -top-1 -right-1 flex justify-center items-center">
           <p>
             {{ this.numberHogar }}
@@ -103,7 +103,7 @@
         </router-link>
 
          <router-link to="/polizas/salud" class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out">
-          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg  rounded-2xl flex justify-center items-center relative">
+          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white  border border-gray-100 shadow-md  rounded-2xl flex justify-center items-center relative">
             <div v-if="this.numberSalud != 0" class="absolute h-6 w-6 text-sm text-white text-center bg-green-400 shadow-md  rounded -top-1 -right-1 flex justify-center items-center">
           <p>
             {{ this.numberSalud }}
@@ -116,7 +116,7 @@
 
 
          <router-link to="/polizas/generales" class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out" >
-          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg  rounded-2xl flex justify-center items-center relative">
+          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white  border border-gray-100 shadow-md  rounded-2xl flex justify-center items-center relative">
             <div v-if="this.numberGenerales != 0" class="absolute h-6 w-6 text-sm text-white text-center bg-green-400 shadow-md  rounded -top-1 -right-1 flex justify-center items-center">
           <p>
             {{ this.numberGenerales }}
@@ -128,7 +128,7 @@
          </router-link>
 
          <router-link to="/polizas/vencimientos" class="flex flex-col justify-center items-center transform transition-all hover:scale-105 duration-300 ease-in-out">
-          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white shadow-lg  rounded-2xl flex justify-center items-center">
+          <div class="h-24 w-24 lg:w-full lg:h-40 bg-white  border border-gray-100 shadow-md  rounded-2xl flex justify-center items-center">
             <div v-if="this.numberRiesgo != 0" class="absolute h-6 w-6 text-sm text-white text-center bg-green-400 shadow-md  rounded -top-1 -right-1 flex justify-center items-center">
               <p>
                 {{ this.numberRiesgo }}
@@ -147,7 +147,7 @@
       <p class="leading-none text-texto text-sm font-light mb-5">Para agregar polizas a favoritos, ve a la sección de tu preferencia y en la poliza que quieres añadir pulsa sobre corazoncito</p>
       <div class="w-full grid grid-cols-1 lg:grid-cols-3 gap-5">
         <div v-if="(this.favorite.length == 0)">
-          <div class="relative bg-gray-100 shadow-lg w-full h-30 flex justify-center items-center p-5 rounded-2xl transform transition-all hover:scale-105 duration-300 ease-in-out">
+          <div class="relative bg-gray-100  border border-gray-100 shadow-md w-full h-30 flex justify-center items-center p-5 rounded-2xl transform transition-all hover:scale-105 duration-300 ease-in-out">
           <div class="absolute bg-primario bg-opacity-20 top-4 right-0 px-3 py-0.5 rounded-l-full">
             <p class="text-sm text-primario font-semibold">SOAT</p>
           </div>
@@ -171,7 +171,7 @@
         </div>
         </div>
 
-        <div v-else v-for="(fav, index) in this.favorite" :key="index" @click="redirectPolicyFav(fav)"  class="relative bg-white shadow-lg w-full h-30 flex justify-center items-center p-5 rounded-2xl transform transition-all hover:scale-105 duration-300 ease-in-out">
+        <div v-else v-for="(fav, index) in this.favorite" :key="index" @click="redirectPolicyFav(fav)"  class="relative bg-white  border border-gray-100 shadow-md w-full h-30 flex justify-center items-center p-5 rounded-2xl transform transition-all hover:scale-105 duration-300 ease-in-out">
           <div class="absolute bg-primario bg-opacity-20 top-4 right-0 px-3 py-0.5 rounded-l-full">
             <p class="text-sm text-primario font-semibold small">{{fav.product}}</p>
           </div>

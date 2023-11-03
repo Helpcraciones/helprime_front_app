@@ -8,7 +8,7 @@
     </div>
 
     <div v-if="this.currentSelect == 'todos'" class="w-full grid grid-cols-1 lg:grid-cols-3 gap-5">
-      <div v-for="(risk, index) in this.vehicules" :key="index"  class="relative bg-white shadow-lg w-full h-30 h-30 flex justify-center items-center p-5 rounded-2xl transform transition-all hover:scale-105 duration-300 ease-in-out">
+      <div v-for="(risk, index) in this.vehicules" :key="index"  class="relative bg-white border border-gray-100 shadow-md w-full h-30 h-30 flex justify-center items-center p-5 rounded-2xl transform transition-all hover:scale-105 duration-300 ease-in-out">
         <div @click="changeSection(risk.license_plate)" class="flex items-center w-full">
           <img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/vehicles.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvdmVoaWNsZXMucG5nIiwiaWF0IjoxNjYzMzA0NjA4LCJleHAiOjE5Nzg2NjQ2MDh9.aJkhB1DKBzKUhGOUkJ5goLkFjQZsuxYD8JyGxVqYmvM" alt="Imagen de documento" class="h-12 w-12">
           <div class="w-full flex flex-col items-start justify-center ml-5">
@@ -30,7 +30,7 @@
     </div>
 
     <div v-else class="w-full grid grid-cols-1 lg:grid-cols-3 gap-5">
-      <div v-for="(policy, index) in this.viewPolicies" :key="index"  class="relative bg-white shadow-lg w-full h-30 flex justify-center items-center p-5 rounded-2xl transform transition-all hover:scale-105 duration-300 ease-in-out">
+      <div v-for="(policy, index) in this.viewPolicies" :key="index"  class="relative bg-white border border-gray-100 shadow-md w-full h-30 flex justify-center items-center p-5 rounded-2xl transform transition-all hover:scale-105 duration-300 ease-in-out">
         <router-link :to="`vehiculares/${policy.id}`" class="flex items-center w-full">
           <div class="absolute bg-primario bg-opacity-20 top-4 right-0 px-3 py-0.5 rounded-l-full">
             <p class="text-sm text-primario font-semibold small">{{policy.product}}</p>

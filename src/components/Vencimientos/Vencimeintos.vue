@@ -1,7 +1,7 @@
 <template>
 	<div class="padding grid grid-cols-1 gap-5 mt-8">
     <div class="w-full grid grid-cols-1 lg:grid-cols-3 gap-5">
-			<div v-for="(policy, index) in this.policies" :key="index"  class="relative bg-white shadow-lg w-full h-30 flex justify-center items-center p-5 rounded-2xl transform transition-all hover:scale-105 duration-300 ease-in-out">
+			<div v-for="(policy, index) in this.policies" :key="index"  class="relative bg-white  border border-gray-100 shadow-md w-full h-30 flex justify-center items-center p-5 rounded-2xl transform transition-all hover:scale-105 duration-300 ease-in-out">
 				<div class="flex items-center w-full">
 					<img src="https://krsoztbtqokoxqpeajxe.supabase.co/storage/v1/object/sign/resousers/insurance-policy.svg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJyZXNvdXNlcnMvaW5zdXJhbmNlLXBvbGljeS5zdmciLCJpYXQiOjE2ODQzMjE3OTQsImV4cCI6MTcxNTg1Nzc5NH0.wOAKwSZLWAR-urppA9J2tr0d_rxIq4_myL8T29ocyxs&t=2023-05-17T11%3A09%3A54.950Z" alt="Imagen de documento" class="h-12 w-12">
 					<div class="w-full flex flex-col items-start justify-center ml-5">
