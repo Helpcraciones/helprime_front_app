@@ -4,12 +4,12 @@
 
 
 		<div class=" grid grid-cols-3 lg:grid-cols-3 gap-3 justify-center my-5 w-full">
-			<router-link to="/agenda" class="bg-white  card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out">
+			<router-link to="/agenda" class="bg-white  card flex flex-col justify-center items-center shadow-lg rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out">
 				<img class="h-12 w-12 md:h-16 md:w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1653068519/APP/directorio_tvr5y5.png" alt="">
 				<p class="text-primario text-sm md:text-lg mt-3">Servicios</p>
 			</router-link>
 
-			<div @click="routeValidation" class="bg-white card flex flex-col justify-center items-center shadow-xl rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out">
+			<div @click="routeValidation" class="bg-white card flex flex-col justify-center items-center shadow-lg rounded-3xl transform transition-all hover:scale-105 hover:shadow-2xl ease-in-out">
 				<img class="h-12 w-12 md:h-16 md:w-16" src="https://res.cloudinary.com/vital-seguros/image/upload/v1653067972/APP/documentos_bz6lcd.png" alt="">
 				<p class="text-primario text-sm md:text-lg mt-3">Mis polizas</p>
 			</div>
