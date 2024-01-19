@@ -107,11 +107,14 @@
                         <i class="fi fi-rr-users text-primario mr-2 text-xl flex justify-center items-center"></i>
                         <p class="text-primario font-light">Financiado por:</p>
                     </div>
-                    <p class="mb-5 text-texto font-semibold text-xl one">
+                    <p class="mb-5 text-texto font-semibold text-xl one capitalize">
                         {{document.financial}}
                     </p>
                     <div class="w-full flex justify-center">
-                        <img src="../assets/medios_pago.jpg" alt="medio de pago" class=" max-w-lg w-full">
+                        <img v-if="document.financial === 'finesa'" src="../assets/medios_pago_finesa.jpg" alt="medio de pago" class=" max-w-lg w-full">
+                        <img v-if="document.financial === 'axa colpatria'" src="../assets/medios_pago_axacolpatria.png" alt="medio de pago" class=" max-w-lg w-full">
+                        <img v-if="document.financial === 'seguros mundial directo'" src="../assets/medios_pago_segurosmundial.png" alt="medio de pago" class=" max-w-lg w-full">
+                        <img v-if="document.financial === 'credimapfre'" src="../assets/medios_pago_credimapfre.png" alt="medio de pago" class=" max-w-lg w-full">
                     </div>
                 </div>
             </div>
