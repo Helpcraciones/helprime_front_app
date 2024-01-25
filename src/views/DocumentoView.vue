@@ -28,8 +28,11 @@
                 <p class="text-texto font-light leading-tight">{{document.observations}}</p>
             </div>
 
+            <div class="padding w-full my-10">
+                <div class="w-full border border-primario border-opacity-20"></div>
+            </div>
 
-            <div class="padding mt-10 w-full grid grid-cols-2">
+            <div class="padding w-full grid grid-cols-2">
                 <div class="pr-2 flex flex-col justify-center items-start">
                     <div class="flex items-center">
                         <i class="fi fi-rr-calendar-clock text-primario mr-2 text-xl flex justify-center items-center"></i>
@@ -41,19 +44,14 @@
                 </div>
             </div>
 
-            <div class="padding w-full my-10">
-                <div class="w-full border border-primario border-opacity-20"></div>
-            </div>
-
-
-            <div class="padding w-full flex flex-col justify-start items-center">
+            <div class="padding mt-8 w-full flex flex-col justify-start items-center">
                 <div class="w-full flex flex-col justify-center items-start">
                     <div class="flex items-center">
                         <i class="fi fi-rr-users text-primario mr-2 text-xl flex justify-center items-center"></i>
                         <p class="text-primario font-light">Proveedor del documento :</p>
                     </div>
                     <p class="text-texto font-semibold text-xl one">
-                        {{document.insurance_company}}
+                        {{document.insurance_company?.name}}
                     </p>
                 </div>
                 <div class="mt-5 w-full grid grid-cols-2">
@@ -78,11 +76,7 @@
                 </div>
             </div>
 
-            <div class="padding w-full my-10">
-                <div class="w-full border border-primario border-opacity-20"></div>
-            </div>
-
-            <div class="padding w-full flex justify-between items-center">
+            <div class="padding mt-8 w-full flex justify-between items-center">
                 <div class="flex flex-col justify-center items-start">
                     <div class="flex items-center">
                         <i class="fi fi-rr-following text-primario mr-2 text-xl flex justify-center items-center"></i>
@@ -97,27 +91,46 @@
                 </div>
             </div>
 
+
             <div v-if="document.is_financed" class="padding w-full my-10">
                 <div class="w-full border border-primario border-opacity-20"></div>
             </div>
 
             <div v-if="document.is_financed" class="padding w-full flex justify-between items-center">
                 <div class="w-full flex flex-col justify-center items-start">
-                    <div class="flex items-center">
-                        <i class="fi fi-rr-users text-primario mr-2 text-xl flex justify-center items-center"></i>
-                        <p class="text-primario font-light">Financiado por:</p>
+                    <div class="w-full flex flex-col">
+                        <div class="flex items-center">
+                            <i class="fi fi-rr-users text-primario mr-2 text-xl flex justify-center items-center"></i>
+                            <p class="text-primario font-light">Financiado por:</p>
+                        </div>
+                        <p class="mb-5 text-texto font-semibold text-xl one capitalize">
+                            {{document.financial.name}}
+                        </p>
                     </div>
-                    <p class="mb-5 text-texto font-semibold text-xl one capitalize">
-                        {{document.financial}}
-                    </p>
-                    <div class="w-full flex justify-center">
-                        <img v-if="document.financial === 'finesa'" src="../assets/medios_pago_finesa.jpg" alt="medio de pago" class=" max-w-lg w-full">
-                        <img v-if="document.financial === 'axa colpatria'" src="../assets/medios_pago_axacolpatria.png" alt="medio de pago" class=" max-w-lg w-full">
-                        <img v-if="document.financial === 'seguros mundial directo'" src="../assets/medios_pago_segurosmundial.png" alt="medio de pago" class=" max-w-lg w-full">
-                        <img v-if="document.financial === 'credimapfre'" src="../assets/medios_pago_credimapfre.png" alt="medio de pago" class=" max-w-lg w-full">
+                    <div class="w-full flex flex-col">
+                        <div class="flex items-center">
+                            <!-- <i class="fi fi-rr-users text-primario mr-2 text-xl flex justify-center items-center"></i> -->
+                            <p class="text-primario font-light">Observaciones de la financiadora:</p>
+                        </div>
+                        <p class="mb-5 text-texto font-semibold text-xl one capitalize">
+                            {{document.observations_financial}}
+                        </p>
+                    </div>
+                    <div class="paddin mt-8 w-full">
+                        <a :href="document.financial.payment_link" target="_blank" class="w-max flex items-center bg-primario rounded-full px-5 py-3 text-white mt-10 sticky bottom-5 cursor-pointer select-none">Ir a pagar</a>
+                    </div>
+                    <div class="paddin mt-8 w-full">
+                        <div class="w-full flex justify-center">
+                            <template v-for="(financial, index) in finance_companies" :key="index" class="w-full">
+                                <a v-if="financial.name === document.financial.name" :href="document.financial.image" target="_blank">
+                                    <img :src="document.financial.image" alt="medio de pago" class=" max-w-lg w-full">
+                                </a>
+                            </template>
+                        </div>
                     </div>
                 </div>
             </div>
+
 
             <div @click="this.file = true" class="w-max flex items-center bg-primario rounded-full px-5 py-3 text-white mt-10 sticky bottom-5 cursor-pointer select-none ">
                 <i class="fi fi-rr-document flex justify-center items-center text-xl mr-5"></i>
@@ -151,7 +164,7 @@ export default {
             file: false,
             document: {},
             manager: {},
-
+            finance_companies: [],
             meses: ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'],
 
         }
@@ -159,6 +172,7 @@ export default {
     async created() {
         this.currentId = this.$route.params.id;
         await this.getPolicy()
+        await this.getFinanceCompanies()
         await this.getManager()
         await this.downloadPdf()
     },
@@ -168,7 +182,7 @@ export default {
             try {
                 const { data, error } = await supabase
                 .from('policies')
-                .select('*')
+                .select('*, insurance_company(*), financial(*)')
                 .eq('id', this.currentId)
 
                 this.document = data[0]
@@ -180,6 +194,17 @@ export default {
                 if(error){
                 console.log(error);
                 }
+            }
+        },
+
+        async getFinanceCompanies(){
+            try{
+                const { data, error } = await supabase.from('finance_companies').select('*').order('created_at', { ascending: true })
+                this.finance_companies = data
+
+                if(error) throw error;
+            } catch (error){
+                console.log(error.message)
             }
         },
 
