@@ -51,7 +51,7 @@
                         <i class="fi fi-rr-users text-primario mr-2 text-xl flex justify-center items-center"></i>
                         <p class="text-primario font-light">Proveedor del documento :</p>
                     </div>
-                    <p class="text-texto font-semibold text-xl one">
+                    <p class="text-texto font-semibold text-xl one capitalizes">
                         {{document.insurance_company?.name}}
                     </p>
                 </div>
