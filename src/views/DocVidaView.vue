@@ -57,22 +57,36 @@
                 </div>
                 <div class="mt-5 w-full grid grid-cols-2">
                     <div class="pr-2">
-                        <a :href="'tel:'+document.emergency_number" class="flex flex-col justify-center items-start">
+                        <a v-if="document.insurance_company?.emergency_number != '---'" :href="'tel: '+document.insurance_company?.emergency_number" class="flex flex-col justify-center items-start">
                             <div class="flex items-center">
                                 <i class="fi fi-rr-phone-call text-primario mr-2 text-xl flex justify-center items-center"></i>
                                 <p class="text-primario font-light">No. de emergencia:</p>
                             </div>
-                            <p class="text-texto font-semibold text-xl underline">#{{document.emergency_number}}</p>
+                            <p class="text-texto font-semibold text-xl underline">#{{document.insurance_company?.emergency_number}}</p>
                         </a>
-                    </div>
-                    <div class="pl-2">
-                        <a :href="'https://api.whatsapp.com/send?phone=57'+document.whatsapp_company" target="_blank" class="flex flex-col justify-center items-start">
+                        <div v-else class="flex flex-col justify-center items-start">
                             <div class="flex items-center">
                                 <i class="fi fi-rr-phone-call text-primario mr-2 text-xl flex justify-center items-center"></i>
                                 <p class="text-primario font-light">No. de whatsapp:</p>
                             </div>
-                            <p class="text-texto font-semibold text-xl underline">{{document.whatsapp_company}}</p>
+                            <p class="text-texto font-semibold text-xl">{{document.insurance_company?.emergency_number}}</p>
+                        </div>
+                    </div>
+                    <div class="pl-2">
+                        <a v-if="document.insurance_company?.whatsapp_number != '---'" :href="'https://api.whatsapp.com/send?phone=57'+document.insurance_company?.whatsapp_number" target="_blank" class="flex flex-col justify-center items-start">
+                            <div class="flex items-center">
+                                <i class="fi fi-rr-phone-call text-primario mr-2 text-xl flex justify-center items-center"></i>
+                                <p class="text-primario font-light">No. de whatsapp:</p>
+                            </div>
+                            <p class="text-texto font-semibold text-xl underline">{{document.insurance_company?.whatsapp_number}}</p>
                         </a>
+                        <div v-else class="flex flex-col justify-center items-start">
+                            <div class="flex items-center">
+                                <i class="fi fi-rr-phone-call text-primario mr-2 text-xl flex justify-center items-center"></i>
+                                <p class="text-primario font-light">No. de whatsapp:</p>
+                            </div>
+                            <p class="text-texto font-semibold text-xl">{{document.insurance_company?.whatsapp_number}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
